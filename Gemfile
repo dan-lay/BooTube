@@ -15,6 +15,9 @@ gem "puma", "~> 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "faker" #fake user info
+gem "pry-rails" #pry in rails
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -39,7 +42,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "byebug", platforms: %i[ mri mingw x64_mingw ]
-  gem "faker" #fake user info
+  
 end
 
 group :development do
@@ -47,7 +50,6 @@ group :development do
   # gem "spring"
   
   gem "annotate"  #annotate models
-  gem "pry-rails" #pry in rails
   gem "better_errors" #better error info
   gem "binding_of_caller" #something else to help with errors
 end
