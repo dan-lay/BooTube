@@ -1,0 +1,26 @@
+{
+  "name": "bootube",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan-lay/BooTube.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dan-lay/BooTube/issues"
+  },
+  "homepage": "https://github.com/dan-lay/BooTube#readme",
+  "engines": {
+    "node": "16.x"
+  }
+}
