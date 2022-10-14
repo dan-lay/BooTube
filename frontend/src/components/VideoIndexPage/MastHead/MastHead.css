@@ -9,6 +9,8 @@
    background-color:#F5F5F5;
    border-bottom: 1px solid #E5E5E5;
    z-index: 3;
+   padding: 0px 16px 0px 16px;
+   justify-content: space-between;
 }
 
 .home-button {
@@ -17,4 +19,24 @@
    width: 120px;
    height: 100%;
    margin: 0;
+}
+
+.left-masthead {
+   display: flex;
+   
+}
+
+.mid-mast-head {
+
+}
+
+.right-masthead {
+
+}
+
+.side-modal-button {
+   display: flex;
+   width: 40px;
+   height: 40px;
+   padding: 8px;
 }
