@@ -1,28 +1,28 @@
 @media only screen and (max-width: 792px) {
-   .sidebar {
-      width: 0;
+   .category-bar {
+      left: 0;
       transition-property: all;
       transition-duration: 0.1s;
       transition-timing-function: ease;
    }
 }
 
-.sidebar {
+.category-bar {
    display: flex;
    justify-content: center;
    align-items: center;
    position: fixed;
-   height: 100%;
-   left: 0;
-   bottom: 0;
-   top: 0;
-   background-color: #F9F9F9;
+   height: 55px;
+   width: 100%;
+   border-bottom: 1px solid #E5E5E5;
+   background-color: #FFFFFF;
+   top: 56px;
    z-index: 2;
 }
 
 @media only screen and (min-width: 793px) {
-   .sidebar {
-      width: 72px;
+   .category-bar {
+      left: 72px;
       transition-property: all;
       transition-duration: 0.1s;
       transition-timing-function: ease;

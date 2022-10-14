@@ -6,10 +6,12 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
-import { loginUser, logoutUser, createUser } from './store/userReducer';
 import * as sessionActions from './store/session';
 
-let initialState = { user: null };
+let initialState = {
+  user: null,
+  videos: null
+};
 
 const store = configureStore(initialState);
 

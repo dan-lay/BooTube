@@ -1,9 +1,14 @@
 .masthead {
    display: flex;
+   position: fixed;
    height: 55px;
    width: 100%;
    margin: 0;
-   border-bottom: 1px solid black;
+   top: 0;
+   left: 0;
+   background-color:#F5F5F5;
+   border-bottom: 1px solid #E5E5E5;
+   z-index: 3;
 }
 
 .home-button {
@@ -12,5 +17,4 @@
    width: 120px;
    height: 100%;
    margin: 0;
-   /* padding:  */
 }
