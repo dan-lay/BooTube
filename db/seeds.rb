@@ -26,5 +26,9 @@ ActiveRecord::Base.transaction do
    ben = User.create!(email: 'brilliantdamage@gmail.com', password: 'password', first_name: 'ben', last_name: 'schwartz')
    ian = User.create!(email: 'queenbitch@gmail.com', password: 'password', first_name: 'ian', last_name: 'verger')
 
-  puts "BooTube all set up!"
+   puts "Creating videos..."
+
+   demo_vid = Video.create!(title: "i am the demo video", uploader_id: 1)
+
+  puts "BooooTube all set up!"
  end
