@@ -39,7 +39,7 @@ export const removeVideo = videoId => ({
 //    sessionStorage.setItem('currentvideo', null);
 //    dispatch(removevideo(videoId));
 //  };
- 
+
 export const createVideo = video => async dispatch => {
   let res = await csrfFetch('/api/videos', {
     method: 'POST',
@@ -47,6 +47,12 @@ export const createVideo = video => async dispatch => {
   });
   let data = await res.json();
   sessionStorage.setItem('currentvideo', JSON.stringify(data.video));
+  dispatch(receiveVideo(data.video));
+};
+ 
+export const getVideo = videoId => async dispatch => {
+  let res = await csrfFetch(`/api/videos/${videoId}`)
+  let data = await res.json();
   dispatch(receiveVideo(data.video));
 };
  
