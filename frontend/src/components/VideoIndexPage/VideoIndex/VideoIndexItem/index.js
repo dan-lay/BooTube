@@ -6,10 +6,9 @@ const VideoIndexItem = (props) => {
 
    return (
       <div className="video-index-item">
-         <video width="400px" controls="controls autoplay">
+         <video controls="controls autoplay">
             <source type="video/mp4" src={video.mediaObject}/>
          </video>
-         <p>yo yo</p>
 
       </div>
    )

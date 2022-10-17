@@ -11,7 +11,7 @@ const VideoIndexPage = () => {
 
    const sessionUser = useSelector(state => state.session.user);
 
-   if (!sessionUser) return <Redirect to="/login"/>;
+   // if (!sessionUser) return <Redirect to="/login"/>;
 
    return (
       <div className="video-index-page">

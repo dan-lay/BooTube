@@ -1,7 +1,7 @@
 import csrfFetch from "./csrf";
 
 const RECEIVE_VIDEO = 'videos/RECEIVE_VIDEO';
-// const RECEIVE_VIDEOS = 'videos/RECEIVE_VIDEO';
+const RECEIVE_VIDEOS = 'videos/RECEIVE_VIDEOS';
 const REMOVE_VIDEO = 'videos/REMOVE_VIDEO';
 
 /*--ACTIONS--*/
@@ -11,9 +11,10 @@ export const receiveVideo = video => ({
   video
 });
  
-// export const receiveVideos = () => ({
-//   type: RECEIVE_VIDEOS
-// });
+export const receiveVideos = videos => ({
+  type: RECEIVE_VIDEOS,
+  videos
+});
 
 export const removeVideo = videoId => ({
   type: REMOVE_VIDEO,
@@ -40,6 +41,14 @@ export const removeVideo = videoId => ({
 //    dispatch(removevideo(videoId));
 //  };
 
+export const getVideos = () => async dispatch => {
+  let res = await csrfFetch('/api/videos');
+  console.log(res)
+  let data = await res.json();
+  console.log(data)
+  dispatch(receiveVideos(data));
+};
+
 export const createVideo = video => async dispatch => {
   let res = await csrfFetch('/api/videos', {
     method: 'POST',
@@ -65,9 +74,9 @@ const videoReducer = (state = {}, action) => {
     case RECEIVE_VIDEO:
       nextState[action.video.id] = action.video;
       return nextState;
-    // case RECEIVE_VIDEOS:
-    //   nextState[action.video.id] = action.video;
-    //   return nextState;
+    case RECEIVE_VIDEOS:
+      console.log(action.videos)
+      return { ...nextState, ...action.videos}
     case REMOVE_VIDEO:
       delete nextState[action.videoId];
       return nextState;

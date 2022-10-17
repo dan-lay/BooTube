@@ -1,5 +1,17 @@
 .video-index-item {
-   width: 263px;
+   display: flex;
+   justify-content: center;
+   /* width: 263px; */
    height: 278.74px;
    border: 1px solid black;
+}
+
+.video-index-item:hover {
+   cursor: pointer;
+}
+
+video {
+   top: 22px;
+   width: 319.98px;
+   height: 179.54px;
 }

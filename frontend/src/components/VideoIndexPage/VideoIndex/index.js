@@ -1,16 +1,25 @@
 import VideoIndexItem from './VideoIndexItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import "./VideoIndex.css"
+import { useEffect } from 'react';
+import { getVideos } from '../../../store/videos';
 
 const VideoIndex = () => {
    const videos = useSelector(state => state.videos);
-   console.log(videos);
    const videoArr = videos ? Object.values(videos) : [];
+   const dispatch = useDispatch();
+   
+   const user = useSelector(state => state.session)
+   console.log(user)
+
+   useEffect(() => {
+      dispatch(getVideos());
+   }, [])
    
 
    return (
-      <div className="video-index">Video index
-         {videoArr.map(video => <VideoIndexItem video={video}/>)}
+      <div className="video-index">
+         {videoArr.map(video => <VideoIndexItem key={video.id} video={video}/>)}
       </div>
    )
 }

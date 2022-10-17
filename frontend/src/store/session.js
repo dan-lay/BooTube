@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf.js";
+import { useSelector } from "react-redux";
 
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
@@ -62,7 +63,7 @@ export const signup = (user) => async (dispatch) => {
   return response;
 };
 
-export const logout = () => async (dispatch) => {
+export const logout = () => async dispatch => {
   const response = await csrfFetch("/api/session", {
     method: "DELETE"
   });

@@ -12,6 +12,16 @@ class Api::VideosController < ApplicationController
    #    end
    # end
 
+   def index
+      @videos = Video.all
+
+      if @videos
+         render :index
+      else
+         render json: { errors: @videos.errors.full_messages }, status: 422
+      end
+   end
+
    def show
       @video = Video.find(params[:id])
 
