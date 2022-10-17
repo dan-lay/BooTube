@@ -4,19 +4,26 @@ import AccountRecoverForm from './components/AccountRecoverForm';
 import LearnMorePage from './components/LearnMorePage';
 import VideoIndexPage from './components/VideoIndexPage';
 import UserSignupForm from './components/UserSignupForm';
+import UploadVideoModal from './components/UploadVideoModal';
 
 function App() {
   return (
     <div className="app">
       <Switch>
+        <Route exact path="/">
+          <VideoIndexPage />
+        </Route>
         <Route exact path="/login">
           <UserLoginForm />
         </Route>
-        <Route path="/signup">
+        <Route exact path="/signup">
           <UserSignupForm />
         </Route>
-        <Route exact path="/">
-          <VideoIndexPage />
+        {/* <Route exact path="/:userId/upload">
+          <UploadVideoModal />
+        </Route> */}
+        <Route path="/upload">
+          <UploadVideoModal />
         </Route>
         <Route exact path="/recover">
           <AccountRecoverForm />

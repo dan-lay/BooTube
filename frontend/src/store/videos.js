@@ -55,8 +55,7 @@ export const createVideo = video => async dispatch => {
     body: JSON.stringify(video)
   });
   let data = await res.json();
-  sessionStorage.setItem('currentvideo', JSON.stringify(data.video));
-  dispatch(receiveVideo(data.video));
+  dispatch(receiveVideo(data));
 };
  
 export const getVideo = videoId => async dispatch => {

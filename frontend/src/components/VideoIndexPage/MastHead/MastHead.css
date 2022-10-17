@@ -2,10 +2,10 @@
    display: flex;
    position: fixed;
    height: 55px;
-   width: 100%;
    margin: 0;
    top: 0;
    left: 0;
+   right: 0;
    background-color:#F5F5F5;
    border-bottom: 1px solid #E5E5E5;
    z-index: 3;
@@ -15,7 +15,6 @@
 
 .home-button {
    display: flex;
-   border: 1px solid blue;
    width: 120px;
    height: 100%;
    margin: 0;
@@ -23,20 +22,25 @@
 
 .left-masthead {
    display: flex;
+   border: 1px solid black;
    
 }
 
-.mid-mast-head {
-
+.mid-masthead {
+   border: 1px solid black;
+   width: 594px;
 }
 
 .right-masthead {
-
+   display: flex;
+   justify-content: flex-end;
+   border: 1px solid black;
+   width: 225px;
 }
 
 .side-modal-button {
    display: flex;
    width: 40px;
    height: 40px;
-   padding: 8px;
+   padding: 8px 8px 8px 0px;
 }

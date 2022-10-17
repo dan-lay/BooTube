@@ -1,18 +1,24 @@
 import './MastHead.css'
 import homelogo from "../../../assets/youtube_logo.png"
 import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector} from "react-redux"
 import * as sessionActions from "../../../store/session";
 import hamburger from '../../../assets/hamburger.jpg'
+import UserMastheadControls from './UserMastheadControls';
+import SignInButton from './SignInButton';
+import { Redirect } from 'react-router-dom';
 
 const MastHead = () => {
    const dispatch = useDispatch();
+   const sessionUser = useSelector(state => state.session.user);
    
-
-
    const logoutClick = () => {
       dispatch(sessionActions.logout());
    }
+
+   const rightMastheadControls = sessionUser ? <UserMastheadControls /> : <SignInButton />;
+
+
 
    return (
       <div className="masthead">
@@ -26,13 +32,26 @@ const MastHead = () => {
             </Link>
          </div>
          <div className='mid-masthead'>
+            <button className="temp-log-out" onClick={logoutClick}>Log Out</button>
+            <div className='search-bar-outer'>
+               <form>
+                  <div className='search-bar-input'>
 
+                  </div>
+                  <div className='search-button'>
+
+                  </div>
+               </form>
+               <div className='microphone-button'>
+
+               </div>
+            </div>
          </div>
          <div className='right-masthead'>
-            
+            {rightMastheadControls}
          </div>
 
-         <button className="temp-log-out" onClick={logoutClick}>Log Out</button>
+         
       </div>
    )
 }
