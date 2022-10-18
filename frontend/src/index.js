@@ -8,6 +8,7 @@ import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
 import * as videoActions from './store/videos';
+import * as commentActions from './store/comments';
 
 let initialState = {
   user: null,

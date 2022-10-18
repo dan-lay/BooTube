@@ -20,26 +20,6 @@ export const removeVideo = videoId => ({
   type: REMOVE_VIDEO,
   videoId
 });
- 
- /*--THUNK ACTIONS--*/
-
-//  export const loginvideo = video => async dispatch => {
-//    let res = await csrfFetch('/api/session', {
-//      method: 'POST',
-//      body: JSON.stringify(video)
-//    });
-//    let data = await res.json();
-//    sessionStorage.setItem('currentvideo', JSON.stringify(data.video));
-//    dispatch(receivevideo(data.video));
-//  };
- 
-//  export const logoutvideo = videoId => async dispatch => {
-//    await csrfFetch('/api/session', {
-//      method: 'DELETE'
-//    });
-//    sessionStorage.setItem('currentvideo', null);
-//    dispatch(removevideo(videoId));
-//  };
 
 export const getVideos = () => async dispatch => {
   let res = await csrfFetch('/api/videos');
@@ -57,8 +37,10 @@ export const createVideo = video => async dispatch => {
 
   if (res.ok) {
     let data = await res.json();
-    console.log(data.message)
+    // console.log(data)
+    return data;
   }
+
   
 
   // dispatch(receiveVideo(data.mediaObject));

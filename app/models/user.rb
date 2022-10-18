@@ -22,7 +22,13 @@ class User < ApplicationRecord
    validates :last_name, presence: true
 
    has_many :videos,
-   class_name: :Video
+   class_name: :Video,
+   dependent: :destroy
+
+   has_many :videoComments,
+   foreign_key: :commenter_id,
+   class_name: :Comment,
+   dependent: :destroy
 
 
    def self.find_by_credentials(email, password)

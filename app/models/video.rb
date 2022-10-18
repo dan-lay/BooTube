@@ -16,7 +16,11 @@ class Video < ApplicationRecord
 
    belongs_to :uploader,
    foreign_key: :uploader_id,
-   class_name: :User,
+   class_name: :User
+
+   has_many :comments,
+   foreign_key: :video_id,
+   class_name: :Comment,
    dependent: :destroy
 
    has_one_attached :media_object
