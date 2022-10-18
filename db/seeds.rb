@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'open-uri'
+
 ActiveRecord::Base.transaction do
 
   puts "Destroying tables..."
@@ -44,25 +46,25 @@ ActiveRecord::Base.transaction do
   
   puts "Attaching media objects to videos"
 
-  demo_media_object = File.open('app/assets/videos/zombie_chilling_out.mp4')
+  demo_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/zombie_chilling_out.mp4')
   demo_vid.media_object.attach(io: demo_media_object, filename: "zombie_chilling.mp4")
 
-  dan_media_object = File.open('app/assets/videos/corn_lady.mp4')
+  dan_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/corn_lady.mp4')
   dan_vid.media_object.attach(io: dan_media_object, filename: "corn_lady.mp4")
 
-  fred_media_object = File.open('app/assets/videos/laughing_clown.mp4')
+  fred_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/laughing_clown.mp4')
   fred_vid.media_object.attach(io: fred_media_object, filename: "laughing_clown.mp4")
 
-  clide_media_object = File.open('app/assets/videos/ghost_friends.mp4')
+  clide_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/ghost_friends.mp4')
   clide_vid.media_object.attach(io: clide_media_object, filename: "ghost_friends.mp4")
 
-  adina_media_object = File.open('app/assets/videos/construction.mp4')
+  adina_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/construction.mp4')
   adina_vid.media_object.attach(io: adina_media_object, filename: "construction.mp4")
 
-  ben_media_object = File.open('app/assets/videos/all_smiles.mp4')
+  ben_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/all_smiles.mp4')
   ben_vid.media_object.attach(io: ben_media_object, filename: "all_smiles.mp4")
 
-  ian_media_object = File.open('app/assets/videos/jackolantern.mp4')
+  ian_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/jackolantern.mp4')
   ian_vid.media_object.attach(io: ian_media_object, filename: "jackolantern.mp4")
 
 

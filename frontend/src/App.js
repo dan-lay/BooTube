@@ -5,6 +5,7 @@ import LearnMorePage from './components/LearnMorePage';
 import VideoIndexPage from './components/VideoIndexPage';
 import UserSignupForm from './components/UserSignupForm';
 import UploadVideoModal from './components/UploadVideoModal';
+import VideoShowPage from './components/VideoShowPage';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route exact path="/signup">
           <UserSignupForm />
+        </Route>
+        <Route exact path="/videos/:id">
+          <VideoShowPage />
         </Route>
         {/* <Route exact path="/:userId/upload">
           <UploadVideoModal />

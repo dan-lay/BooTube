@@ -63,6 +63,23 @@ export const createVideo = video => async dispatch => {
 
   // dispatch(receiveVideo(data.mediaObject));
 };
+
+export const deleteVideo = videoId => async dispatch => {
+  let res = await csrfFetch(`/api/videos/${videoId}`, {
+    method: 'DELETE'
+  })
+  .then(dispatch(removeVideo(videoId)))
+  // include errors
+  
+
+  // console.log(res)
+
+  // if (res.ok) {
+  //   dispatch(removeVideo(videoId));
+  // }
+
+
+}
  
 export const getVideo = videoId => async dispatch => {
   let res = await csrfFetch(`/api/videos/${videoId}`)

@@ -1,14 +1,14 @@
 class Api::VideosController < ApplicationController
    wrap_parameters include: Video.attribute_names + [:media_object]
 
-   before_action :require_logged_in, only: [:destroy, :create, :update]
+   before_action :require_logged_in, only: [:create, :update, :destroy]
 
    def create
       @video = Video.new(video_params)
 
       if @video.save
-         # render :show
-         render json: {message: "you did it!"}
+         render "api/videos/#{@video.id}"
+         # render json: {message: "you did it!"}
       else
          render json: {errors: @video.errors.full_messages }, status: 422
       end
@@ -26,11 +26,12 @@ class Api::VideosController < ApplicationController
 
    def show
       @video = Video.find(params[:id])
+      puts :id
 
       if @video
-         render :show
+         render "api/videos/show"
       else
-         render json: { errors: ['unable to grab the thing']}, status: :unprocessable_entity
+         render json: { errors: ['unable to find video']}, status: :unprocessable_entity
       end
    end
 
@@ -39,7 +40,15 @@ class Api::VideosController < ApplicationController
    end
 
    def destroy
+      @video = Video.find(params[:id])
+      puts params[:id]
 
+      if @video.destroy
+         puts "video succesfully destroyed"
+         render json: { message: 'video successfully destroyed' }
+      else
+         render json: { errors: @video.errors.full_messages }, status: :unprocessable_entity
+      end
    end
 
    private

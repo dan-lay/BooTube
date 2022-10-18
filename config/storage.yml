@@ -21,6 +21,14 @@ local:
 #   region: us-east-1
 #   bucket: your_own_bucket-<%= Rails.env %>
 
+amazon_seeds:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.aws[:access_key_id] %>
+  secret_access_key: <%= Rails.application.credentials.aws[:secret_access_key] %>
+  region: <%= Rails.application.credentials.aws[:region] %>
+  bucket: <%= Rails.application.credentials.aws[:seeds][:bucket] %>
+  public: true
+
 amazon_dev:
   service: S3
   access_key_id: <%= Rails.application.credentials.aws[:access_key_id] %>

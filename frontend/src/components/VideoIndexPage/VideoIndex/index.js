@@ -10,7 +10,6 @@ const VideoIndex = () => {
    const dispatch = useDispatch();
    
    const user = useSelector(state => state.session)
-   console.log(user)
 
    useEffect(() => {
       dispatch(getVideos());
