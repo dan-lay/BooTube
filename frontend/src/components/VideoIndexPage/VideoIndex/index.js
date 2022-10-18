@@ -9,10 +9,11 @@ const VideoIndex = () => {
    const videoArr = videos ? Object.values(videos) : [];
    const dispatch = useDispatch();
    
-   const user = useSelector(state => state.session)
+   // const user = useSelector(state => state.session)
 
    useEffect(() => {
       dispatch(getVideos());
+      console.log("coming from video index")
    }, [])
    
 
