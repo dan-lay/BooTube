@@ -1,31 +1,33 @@
 import React, { useState } from "react";
 import { createVideo } from "../../store/videos";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import './UploadVideoModal.css'
 
 const UploadVideoModal = () => {
    const dispatch = useDispatch();
    const [title, setTitle] = useState("");
    const [description, setDescription] = useState("");
-   const [videoSrc, setVideoSrc] = useState(null);
+   const [videoFile, setVideoFile] = useState(null);
    const [errors, setErrors] = useState("");
+   const uploaderId = useSelector(state => state.session.user.id);
 
-   if (videoSrc) console.log(videoSrc);
+   const handleFile = e => {
+      const file = e.currentTarget.files[0];
+      setVideoFile(file);
+   }
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      return dispatch(createVideo({title, description, videoSrc}))
-         .catch(async (res) => {
-            let data;
-            try {
-               data = await res.clone().json();
-            } catch {
-               data = await res.text();
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-         });
+
+      const formData = new FormData();
+
+      formData.append("video[title]", title)
+      formData.append("video[description]", description)
+      formData.append("video[uploader_id]", uploaderId)
+      if (videoFile) {
+         formData.append("video[media_object]", videoFile)
+      }
+      dispatch(createVideo(formData))
    }
 
    return (
@@ -41,7 +43,7 @@ const UploadVideoModal = () => {
                <textarea type="text" value={description} placeholder="Give us a scary description" onChange={e => setDescription(e.target.value)}></textarea>
             </label>
             <br/>
-            <input type="file" value={videoSrc} onChange={e => setVideoSrc(e.target.files[0])}/>
+            <input type="file" onChange={handleFile}/>
             <br/>
             <input type="submit" value="Submit Video"/>
          </form>

@@ -12,6 +12,7 @@
 class Video < ApplicationRecord
    validates :title, length: { minimum: 1, maximum: 100}
    validates :description, length: { maximum: 5000 }
+   validate :ensure_media_object
 
    belongs_to :uploader,
    foreign_key: :uploader_id,
@@ -19,4 +20,10 @@ class Video < ApplicationRecord
    dependent: :destroy
 
    has_one_attached :media_object
+
+   def ensure_media_object
+      unless self.media_object.attached?
+         errors.add(:media_object, "must be attached")
+      end
+   end
 end

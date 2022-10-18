@@ -52,10 +52,16 @@ export const getVideos = () => async dispatch => {
 export const createVideo = video => async dispatch => {
   let res = await csrfFetch('/api/videos', {
     method: 'POST',
-    body: JSON.stringify(video)
+    body: video
   });
-  let data = await res.json();
-  dispatch(receiveVideo(data));
+
+  if (res.ok) {
+    let data = await res.json();
+    console.log(data.message)
+  }
+  
+
+  // dispatch(receiveVideo(data.mediaObject));
 };
  
 export const getVideo = videoId => async dispatch => {
@@ -74,7 +80,6 @@ const videoReducer = (state = {}, action) => {
       nextState[action.video.id] = action.video;
       return nextState;
     case RECEIVE_VIDEOS:
-      console.log(action.videos)
       return { ...nextState, ...action.videos}
     case REMOVE_VIDEO:
       delete nextState[action.videoId];
