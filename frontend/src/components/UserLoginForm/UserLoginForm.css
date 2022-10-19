@@ -5,6 +5,7 @@
    padding: 0;   
    flex-direction: column;
    justify-content: center;
+   background-color: #1e1e1e;
 }
 
 .signin-form-page {
@@ -23,10 +24,11 @@
    box-sizing: border-box;
    height: 500px;
    width: 448px;
-   border: 1px solid #D9DCE0;
+   border: 1px solid #5e5d5d;
    padding: 48px 40px 38px;
    border-radius: 8px;
    justify-content: space-between;
+   background-color: #373737;
 }
 
 .email-form-upper-container {
@@ -34,6 +36,7 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   color:#979797
 }
 
 .email-form-mid-container {
@@ -113,7 +116,7 @@
 }
 
 .create-account:hover {
-   background-color: #D9DCE0;
+   background-color:#5e5d5d;
 }
 
 .learn-more-link {

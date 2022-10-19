@@ -16,6 +16,7 @@
    height: 100%;
    flex-direction: column;
    justify-content: center;
+   background-color: #1e1e1e;
 }
 
 .signup-form-page {
@@ -36,10 +37,12 @@
    box-sizing: border-box;
    height: 640px;
    width: 448px;
-   border: 1px solid #dadce0;
+   border: 1px solid #5e5d5d;
    padding: 48px 40px 38px;
    border-radius: 8px;
    justify-content: flex-start;
+   background-color: #373737;
+   color:#979797;
 }
 
 .signup-bottom-details {
