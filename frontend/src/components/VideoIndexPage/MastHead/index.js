@@ -1,5 +1,5 @@
 import './MastHead.css'
-import homelogo from "../../../assets/youtube_logo.png"
+import homelogo from "../../../assets/booootube_logo_v2.png"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector} from "react-redux"
 import * as sessionActions from "../../../store/session";

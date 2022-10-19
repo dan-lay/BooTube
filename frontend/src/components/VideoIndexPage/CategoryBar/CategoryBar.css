@@ -14,9 +14,11 @@
    position: fixed;
    height: 55px;
    width: 100%;
-   border-bottom: 1px solid #E5E5E5;
-   background-color: #FFFFFF;
-   top: 56px;
+   border-top: 1px solid #5e5d5d;
+   border-bottom: 1px solid #5e5d5d;
+   background-color: #373737;
+   color: rgb(237, 134, 0);
+   top: 55px;
    z-index: 2;
 }
 
