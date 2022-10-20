@@ -1,0 +1,15 @@
+.video-display-side {
+   display: flex;
+   /* width:max-content; */
+   /* align-items: flex-start; */
+   /* align-items: flex-start; */
+   /* max-width: 75%; */
+   align-items: flex-start;
+   flex-direction: column;
+   /* flex-grow: 1; */
+   background-color: green;
+   margin: 0;
+   padding: 24px 24px 0px 24px; 
+   /* box-sizing: border-box; */
+   /* position: relative; */
+}

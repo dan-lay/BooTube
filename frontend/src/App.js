@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/signup">
           <UserSignupForm />
         </Route>
-        <Route exact path="/videos/:id">
+        <Route exact path="/videos/:videoId">
           <VideoShowPage />
         </Route>
         {/* <Route exact path="/:userId/upload">

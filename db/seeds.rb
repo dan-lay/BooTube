@@ -12,6 +12,7 @@ ActiveRecord::Base.transaction do
 
   puts "Destroying tables..."
 
+  Comment.destroy_all
   Video.destroy_all
   User.destroy_all
 
@@ -21,15 +22,15 @@ ActiveRecord::Base.transaction do
 
   puts "Creating users..."
 
-  demo = User.create!(email: 'demouser@gmail.com', password: 'password', first_name:'spooky', last_name: 'ghoul')
+  demo = User.create!(email: 'demouser@gmail.com', password: 'password', first_name:'spooky', last_name: 'ghoul', channel_name: "demoaccount")
 
 
-  dan = User.create!(email: 'dantheman@gmail.com', password: 'password', first_name:'dan' , last_name: 'lay')
-  fred = User.create!(email: 'bigford@gmail.com', password: 'password', first_name: 'fred', last_name: 'something')
-  clide = User.create!(email: 'monkeyman@protonmail.com', password: 'password', first_name: 'clide', last_name: 'stefani')
-  adina = User.create!(email: 'coffee_and_communism@gmail.com', password: 'password', first_name: 'adina', last_name: 'something')
-  ben = User.create!(email: 'brilliantdamage@gmail.com', password: 'password', first_name: 'ben', last_name: 'schwartz')
-  ian = User.create!(email: 'queenbitch@gmail.com', password: 'password', first_name: 'ian', last_name: 'verger')
+  dan = User.create!(email: 'dantheman@gmail.com', password: 'password', first_name:'dan' , last_name: 'lay', channel_name: "dan's big house")
+  fred = User.create!(email: 'bigford@gmail.com', password: 'password', first_name: 'fred', last_name: 'something', channel_name: "killercoder")
+  clide = User.create!(email: 'monkeyman@protonmail.com', password: 'password', first_name: 'clide', last_name: 'stefani', channel_name: "enter_my_dominion")
+  adina = User.create!(email: 'coffee_and_communism@gmail.com', password: 'password', first_name: 'adina', last_name: 'something', channel_name: "HANABI GET @ ME")
+  ben = User.create!(email: 'brilliantdamage@gmail.com', password: 'password', first_name: 'ben', last_name: 'schwartz', channel_name: "i<3CSS")
+  ian = User.create!(email: 'queenbee@gmail.com', password: 'password', first_name: 'ian', last_name: 'verger', channel_name: "yerrrrrba42")
 
 
   puts "Creating videos..."
@@ -68,7 +69,15 @@ ActiveRecord::Base.transaction do
   ian_vid.media_object.attach(io: ian_media_object, filename: "jackolantern.mp4")
 
 
-  puts "Media objects succesfully attached!"
+  puts "Video media objects succesfully attached!"
+
+  puts "-----------------------------------------"
+
+  puts "Creating comments..."
+
+  comment1 = Comment.create!(body: "this is so scary, right?!?", commenter_id: 1, video_id: 1)
+
+
 
   puts "BooooTube all set up!"
 end

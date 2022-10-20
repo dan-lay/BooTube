@@ -15,9 +15,15 @@ class Api::CommentsController < ApplicationController
       end
    end
 
-   def index
-
-   end
+   # def index
+   #    @comments = Comment.all
+   #    puts @comments
+   #    if @comments
+   #       render json: @comments
+   #    else
+   #       render json: { errors: @comments.errors.full_messages }, status: unprocessable_entity
+   #    end
+   # end
 
    def destroy
 
@@ -26,6 +32,6 @@ class Api::CommentsController < ApplicationController
    private
 
    def comment_params
-      params.require(:comment).permit(:body, :video_id, :commenter_id)
+      params.require(:comment).permit(:body, :video_id, :commenter_id, :created_at, :updated_at)
    end
 end

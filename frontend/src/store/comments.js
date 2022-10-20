@@ -3,6 +3,7 @@ import csrfFetch from "./csrf";
 const RECEIVE_COMMENT = 'comments/RECEIVE_COMMENT';
 const RECEIVE_COMMENTS = 'comments/RECEIVE_COMMENTS';
 const REMOVE_COMMENT = 'comments/REMOVE_COMMENT';
+const RECEIVE_VIDEO = 'videos/RECEIVE_VIDEO';
 
 /*--ACTIONS--*/
 
@@ -21,18 +22,17 @@ export const removeComment = commentId => ({
   commentId
 });
 
-export const getComments = () => async dispatch => {
-  let res = await csrfFetch('/api/comments');
-  console.log(res)
+
+export const getComments = (videoId) => async dispatch => {
+  let res = await csrfFetch(`/api/videos/${videoId}`);
   let data = await res.json();
-  console.log(data)
-  dispatch(receiveComments(data));
+  dispatch(receiveComments(data.comments));
 };
 
 export const createComment = comment => async dispatch => {
   let res = await csrfFetch('/api/comments', {
     method: 'POST',
-    body: comment
+    body: JSON.stringify(comment)
   });
 
   if (res.ok) {
@@ -73,8 +73,10 @@ const commentReducer = (state = {}, action) => {
   const nextState = { ...state };
 
   switch(action.type) {
+    case RECEIVE_VIDEO:
+      return action.data.comments;
     case RECEIVE_COMMENT:
-      nextState[action.comment.id] = action.comment;
+      nextState[action.data.comments.id] = action.data.comment;
       return nextState;
     case RECEIVE_COMMENTS:
       return { ...nextState, ...action.comments}

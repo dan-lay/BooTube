@@ -6,9 +6,9 @@ const REMOVE_VIDEO = 'videos/REMOVE_VIDEO';
 
 /*--ACTIONS--*/
 
-export const receiveVideo = video => ({
+export const receiveVideo = data => ({
   type: RECEIVE_VIDEO,
-  video
+  data
 });
  
 export const receiveVideos = videos => ({
@@ -66,7 +66,7 @@ export const deleteVideo = videoId => async dispatch => {
 export const getVideo = videoId => async dispatch => {
   let res = await csrfFetch(`/api/videos/${videoId}`)
   let data = await res.json();
-  dispatch(receiveVideo(data.video));
+  dispatch(receiveVideo(data));
 };
  
 const videoReducer = (state = {}, action) => {
@@ -76,7 +76,7 @@ const videoReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_VIDEO:
-      nextState[action.video.id] = action.video;
+      nextState[action.data.video.id] = action.data.video;
       return nextState;
     case RECEIVE_VIDEOS:
       return { ...nextState, ...action.videos}

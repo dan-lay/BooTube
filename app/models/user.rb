@@ -20,6 +20,7 @@ class User < ApplicationRecord
    validates :password, length: { in: 6..255, message: "Password must be atleast 6 characters long"}, allow_nil: true
    validates :first_name, presence: true
    validates :last_name, presence: true
+   validates :channel_name, presence: true, length: { maximum: 30 }
 
    has_many :videos,
    class_name: :Video,
