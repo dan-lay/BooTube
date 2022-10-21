@@ -35,7 +35,6 @@ export const login = ({ email, password }) => async dispatch => {
 };
 
 export const restoreSession = () => async dispatch => {
-  console.log("hello from restore session")
   const response = await csrfFetch("/api/session");
   storeCSRFToken(response);
   const data = await response.json();
@@ -45,7 +44,6 @@ export const restoreSession = () => async dispatch => {
 };
 
 export const signup = (user) => async (dispatch) => {
-  console.log("inside signup")
   const { email, password, firstName, lastName} = user;
   const response = await csrfFetch("/api/users", {
     method: "POST",

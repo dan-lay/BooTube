@@ -52,7 +52,6 @@ export const createComment = comment => async dispatch => {
 };
 
 export const updateComment = comment => async dispatch => {
-  console.log(comment)
   let res = await csrfFetch(`/api/comments/${comment.id}`, {
     method: 'PATCH',
     body: JSON.stringify(comment)
@@ -60,7 +59,6 @@ export const updateComment = comment => async dispatch => {
 
   if (res.ok) {
     let data = await res.json();
-    console.log(data)
     dispatch(receiveComment(data.comments[comment.id]));
   }
 
@@ -92,10 +90,8 @@ const commentReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_VIDEO:
-      // console.log(action.data)
       return action.data.comments;
     case RECEIVE_COMMENT:
-      // console.log(action.comment)
       nextState[action.comment.id] = action.comment;
       return nextState;
     // case RECEIVE_COMMENTS:

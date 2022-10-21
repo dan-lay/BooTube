@@ -24,7 +24,6 @@ const UploadVideoModal = () => {
       const formData = new FormData();
 
       formData.append("video[title]", title)
-      console.log(formData)
       formData.append("video[description]", description)
       formData.append("video[uploader_id]", uploaderId)
       if (videoFile) {

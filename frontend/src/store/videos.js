@@ -23,9 +23,7 @@ export const removeVideo = videoId => ({
 
 export const getVideos = () => async dispatch => {
   let res = await csrfFetch('/api/videos');
-  console.log(res)
   let data = await res.json();
-  console.log(data)
   dispatch(receiveVideos(data));
 };
 
@@ -37,7 +35,6 @@ export const createVideo = video => async dispatch => {
 
   if (res.ok) {
     let data = await res.json();
-    // console.log(data)
     return data;
   }
 
