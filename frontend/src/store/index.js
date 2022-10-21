@@ -2,13 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import session from './session';
 import videos from './videos';
-import comments from './comments';
+import comments from './comments'
 
 const rootReducer = combineReducers({
   session,
   videos,
   comments
-  // users: userReducer
 });
 
 let enhancer;

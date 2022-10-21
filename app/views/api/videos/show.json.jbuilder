@@ -13,17 +13,3 @@ json.comments do
       end
    end
 end
-# json.comments.each do |comment|
-#    json.set! comment.id do
-#       json.extract! :id, :body, :created_at, :updated_at
-#    end
-# end
-
-
-# json.set! :comments do
-#    @video.comments.each do |comment|
-#       json.set! comment.id do
-#          json.extract! :id, :video_id, :commenter_id, :body
-#       end
-#    end
-# end

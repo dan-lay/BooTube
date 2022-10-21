@@ -35,6 +35,7 @@ export const login = ({ email, password }) => async dispatch => {
 };
 
 export const restoreSession = () => async dispatch => {
+  console.log("hello from restore session")
   const response = await csrfFetch("/api/session");
   storeCSRFToken(response);
   const data = await response.json();
