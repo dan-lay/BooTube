@@ -1,4 +1,18 @@
-.video-port {
-   width: 45px;
-   height: 45px;
+.video-show-page {
+   height: 100%;
+   width: 100%;
+   background-color: aqua;
+}
+
+.bottom-video-show-page {
+   margin-top: 53px;
+   display: flex;
+   /* position: absolute; */
+
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: 100%;
+   width: 100%;
+   background-color: yellow;
 }

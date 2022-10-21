@@ -20,29 +20,26 @@ class User < ApplicationRecord
    validates :password, length: { in: 6..255, message: "Password must be atleast 6 characters long"}, allow_nil: true
    validates :first_name, presence: true
    validates :last_name, presence: true
+   # validates :channel_name, presence: true, length: { maximum: 30 }
 
    has_many :videos,
-   class_name: :Video
+   class_name: :Video,
+   dependent: :destroy
+
+   has_many :videoComments,
+   foreign_key: :commenter_id,
+   class_name: :Comment,
+   dependent: :destroy
 
 
    def self.find_by_credentials(email, password)
-      user = User.find_by(email: email)
-
-      if user&.authenticate(password)
-         return user
-      else
-         return nil
-      end
-   end
-
-   def ensure_session_token
-      self.session_token ||= generate_unique_session_token
+      @user = User.find_by(email: email)
+      @user.authenticate(password) if @user
    end
 
    def reset_session_token!
-      self.session_token = generate_unique_session_token
-      save!
-      session_token
+      self.update!(session_token: generate_unique_session_token)
+      self.session_token
    end
 
    private
@@ -50,7 +47,11 @@ class User < ApplicationRecord
    def generate_unique_session_token
       while true
          token = SecureRandom.urlsafe_base64
-         return token unless User.exists?(session_token: token)
+         return token unless User.find_by(session_token: token)
       end
+   end
+
+   def ensure_session_token
+      self.session_token ||= generate_unique_session_token
    end
 end

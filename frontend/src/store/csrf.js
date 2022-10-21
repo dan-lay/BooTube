@@ -1,4 +1,3 @@
-
 const csrfFetch = async (url, options = {}) => {
   options.method ||= 'GET';
   options.headers ||= {};

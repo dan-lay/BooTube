@@ -8,8 +8,6 @@ const VideoIndex = () => {
    const videos = useSelector(state => state.videos);
    const videoArr = videos ? Object.values(videos) : [];
    const dispatch = useDispatch();
-   
-   const user = useSelector(state => state.session)
 
    useEffect(() => {
       dispatch(getVideos());

@@ -6,9 +6,9 @@ const REMOVE_VIDEO = 'videos/REMOVE_VIDEO';
 
 /*--ACTIONS--*/
 
-export const receiveVideo = video => ({
+export const receiveVideo = data => ({
   type: RECEIVE_VIDEO,
-  video
+  data
 });
  
 export const receiveVideos = videos => ({
@@ -20,26 +20,6 @@ export const removeVideo = videoId => ({
   type: REMOVE_VIDEO,
   videoId
 });
- 
- /*--THUNK ACTIONS--*/
-
-//  export const loginvideo = video => async dispatch => {
-//    let res = await csrfFetch('/api/session', {
-//      method: 'POST',
-//      body: JSON.stringify(video)
-//    });
-//    let data = await res.json();
-//    sessionStorage.setItem('currentvideo', JSON.stringify(data.video));
-//    dispatch(receivevideo(data.video));
-//  };
- 
-//  export const logoutvideo = videoId => async dispatch => {
-//    await csrfFetch('/api/session', {
-//      method: 'DELETE'
-//    });
-//    sessionStorage.setItem('currentvideo', null);
-//    dispatch(removevideo(videoId));
-//  };
 
 export const getVideos = () => async dispatch => {
   let res = await csrfFetch('/api/videos');
@@ -57,8 +37,10 @@ export const createVideo = video => async dispatch => {
 
   if (res.ok) {
     let data = await res.json();
-    console.log(data.message)
+    // console.log(data)
+    return data;
   }
+
   
 
   // dispatch(receiveVideo(data.mediaObject));
@@ -84,7 +66,7 @@ export const deleteVideo = videoId => async dispatch => {
 export const getVideo = videoId => async dispatch => {
   let res = await csrfFetch(`/api/videos/${videoId}`)
   let data = await res.json();
-  dispatch(receiveVideo(data.video));
+  dispatch(receiveVideo(data));
 };
  
 const videoReducer = (state = {}, action) => {
@@ -94,7 +76,7 @@ const videoReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_VIDEO:
-      nextState[action.video.id] = action.video;
+      nextState[action.data.video.id] = action.data.video;
       return nextState;
     case RECEIVE_VIDEOS:
       return { ...nextState, ...action.videos}

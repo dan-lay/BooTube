@@ -12,6 +12,7 @@ ActiveRecord::Base.transaction do
 
   puts "Destroying tables..."
 
+  Comment.destroy_all
   Video.destroy_all
   User.destroy_all
 
@@ -29,7 +30,7 @@ ActiveRecord::Base.transaction do
   clide = User.create!(email: 'monkeyman@protonmail.com', password: 'password', first_name: 'clide', last_name: 'stefani')
   adina = User.create!(email: 'coffee_and_communism@gmail.com', password: 'password', first_name: 'adina', last_name: 'something')
   ben = User.create!(email: 'brilliantdamage@gmail.com', password: 'password', first_name: 'ben', last_name: 'schwartz')
-  ian = User.create!(email: 'queenbitch@gmail.com', password: 'password', first_name: 'ian', last_name: 'verger')
+  ian = User.create!(email: 'queenbee@gmail.com', password: 'password', first_name: 'ian', last_name: 'verger')
 
 
   puts "Creating videos..."
@@ -68,7 +69,15 @@ ActiveRecord::Base.transaction do
   ian_vid.media_object.attach(io: ian_media_object, filename: "jackolantern.mp4")
 
 
-  puts "Media objects succesfully attached!"
+  puts "Video media objects succesfully attached!"
+
+  puts "-----------------------------------------"
+
+  puts "Creating comments..."
+
+  comment1 = Comment.create!(body: "this is so scary, right?!?", commenter_id: 1, video_id: 1)
+
+
 
   puts "BooooTube all set up!"
 end

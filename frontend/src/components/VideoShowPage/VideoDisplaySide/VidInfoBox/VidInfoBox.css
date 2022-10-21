@@ -1,0 +1,9 @@
+.vid-info-box {
+   /* position: relative; */
+   /* top: 390px; */
+   /* box-sizing: border-box; */
+   width: 100%;
+   min-height: 67px;
+   padding: 20px 0px 8px 0px;
+   background-color: yellow;
+}

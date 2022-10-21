@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createVideo } from "../../store/videos";
 import { useDispatch, useSelector } from "react-redux";
 import './UploadVideoModal.css'
+import { Redirect, useHistory } from "react-router-dom";
 
 const UploadVideoModal = () => {
    const dispatch = useDispatch();
@@ -10,6 +11,7 @@ const UploadVideoModal = () => {
    const [videoFile, setVideoFile] = useState(null);
    const [errors, setErrors] = useState("");
    const uploaderId = useSelector(state => state.session.user.id);
+   const history = useHistory();
 
    const handleFile = e => {
       const file = e.currentTarget.files[0];
@@ -22,12 +24,21 @@ const UploadVideoModal = () => {
       const formData = new FormData();
 
       formData.append("video[title]", title)
+      console.log(formData)
       formData.append("video[description]", description)
       formData.append("video[uploader_id]", uploaderId)
       if (videoFile) {
          formData.append("video[media_object]", videoFile)
       }
       dispatch(createVideo(formData))
+      .then(async data => {
+         const videoId = data.video.id;
+         history.push(`/videos/${videoId}`)
+      })
+      // .catch(async)
+
+      
+
    }
 
    return (

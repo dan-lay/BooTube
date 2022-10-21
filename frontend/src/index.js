@@ -8,10 +8,12 @@ import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
 import * as videoActions from './store/videos';
+import * as commentActions from './store/comments';
 
 let initialState = {
   user: null,
-  videos: null
+  videos: null,
+  comments: null
 };
 
 const store = configureStore(initialState);
@@ -21,6 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.sessionActions = sessionActions;
   window.csrfFetch = csrfFetch;
   window.videoActions = videoActions;
+  window.commentActions = commentActions;
 }
 
 const renderApplication = () => {
