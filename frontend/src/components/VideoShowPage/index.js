@@ -3,9 +3,10 @@ import MastHead from '../VideoIndexPage/MastHead';
 import VideoRightIndexSide from './VideoRightIndexSide';
 import VideoDisplaySide from './VideoDisplaySide';
 import { Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const VideoShowPage = () => {
-
+   const currentUser = useSelector(state => state.session.user);
    if (!currentUser) return <Redirect to="/"/>;
 
    return (

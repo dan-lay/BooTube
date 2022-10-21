@@ -11,7 +11,8 @@ import { Redirect } from 'react-router-dom';
 const MastHead = () => {
    const dispatch = useDispatch();
    const sessionUser = useSelector(state => state.session.user);
-   
+   // const logoutButton = sessionUser ? <button className="temp-log-out" onClick={logoutClick}>Log Out</button> : null;
+
    const logoutClick = () => {
       dispatch(sessionActions.logout());
    }
@@ -32,7 +33,7 @@ const MastHead = () => {
             </Link>
          </div>
          <div className='mid-masthead'>
-            <button className="temp-log-out" onClick={logoutClick}>Log Out</button>
+            {sessionUser && <button className="temp-log-out" onClick={logoutClick}>Log Out</button>}
             <div className='search-bar-outer'>
                <form>
                   <div className='search-bar-input'>

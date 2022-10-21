@@ -24,10 +24,7 @@ class Api::SessionsController < ApplicationController
    end
 
    def destroy
-      p "check for current user"
-      p current_user
       logout
-      render json: { message: 'success' }
-      # head :no_content
+      head :no_content
    end
 end
