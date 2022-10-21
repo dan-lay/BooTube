@@ -26,7 +26,6 @@ class Api::VideosController < ApplicationController
 
    def show
       @video = Video.find(params[:id])
-      puts :id
 
       if @video
          render "api/videos/show"
@@ -41,10 +40,8 @@ class Api::VideosController < ApplicationController
 
    def destroy
       @video = Video.find(params[:id])
-      puts params[:id]
 
       if @video.destroy
-         puts "video succesfully destroyed"
          render json: { message: 'video successfully destroyed' }
       else
          render json: { errors: @video.errors.full_messages }, status: :unprocessable_entity

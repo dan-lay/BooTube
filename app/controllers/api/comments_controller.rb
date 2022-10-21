@@ -4,9 +4,7 @@ class Api::CommentsController < ApplicationController
 
    def create
       @comment = Comment.new(comment_params)
-      puts @comment
       if @comment.save!
-         puts "you just saved a comment"
          @video = Video.find("#{@comment.video_id}")
          # render "api/videos/#{@comment.video_id}"
          # render json: {message: "you created a comment"}

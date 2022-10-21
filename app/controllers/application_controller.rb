@@ -9,24 +9,13 @@ class ApplicationController < ActionController::API
    helper_method :current_user, :logged_in?
  
    def current_user
-    puts "hello from current user"
      @current_user ||= User.find_by(session_token: session[:session_token])
-     puts @current_user
-     puts session[:session_token]
-    #  if @curent_user.session_token == session[:session_token]
-    #   puts "YES"
-    #  end
    end
  
    def require_logged_in
     unless current_user
       render json: { message: 'Unauthorized' }, status: :unauthorized 
     end
-    # puts "hello from require logged in"
-    # puts current_user
-    #  if !logged_in?
-    #    render json: { errors: ['Must be logged in for this action'] }, status: :unauthorized
-    #  end
    end
  
    def require_logged_out
@@ -36,19 +25,15 @@ class ApplicationController < ActionController::API
    end
  
    def logged_in?
-    puts "hello from logged in?"
-    puts current_user
      !!current_user
    end
  
    def login(user)
      session[:session_token] = user.reset_session_token!
      @current_user = user
-     puts @current_user
    end
  
    def logout
-    puts current_user
      current_user.reset_session_token! if current_user
      session[:session_token] = nil
      @current_user = nil
