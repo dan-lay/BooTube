@@ -19,6 +19,8 @@ ActiveRecord::Base.transaction do
   puts "Resetting primary keys..."
 
   ActiveRecord::Base.connection.reset_pk_sequence!('users')
+  ActiveRecord::Base.connection.reset_pk_sequence!('videos')
+  ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
   puts "Creating users..."
 
@@ -76,6 +78,37 @@ ActiveRecord::Base.transaction do
   puts "Creating comments..."
 
   comment1 = Comment.create!(body: "this is so scary, right?!?", commenter_id: 1, video_id: 1)
+  comment2 = Comment.create!(body: "not scary at all, actually", commenter_id: 6, video_id: 1)
+  comment3 = Comment.create!(body: "hey nerd, you're bleeding", commenter_id: 5, video_id: 1)
+  comment4 = Comment.create!(body: "this is my happy place", commenter_id: 2, video_id: 2)
+  comment5 = Comment.create!(body: "mmmmm, corn", commenter_id: 3, video_id: 2)
+  comment6 = Comment.create!(body: "why are they there...", commenter_id: 7, video_id: 2)
+  comment7 = Comment.create!(body: "!?!?!??", commenter_id: 4, video_id: 2)
+  comment8 = Comment.create!(body: "wonder what's so funny", commenter_id: 3, video_id: 3)
+  comment9 = Comment.create!(body: "i wouldn't hire him for my kid's party", commenter_id: 1, video_id: 3)
+  comment10 = Comment.create!(body: "get a job freak!", commenter_id: 7, video_id: 3)
+  comment11 = Comment.create!(body: "he probably just watched the corn video", commenter_id: 2, video_id: 3)
+  comment12 = Comment.create!(body: "great halloween inspiration!", commenter_id: 6, video_id: 4)
+  comment13 = Comment.create!(body: "they better have good detergent", commenter_id: 5, video_id: 4)
+  comment14 = Comment.create!(body: "ghosts!! EEK!", commenter_id: 4, video_id: 4)
+  comment15 = Comment.create!(body: "haha i'm the demo user lol", commenter_id: 1, video_id: 4)
+  comment16 = Comment.create!(body: "..........", commenter_id: 7, video_id: 4)
+  comment17 = Comment.create!(body: "i'm super freaked out rn", commenter_id: 2, video_id: 4)
+  comment18 = Comment.create!(body: "can we just admire this site for a minute? so beautifully horrific", commenter_id: 1, video_id: 5)
+  comment19 = Comment.create!(body: "i'm the demo user!! jk i'm fred", commenter_id: 3, video_id: 5)
+  comment20 = Comment.create!(body: "so many building codes broken, reported", commenter_id: 2, video_id: 5)
+  comment21 = Comment.create!(body: "hard at work! love to see it", commenter_id: 6, video_id: 5)
+  comment22 = Comment.create!(body: "YIKES!", commenter_id: 4, video_id: 5)
+  comment23 = Comment.create!(body: "this is MY happy place", commenter_id: 5, video_id: 5)
+  comment24 = Comment.create!(body: "great smile :D", commenter_id: 1, video_id: 6)
+  comment25 = Comment.create!(body: "dentist's POV when they tell me to say ahhh", commenter_id: 3, video_id: 6)
+  comment26 = Comment.create!(body: "gadzooks!!!!", commenter_id: 4, video_id: 6)
+  comment27 = Comment.create!(body: "me after a yerba", commenter_id: 7, video_id: 6)
+  comment28 = Comment.create!(body: "all smiles!", commenter_id: 2, video_id: 6)
+  comment29 = Comment.create!(body: "perfectly good waste of a pumpkin", commenter_id: 6, video_id: 7)
+  comment30 = Comment.create!(body: "yawnnnn, when does the scary part happen..", commenter_id: 5, video_id: 7)
+  comment31 = Comment.create!(body: "i'm just so SPOOKED!!!", commenter_id: 4, video_id: 7)
+  comment32 = Comment.create!(body: "tis the season to be spooky!", commenter_id: 3, video_id: 7)
 
 
 
