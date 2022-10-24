@@ -9,7 +9,8 @@
    flex-direction: column;
    max-width: 1220px;
    /* flex-grow: 1; */
-   background-color: green;
+   background-color: #373737;
+   border: 1px solid black;
    margin: 0px 0px 0px 24px;
    padding: 24px 24px 0px 0px; 
    /* box-sizing: border-box; */

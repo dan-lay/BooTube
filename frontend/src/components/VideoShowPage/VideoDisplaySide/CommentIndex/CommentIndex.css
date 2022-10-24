@@ -6,7 +6,8 @@
    /* box-sizing: border-box; */
    width: 100%;
    height: 100%;
-   background-color: purple;
+   background-color: #373737;
+   border: 1px solid black;
 }
 
 .comment-box {
@@ -24,6 +25,7 @@
    min-height: 23.50px;
    width: 100%;
    box-sizing: border-box;
-   border: 1px solid blue;
+   background-color: #373737;
+   border: 1px solid black;
    margin-bottom: 24px;
 }

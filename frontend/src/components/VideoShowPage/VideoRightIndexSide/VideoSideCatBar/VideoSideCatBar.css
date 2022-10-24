@@ -1,5 +1,6 @@
 .video-side-cat-bar {
    height: 48px;
    width: 100%;
-   background-color: orange;
+   background-color: #373737;
+   border: 1px solid black;
 }

@@ -10,8 +10,8 @@ import * as sessionActions from './store/session';
 import * as videoActions from './store/videos';
 import * as commentActions from './store/comments';
 
-let initialState = {
-  user: null,
+const initialState = {
+  session: null,
   videos: null,
   comments: null
 };

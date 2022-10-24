@@ -1,7 +1,7 @@
 .video-show-page {
    height: 100%;
    width: 100%;
-   background-color: aqua;
+   /* background-color: aqua; */
 }
 
 .bottom-video-show-page {
@@ -14,5 +14,6 @@
    bottom: 0;
    height: 100%;
    width: 100%;
-   background-color: yellow;
+   background-color: #373737;
+   border: 1px solid black;
 }

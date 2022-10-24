@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
          @user = current_user
          render 'api/users/show'
       else
-         render json: { user: nil }
+         render json: { session: nil }
       end
    end
 
@@ -24,7 +24,9 @@ class Api::SessionsController < ApplicationController
    end
 
    def destroy
-      logout
-      head :no_content
+      if current_user
+         logout
+         head :no_content
+      end
    end
 end

@@ -19,6 +19,7 @@ const storeCSRFToken = response => {
 }
 
 const storeCurrentUser = user => {
+  // debugger
   if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
   else sessionStorage.removeItem("currentUser");
 }
@@ -29,17 +30,24 @@ export const login = ({ email, password }) => async dispatch => {
     body: JSON.stringify({ email, password })
   });
   const data = await response.json();
+  console.log(data)
   storeCurrentUser(data.user);
   dispatch(setCurrentUser(data.user));
   return response;
 };
 
 export const restoreSession = () => async dispatch => {
+  // debugger
   const response = await csrfFetch("/api/session");
+  console.log(response)
   storeCSRFToken(response);
   const data = await response.json();
-  storeCurrentUser(data.user);
-  dispatch(setCurrentUser(data.user));
+  // debugger
+  console.log(data)
+  storeCurrentUser(data.session);
+  // debugger
+  dispatch(setCurrentUser(data.session));
+  // debugger
   return response;
 };
 
@@ -66,19 +74,23 @@ export const logout = () => async dispatch => {
   const response = await csrfFetch("/api/session", {
     method: "DELETE"
   });
+  if (response) console.log(response);
 
   storeCurrentUser(null);
   dispatch(removeCurrentUser());
   return response;
 };
 
+
 const initialState = { 
   user: JSON.parse(sessionStorage.getItem("currentUser"))
 };
 
 const sessionReducer = (state = initialState, action) => {
+  // debugger
   Object.freeze(state);
   const newState = { ...state }
+  // debugger
 
   switch (action.type) {
     case SET_CURRENT_USER:
