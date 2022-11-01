@@ -1,0 +1,140 @@
+.masthead {
+   display: flex;
+   position: fixed;
+   height: 55px;
+   margin: 0;
+   top: 0;
+   left: 0;
+   right: 0;
+   background-color:#373737;
+   /* border-bottom: 1px solid #5e5d5d; */
+   z-index: 3;
+   padding: 0px 16px 0px 16px;
+   justify-content: space-between;
+}
+
+.home-button {
+   padding: 10px 0px 0px 0px;
+   display: flex;
+   width: 160px;
+   height: 100%;
+   margin: 0;
+   justify-content: center;
+}
+
+.home-button img {
+   width: 150px;
+   height: 40px;
+   /* border: 1px solid rgb(101, 101, 101); */
+   /* border-radius: 10px; */
+   /* background-color: rgb(49, 49, 49); */
+}
+
+
+
+.left-masthead {
+   display: flex;
+   /* border: 1px solid black; */
+   
+}
+
+.mid-masthead {
+   /* border: 1px solid black; */
+   width: 728px;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+.search-bar-outer {
+   display: flex;
+   align-items: center;
+   width: 644px;
+   height: 100%;
+   /* border: 1px solid white; */
+}
+
+.microphone-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   background-color: #515050;
+
+}
+
+.search-button {
+   /* display: flex; */
+   /* justify-content: center;
+   align-items: center; */
+   /* position: relative; */
+   width: 64px;
+   height: 40px;
+   border: 1px solid #515050;
+   border-bottom-right-radius: 40px;
+   border-top-right-radius: 40px;
+   /* background-image: url('../../assets/booootube-mag-glass.png') ; */
+}
+
+.microphone-button:hover {
+   background-color: #784307;
+}
+
+.search-button > img {
+   height: 20px;
+   width: 20px;
+}
+
+.search-bar-form {
+   display: flex;
+   align-items: center;
+   width: 572px;
+   height: 40px;
+   padding-left: 10px;
+   border-bottom-left-radius: 40px;
+   border-top-left-radius: 40px;
+   border-top: 1px solid;
+   border-bottom: 1px solid;
+   border-left: 1px solid;
+   border-color:#515050;
+}
+
+.search-bar-input {
+   all: unset;
+   width: 100%;
+   height: 26px;
+   color: white;
+}
+
+.search-button-input {
+   all: unset;
+   width: 100%;
+   height: 100%;
+   position: relative;
+}
+
+.microphone-button > img {
+   position: relative;
+   width: 15px;
+   height: 23px;
+}
+
+.right-masthead {
+   display: flex;
+   justify-content: flex-end;
+   border: 1px solid black;
+   width: 225px;
+}
+
+.side-modal-button {
+   display: flex;
+   width: 40px;
+   height: 40px;
+   padding: 8px 8px 8px 0px;
+}
+
+.side-modal-button img {
+   background-color: #373737;
+}

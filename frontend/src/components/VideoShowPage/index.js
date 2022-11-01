@@ -1,5 +1,5 @@
 import './VideoShowPage.css';
-import MastHead from '../VideoIndexPage/MastHead';
+import MastHead from '../MastHead/Masthead';
 import VideoRightIndexSide from './VideoRightIndexSide';
 import VideoDisplaySide from './VideoDisplaySide';
 import { Redirect } from 'react-router-dom';

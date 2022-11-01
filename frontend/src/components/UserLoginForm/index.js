@@ -41,16 +41,22 @@ const UserLoginForm = () => {
          password: demoPassword
       } 
 
-      if (email !== demoEmail) {
-         let timedEmail = setInterval(() => {
-            if (email !== demoEmail) {
-               let tempEmail = demoEmail.slice(0, email.length + 1);
-               setEmail(tempEmail)
-            } else {
-               clearInterval(timedEmail);
-            }
-         }, 1000)
-      } 
+      // if (email !== demoEmail) {
+      //    let timedEmail = setInterval(() => {
+      //       if (email !== demoEmail) {
+      //          let tempEmail = demoEmail.slice(0, email.length + 1);
+      //          setEmail(tempEmail)
+      //       } else {
+      //          clearInterval(timedEmail);
+      //       }
+      //    }, 1000)
+      // } 
+
+      setEmail(demoEmail);
+      setInterval(() => setPassword(demoPassword), 1000);
+      setInterval((e) => {
+         handleSubmit(e)
+      }, 2000);
 
 
 

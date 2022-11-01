@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import UserLoginForm from './components/UserLoginForm';
 import AccountRecoverForm from './components/AccountRecoverForm';
 import LearnMorePage from './components/LearnMorePage';
@@ -6,10 +6,15 @@ import VideoIndexPage from './components/VideoIndexPage';
 import UserSignupForm from './components/UserSignupForm';
 import UploadVideoModal from './components/UploadVideoModal';
 import VideoShowPage from './components/VideoShowPage';
+import MastHead from './components/MastHead/Masthead';
 
 function App() {
+  const location = useLocation();
+  const Navbar = (location.pathname !== "/login" || location.pathname !== "/signup") ? MastHead : null;
+  
   return (
     <div className="app">
+      {Navbar}
       <Switch>
         <Route exact path="/">
           <VideoIndexPage />

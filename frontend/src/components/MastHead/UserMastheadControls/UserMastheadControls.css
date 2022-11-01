@@ -1,0 +1,64 @@
+.upload-button {
+   justify-content: center;
+   width: 24px;
+   height: 24px;
+}
+
+.user-masthead-controls {
+   display: flex;
+   width: 100%;
+   justify-content: flex-end;
+   align-items: center;
+   /* justify-content: center; */
+}
+
+.sign-in-button-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100.1px;
+   height: 34px;
+   border: 1px solid #515050;;
+   border-radius: 40px;
+   gap: 9px;
+}
+
+.sign-in-button-container:hover {
+   background-color: #784307;
+}
+
+.dot-menu {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   padding: 8px;
+   box-sizing: border-box;
+   margin-right: 5px;
+}
+
+.dot-menu:hover {
+   background-color: #515050;
+}
+
+.dot-menu > img {
+   height: 15px;
+   width: 3px;
+}
+
+.sign-in-button {
+   color: orange;
+   font-size: .93rem;
+}
+
+.sign-in-button-icon {
+   display: flex;
+   justify-content: flex-start;
+}
+
+.sign-in-button-icon > img {
+   width: 22px;
+   height: 22px;
+}
