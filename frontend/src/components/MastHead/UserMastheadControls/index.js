@@ -1,9 +1,10 @@
 import './UserMastheadControls.css'
 import { Link } from 'react-router-dom';
-import uploadButton from '../../../assets/upload-video-icon.svg'
+import uploadButton from '../../../assets/upload-video-icon.png'
 import { useSelector } from 'react-redux';
 import signinIcon from '../../../assets/booootube_signin_icon.png';
 import threeDot from '../../../assets/3-vertical-dots-icon.png';
+import githubIcon from '../../../assets/booootube_github_icon.png';
 
 const UserMastheadControls = () => {
    const currentUser = useSelector(state => state.session.user ? state.session.user : null);
@@ -11,10 +12,14 @@ const UserMastheadControls = () => {
 
    const innerControls = currentUser ? <>
                                           <div className="upload-button">
-                                             <img src={uploadButton}/>
+                                             <Link to='upload'>
+                                                <img src={uploadButton}/>
+                                             </Link>
                                           </div>
                                           <div className="github-link-button">
-
+                                             <a href='https://github.com/dan-lay/BooTube'>
+                                                <img src={githubIcon}/>
+                                             </a>
                                           </div>
                                           <div className="user-dropdown-button">
 

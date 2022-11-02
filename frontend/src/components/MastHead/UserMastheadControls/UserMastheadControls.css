@@ -1,16 +1,53 @@
-.upload-button {
-   justify-content: center;
-   width: 24px;
-   height: 24px;
-}
-
 .user-masthead-controls {
    display: flex;
    width: 100%;
    justify-content: flex-end;
    align-items: center;
-   /* justify-content: center; */
 }
+
+/* logged in controls */
+
+.upload-button {
+   position: relative;
+   justify-content: center;
+   align-items: center;
+   width: 40px;
+   height: 40px;
+}
+
+.upload-button img {
+   position: absolute;
+   top: 14px;
+   left: 9px;
+   width: 23px;
+   height: 15px;
+}
+
+.github-link-button {
+   position: relative;
+   justify-content: center;
+   align-items: center;
+   width: 40px;
+   height: 40px;
+   z-index: 2;
+}
+
+.github-link-button > link {
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   z-index: 4;
+}
+
+.github-link-button img {
+   position: absolute;
+   top: 8px;
+   left: 8px;
+   width: 25px;
+   height: 25px;
+}
+
+/* logged out controls */
 
 .sign-in-button-container {
    display: flex;

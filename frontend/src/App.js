@@ -10,11 +10,10 @@ import MastHead from './components/MastHead/Masthead';
 
 function App() {
   const location = useLocation();
-  const Navbar = (location.pathname !== "/login" || location.pathname !== "/signup") ? MastHead : null;
   
   return (
     <div className="app">
-      {Navbar}
+      {(location.pathname !== "/login" && location.pathname !== "/signup") && <MastHead /> }
       <Switch>
         <Route exact path="/">
           <VideoIndexPage />
@@ -28,9 +27,9 @@ function App() {
         <Route exact path="/videos/:videoId">
           <VideoShowPage />
         </Route>
-        {/* <Route exact path="/:userId/upload">
+        <Route exact path="/upload">
           <UploadVideoModal />
-        </Route> */}
+        </Route>
         <Route path="/upload">
           <UploadVideoModal />
         </Route>
