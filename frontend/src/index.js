@@ -10,13 +10,13 @@ import * as sessionActions from './store/session';
 import * as videoActions from './store/videos';
 import * as commentActions from './store/comments';
 
-const initialState = {
-  session: null,
-  videos: null,
-  comments: null
-};
+// const initialState = {     //THIS IS WRONG!!!!!! Sets session to empty object upon refresh
+//   session: null,
+//   videos: null,
+//   comments: null
+// };
 
-const store = configureStore(initialState);
+const store = configureStore();
 
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;
@@ -43,7 +43,9 @@ if (
   sessionStorage.getItem("currentUser") === null ||
   sessionStorage.getItem("X-CSRF-Token") === null 
 ) {
+  console.log("dispatching restore session")
   store.dispatch(sessionActions.restoreSession()).then(renderApplication);
 } else {
+  console.log("just rendering")
   renderApplication();
 }

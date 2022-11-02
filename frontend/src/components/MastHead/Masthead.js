@@ -3,7 +3,6 @@ import homelogo from "../../assets/booootube_logo_v2.png";
 import magGlass from "../../assets/booootube-mag-glass.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux";
-import * as sessionActions from "../../store/session";
 import hamburger from '../../assets/hamburger_2.png';
 import UserMastheadControls from './UserMastheadControls';
 import { Redirect } from 'react-router-dom';
@@ -12,13 +11,11 @@ import { useState } from 'react';
 
 const MastHead = () => {
    const dispatch = useDispatch();
-   const sessionUser = useSelector(state => state.session.user);
+   const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
    const [ search, setSearch ] = useState("")
    // const logoutButton = sessionUser ? <button className="temp-log-out" onClick={logoutClick}>Log Out</button> : null;
 
-   const logoutClick = () => {
-      dispatch(sessionActions.logout());
-   }
+   
 
    const handleSubmit = e => {
 
@@ -38,7 +35,6 @@ const MastHead = () => {
             </Link>
          </div>
          <div className='mid-masthead'>
-            {sessionUser && <button className="temp-log-out" onClick={logoutClick}>Log Out</button>}
             <div className='search-bar-outer'>
                <form className='search-bar-form' id="search-bar-form" onSubmit={handleSubmit}>
                   <input type="text" className='search-bar-input' placeholder="Search">

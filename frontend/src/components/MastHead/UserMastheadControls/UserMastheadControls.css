@@ -47,6 +47,14 @@
    height: 25px;
 }
 
+.user-dropdown-button {
+   position: relative;
+   height: 40px;
+   width: 40px;
+   background-color: aqua;
+   cursor: pointer;
+}
+
 /* logged out controls */
 
 .sign-in-button-container {
@@ -55,7 +63,7 @@
    align-items: center;
    width: 100.1px;
    height: 34px;
-   border: 1px solid #515050;;
+   border: 1px solid #515050;
    border-radius: 40px;
    gap: 9px;
 }

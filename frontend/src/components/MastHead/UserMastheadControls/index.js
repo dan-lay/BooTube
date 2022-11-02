@@ -5,10 +5,14 @@ import { useSelector } from 'react-redux';
 import signinIcon from '../../../assets/booootube_signin_icon.png';
 import threeDot from '../../../assets/3-vertical-dots-icon.png';
 import githubIcon from '../../../assets/booootube_github_icon.png';
+import UserDropdownMenu from './UserDropdownMenu/UserDropdownMenu';
+import { useState } from 'react';
 
 const UserMastheadControls = () => {
    const currentUser = useSelector(state => state.session.user ? state.session.user : null);
-   console.log(currentUser)
+   const [ hidden, setHidden ] = useState(true);
+
+   
 
    const innerControls = currentUser ? <>
                                           <div className="upload-button">
@@ -21,8 +25,8 @@ const UserMastheadControls = () => {
                                                 <img src={githubIcon}/>
                                              </a>
                                           </div>
-                                          <div className="user-dropdown-button">
-
+                                          <div className="user-dropdown-button" onClick={() => setHidden(hidden ? false : true)}>
+                                             <UserDropdownMenu hidden={hidden}/>
                                           </div>
                                        </>
                                      : <>
