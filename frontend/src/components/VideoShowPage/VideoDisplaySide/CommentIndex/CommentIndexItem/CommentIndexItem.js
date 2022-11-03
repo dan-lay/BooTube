@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './CommentIndexItem.css'
 import { useDispatch, useSelector} from 'react-redux';
 import { deleteComment } from '../../../../../store/comments';
-import CommentEditForm from './CommentEditForm';
+import CommentEditForm from './CommentEditForm/CommentEditForm';
 
 const CommentIndexItem = (props) => {
    const comment = props.comment;

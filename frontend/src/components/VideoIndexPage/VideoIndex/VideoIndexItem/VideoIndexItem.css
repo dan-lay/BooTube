@@ -1,9 +1,9 @@
 .video-index-item {
    display: flex;
+   position: relative;
    justify-content: center;
-   /* width: 263px; */
-   height: 278.74px;
-   border: 1px solid black;
+   /* height: 278.74px; */
+   border: 1px solid white;
 }
 
 .video-index-item:hover {
@@ -11,7 +11,7 @@
 }
 
 video {
-   /* position: relative;
-   max-width: 360px;
-   max-height: 200px; */
+   position: relative;
+   max-width: 95%;
+   max-height: 200px;
 }

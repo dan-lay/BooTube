@@ -1,19 +1,18 @@
 import { Switch, Route, useLocation } from 'react-router-dom';
-import UserLoginForm from './components/UserLoginForm';
-import AccountRecoverForm from './components/AccountRecoverForm';
-import LearnMorePage from './components/LearnMorePage';
-import VideoIndexPage from './components/VideoIndexPage';
-import UserSignupForm from './components/UserSignupForm';
-import UploadVideoModal from './components/UploadVideoModal';
-import VideoShowPage from './components/VideoShowPage';
-import MastHead from './components/MastHead/Masthead';
+import UserLoginForm from './components/UserLoginForm/UserLoginForm';
+import AccountRecoverForm from './components/AccountRecoverForm/AccountRecoverForm';
+import LearnMorePage from './components/LearnMorePage/LearnMorePage';
+import VideoIndexPage from './components/VideoIndexPage/VideoIndexPage';
+import UserSignupForm from './components/UserSignupForm/UserSignupForm';
+import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
+import VideoShowPage from './components/VideoShowPage/VideoShowPage';
+import MastHead from './components/MastHead/MastHead';
 
 function App() {
   const location = useLocation();
   
   return (
     <div className="app">
-      {(location.pathname !== "/login" && location.pathname !== "/signup") && <MastHead /> }
       <Switch>
         <Route exact path="/">
           <VideoIndexPage />

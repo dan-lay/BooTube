@@ -1,4 +1,4 @@
-import VideoIndexItem from './VideoIndexItem';
+import VideoIndexItem from './VideoIndexItem/VideoIndexItem';
 import { useDispatch, useSelector } from 'react-redux';
 import "./VideoIndex.css"
 import { useEffect } from 'react';

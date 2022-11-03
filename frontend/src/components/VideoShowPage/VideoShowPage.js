@@ -1,7 +1,7 @@
 import './VideoShowPage.css';
-import MastHead from '../MastHead/Masthead';
+import MastHead from '../MastHead/MastHead';
 import VideoRightIndexSide from './VideoRightIndexSide';
-import VideoDisplaySide from './VideoDisplaySide';
+import VideoDisplaySide from './VideoDisplaySide/VideoDisplaySide';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 

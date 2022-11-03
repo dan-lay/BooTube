@@ -4,7 +4,7 @@ import magGlass from "../../assets/booootube-mag-glass.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux";
 import hamburger from '../../assets/hamburger_2.png';
-import UserMastheadControls from './UserMastheadControls';
+import UserMastheadControls from './UserMastheadControls/UserMastheadControls';
 import { Redirect } from 'react-router-dom';
 import micIcon from '../../assets/booootube_mic_icon.png';
 import { useState } from 'react';
@@ -27,7 +27,7 @@ const MastHead = () => {
       <div className="masthead">
          <div className='left-masthead'>
             <div className='side-modal-button'>
-               <img alt="hmbrgr" src={hamburger} sizes="24x24"/>
+               <img alt="hmbrgr" src={hamburger}/>
 
             </div>
             <Link className="home-button" to="/">

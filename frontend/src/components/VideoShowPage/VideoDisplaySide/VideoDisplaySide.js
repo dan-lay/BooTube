@@ -1,8 +1,8 @@
 import './VideoDisplaySide.css';
-import VidDisplay from './VidDisplay';
-import VidInfoBox from './VidInfoBox';
-import CommentIndex from './CommentIndex';
-import VideoShowDescription from './VideoShowDecription';
+import VidDisplay from './VidDisplay/VidDisplay';
+import VidInfoBox from './VidInfoBox/VidInfoBox';
+import CommentIndex from './CommentIndex/CommentIndex';
+import VideoShowDescription from './VideoShowDecription/VideoShowDescription';
 
 const VideoDisplaySide = () => {
 

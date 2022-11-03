@@ -1,10 +1,10 @@
 import "./VideoIndexPage.css"
-import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import MastHead from "../MastHead/Masthead";
-import CategoryBar from "./CategoryBar";
-import VideoIndex from "./VideoIndex";
+import MastHead from "../MastHead/MastHead";
+import CategoryBar from "./CategoryBar/CategoryBar";
+import VideoIndex from "./VideoIndex/VideoIndex";
 
 
 const VideoIndexPage = () => {
@@ -15,6 +15,7 @@ const VideoIndexPage = () => {
 
    return (
       <div className="video-index-page">
+         <MastHead />
          <CategoryBar />
          <VideoIndex />
          <Sidebar />

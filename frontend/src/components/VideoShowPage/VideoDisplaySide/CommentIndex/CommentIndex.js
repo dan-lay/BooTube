@@ -1,4 +1,4 @@
-import CommentIndexItem from "./CommentIndexItem";
+import CommentIndexItem from "./CommentIndexItem/CommentIndexItem";
 import './CommentIndex.css';
 import { getComment, createComment } from '../../../../store/comments';
 import { useParams } from "react-router-dom";
