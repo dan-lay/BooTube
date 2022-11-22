@@ -7,16 +7,23 @@ import { getVideo } from '../../../../store/videos';
 const VidDisplay = () => {
    const { videoId } = useParams();
    const dispatch = useDispatch();
+   console.log(videoId)
 
    useEffect(() => {
       dispatch(getVideo(videoId));
    }, [])
 
-   const videos = useSelector(state => state.videos)
+   const videos = useSelector(state => state.videos? state.videos[videoId] : null)
+   debugger
+   console.log(videos)
+
+   if (!videos) {
+      return null
+   }
 
    return (
       <div className='vid-display'>
-         <video controls="controls autoplay" type="video/mp4" src={videos ? videos[videoId].mediaObject : ''} alt="video"/>
+         <video controls="controls autoplay" type="video/mp4" src={videos ? videos.mediaObject : ''} alt="video"/>
       </div>
    )
 

@@ -28,7 +28,9 @@ class Api::VideosController < ApplicationController
       @video = Video.find(params[:id])
 
       if @video
-         render "api/videos/show"
+         # render "api/videos/show"
+         puts "you got a video!"
+         render :show
       else
          render json: { errors: ['unable to find video']}, status: :unprocessable_entity
       end
