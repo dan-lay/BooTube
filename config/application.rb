@@ -42,6 +42,5 @@ module BooooTube
       secure: Rails.env.production?
 
     config.api_only = true
-    config.assets.precompile = []
   end
 end
