@@ -1,5 +1,5 @@
 import './VideoShowPage.css';
-import MastHead from '../MastHead/MastHead';
+// import MastHead from '../MastHead/MastHead';
 import VideoRightIndexSide from './VideoRightIndexSide';
 import VideoDisplaySide from './VideoDisplaySide/VideoDisplaySide';
 import { Redirect } from 'react-router-dom';
@@ -12,7 +12,7 @@ const VideoShowPage = () => {
 
    return (
       <div className='video-show-page'>
-         <MastHead />
+         {/* <MastHead /> */}
          <div className='bottom-video-show-page'>
             <VideoDisplaySide />
             <VideoRightIndexSide />
