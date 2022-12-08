@@ -1,3 +1,3 @@
 web: rails server -p $PORT -e $RAILS_ENV
 console: rails console
-release: rails db:migrate db:seed
+release: rails db:drop db:migrate:reset
