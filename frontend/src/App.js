@@ -6,7 +6,7 @@ import VideoIndexPage from './components/VideoIndexPage/VideoIndexPage';
 import UserSignupForm from './components/UserSignupForm/UserSignupForm';
 import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
 import VideoShowPage from './components/VideoShowPage/VideoShowPage';
-import MastHead from './components/MastHead/MastHead.js';
+// import MastHead from './components/MastHead/MastHead';
 
 function App() {
   const location = useLocation();
