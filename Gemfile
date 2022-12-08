@@ -26,8 +26,6 @@ gem "pry-rails" #pry in rails
 
 gem "aws-sdk-s3"
 
-# gem "webpacker", "~> 6.0.0.rc.6"
-
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
 
