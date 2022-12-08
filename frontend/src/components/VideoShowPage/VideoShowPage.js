@@ -3,7 +3,7 @@ import VideoRightIndexSide from './VideoRightIndexSide';
 import VideoDisplaySide from './VideoDisplaySide/VideoDisplaySide';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import MastHead from '../MastHead/MastHead';
+import TopBar from '../TopBar/TopBar';
 
 const VideoShowPage = () => {
    const currentUser = useSelector(state => state.session.user);

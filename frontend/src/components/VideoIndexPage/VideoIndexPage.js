@@ -2,7 +2,7 @@ import "./VideoIndexPage.css"
 import Sidebar from "./Sidebar/Sidebar";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import MastHead from "../MastHead/MastHead";
+import TopBar from "../TopBar/TopBar";
 import CategoryBar from "./CategoryBar/CategoryBar";
 import VideoIndex from "./VideoIndex/VideoIndex";
 

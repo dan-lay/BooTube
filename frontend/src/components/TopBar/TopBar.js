@@ -9,7 +9,7 @@
 // import micIcon from '../../assets/booootube_mic_icon.png';
 // import { useState } from 'react';
 
-const MastHead = () => {
+const TopBar = () => {
    // const dispatch = useDispatch();
    // const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
    // const [ search, setSearch ] = useState("")
@@ -58,4 +58,4 @@ const MastHead = () => {
    // )
 }
 
-export default MastHead;
+export default TopBar;
