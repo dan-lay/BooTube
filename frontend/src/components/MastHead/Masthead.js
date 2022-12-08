@@ -27,11 +27,11 @@ const MastHead = () => {
       <div className="masthead">
          <div className='left-masthead'>
             <div className='side-modal-button'>
-               <img alt="hmbrgr" src={hamburger}/>
+               {/* <img alt="hmbrgr" src={hamburger}/> */}
 
             </div>
             <Link className="home-button" to="/">
-               <img src={homelogo} alt="HOME" sizes="120x56"/>
+               {/* <img src={homelogo} alt="HOME" sizes="120x56"/> */}
             </Link>
          </div>
          <div className='mid-masthead'>
@@ -43,12 +43,12 @@ const MastHead = () => {
                </form>
                <div className='search-button'>
                   <input className='search-button-input' type="submit" value={search} form="search-bar-form"></input>
-                  <img src={magGlass}></img>
+                  {/* <img src={magGlass}></img> */}
                </div>
                
             </div>
             <div className='microphone-button'>
-               <img src={micIcon}></img>
+               {/* <img src={micIcon}></img> */}
             </div>
          </div>
          <div className='right-masthead'>
