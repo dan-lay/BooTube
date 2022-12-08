@@ -2,11 +2,9 @@ import "./VideoIndexPage.css"
 import Sidebar from "./Sidebar/Sidebar";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-// import MastHead from "../MastHead/MastHead";
-// import MastHead from "/Users/dan/Code/bootube/frontend/src/components/MastHead/MastHead.js";
+import MastHead from "../MastHead/MastHead";
 import CategoryBar from "./CategoryBar/CategoryBar";
 import VideoIndex from "./VideoIndex/VideoIndex";
-import Clide from "../MastHead/clide";
 
 
 const VideoIndexPage = () => {
