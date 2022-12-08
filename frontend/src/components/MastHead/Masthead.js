@@ -21,41 +21,41 @@ const MastHead = () => {
    )
 
 
-   return (
-      <div className="masthead">
-         <div className='left-masthead'>
-            <div className='side-modal-button'>
-               <img alt="hmbrgr" src={hamburger}/>
+   // return (
+   //    <div className="masthead">
+   //       <div className='left-masthead'>
+   //          <div className='side-modal-button'>
+   //             <img alt="hmbrgr" src={hamburger}/>
 
-            </div>
-            <Link className="home-button" to="/">
-               <img src={homelogo} alt="HOME" sizes="120x56"/>
-            </Link>
-         </div>
-         <div className='mid-masthead'>
-            <div className='search-bar-outer'>
-               <form className='search-bar-form' id="search-bar-form" onSubmit={handleSubmit}>
-                  <input type="text" className='search-bar-input' placeholder="Search">
+   //          </div>
+   //          <Link className="home-button" to="/">
+   //             <img src={homelogo} alt="HOME" sizes="120x56"/>
+   //          </Link>
+   //       </div>
+   //       <div className='mid-masthead'>
+   //          <div className='search-bar-outer'>
+   //             <form className='search-bar-form' id="search-bar-form" onSubmit={handleSubmit}>
+   //                <input type="text" className='search-bar-input' placeholder="Search">
 
-                  </input>
-               </form>
-               <div className='search-button'>
-                  <input className='search-button-input' type="submit" value={search} form="search-bar-form"></input>
-                  <img src={magGlass}></img>
-               </div>
+   //                </input>
+   //             </form>
+   //             <div className='search-button'>
+   //                <input className='search-button-input' type="submit" value={search} form="search-bar-form"></input>
+   //                <img src={magGlass}></img>
+   //             </div>
                
-            </div>
-            <div className='microphone-button'>
-               <img src={micIcon}></img>
-            </div>
-         </div>
-         <div className='right-masthead'>
-            <UserMastheadControls />
-         </div>
+   //          </div>
+   //          <div className='microphone-button'>
+   //             <img src={micIcon}></img>
+   //          </div>
+   //       </div>
+   //       <div className='right-masthead'>
+   //          <UserMastheadControls />
+   //       </div>
 
          
-      </div>
-   )
+   //    </div>
+   // )
 }
 
 export default MastHead;
