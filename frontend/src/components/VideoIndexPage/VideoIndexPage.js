@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 // import MastHead from "/Users/dan/Code/bootube/frontend/src/components/MastHead/MastHead.js";
 import CategoryBar from "./CategoryBar/CategoryBar";
 import VideoIndex from "./VideoIndex/VideoIndex";
+import Clide from "../MastHead/clide";
 
 
 const VideoIndexPage = () => {
