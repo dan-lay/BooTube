@@ -1,18 +1,18 @@
-import './MastHead.css';
-import homelogo from "../../assets/booootube_logo_v2.png";
-import magGlass from "../../assets/booootube-mag-glass.png";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector} from "react-redux";
-import hamburger from '../../assets/hamburger_2.png';
-import UserMastheadControls from './UserMastheadControls/UserMastheadControls';
-import { Redirect } from 'react-router-dom';
-import micIcon from '../../assets/booootube_mic_icon.png';
-import { useState } from 'react';
+// import './MastHead.css';
+// import homelogo from "../../assets/booootube_logo_v2.png";
+// import magGlass from "../../assets/booootube-mag-glass.png";
+// import { Link } from "react-router-dom";
+// import { useDispatch, useSelector} from "react-redux";
+// import hamburger from '../../assets/hamburger_2.png';
+// import UserMastheadControls from './UserMastheadControls/UserMastheadControls';
+// import { Redirect } from 'react-router-dom';
+// import micIcon from '../../assets/booootube_mic_icon.png';
+// import { useState } from 'react';
 
 const MastHead = () => {
-   const dispatch = useDispatch();
-   const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
-   const [ search, setSearch ] = useState("")
+   // const dispatch = useDispatch();
+   // const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
+   // const [ search, setSearch ] = useState("")
    // const logoutButton = sessionUser ? <button className="temp-log-out" onClick={logoutClick}>Log Out</button> : null;
 
 
