@@ -14,12 +14,11 @@
    position: fixed;
    height: 55px;
    right: 17px;
-   border-top: 1px solid #5e5d5d;
-   border-bottom: 1px solid #5e5d5d;
-   background-color: #373737;
+   background-color: #1e1e1e;
    color: rgb(237, 134, 0);
-   top: 55px;
+   top: 56px;
    z-index: 2;
+   margin-right: 2px;
 }
 
 @media only screen and (min-width: 793px) {

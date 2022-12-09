@@ -1,16 +1,16 @@
-.masthead {
+.topbar {
    display: flex;
    position: fixed;
+   width: calc(100% - 19px);
    height: 56px;
-   margin: 0;
    top: 0;
    left: 0;
-   right: 17px;
-   background-color:#373737;
-   /* border-bottom: 1px solid #5e5d5d; */
+   background-color: #1e1e1e;
    z-index: 3;
-   padding: 0px 16px 0px 16px;
+   padding-right: 16px;
+   padding-left: 16px;
    justify-content: space-between;
+   overflow: hidden;
 }
 
 .home-button {
@@ -32,6 +32,7 @@
 
 .left-masthead {
    display: flex;
+   width: fit-content;
    justify-content: center;
    align-items: center;
    /* border: 1px solid black; */
@@ -44,6 +45,13 @@
    display: flex;
    justify-content: flex-end;
    align-items: center;
+}
+
+.right-masthead {
+   display: flex;
+   justify-content: flex-end;
+   border: 1px solid black;
+   width: 225px;
 }
 
 .search-bar-outer {
@@ -62,8 +70,11 @@
    width: 45px;
    height: 40px;
    border-radius: 50%;
-   background-color: #515050;
+   background-color: #2d2d2d;
+}
 
+.microphone-button:hover {
+   background-color: #784307;
 }
 
 .search-button {
@@ -80,9 +91,7 @@
    /* background-image: url('../../assets/booootube-mag-glass.png') ; */
 }
 
-.microphone-button:hover {
-   background-color: #784307;
-}
+
 
 .search-button > img {
    position: absolute;
@@ -127,22 +136,17 @@
    height: 23px;
 }
 
-.right-masthead {
-   display: flex;
-   justify-content: flex-end;
-   border: 1px solid black;
-   width: 225px;
-}
+
 
 .side-modal-button {
    display: flex;
-   width: 40px;
+   /* width: 40px; */
    height: 40px;
    /* padding: 8px 8px 8px 0px; */
 }
 
 .side-modal-button img {
-   width: 100%;
+   width: 40px;
    height: 100%;
-   background-color: #373737;
+   background-color: transparent;
 }

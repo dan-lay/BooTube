@@ -17,6 +17,7 @@ const VideoIndexPage = () => {
       <div className="video-index-page">
          <TopBar />
          <CategoryBar />
+         
          <VideoIndex />
          <Sidebar />
       </div>

@@ -67,10 +67,6 @@ const UserLoginForm = () => {
       }, 100)
    }
 
-   const createAccount = () => {
-      return <Redirect to="/signup"/>
-   }
-
    return (
       <div className="signin-page">
          <ul>

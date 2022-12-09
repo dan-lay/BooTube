@@ -7,7 +7,7 @@ import UserSignupForm from './components/UserSignupForm/UserSignupForm';
 import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
 import VideoShowPage from './components/VideoShowPage/VideoShowPage';
 
-function App() {
+const App = () => {
   const location = useLocation();
   
   return (

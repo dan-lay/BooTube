@@ -3,11 +3,20 @@
    position: relative;
    justify-content: center;
    /* height: 278.74px; */
-   border: 1px solid white;
+   /* border: 1px solid white; */
 }
 
 .video-index-item:hover {
    cursor: pointer;
+}
+
+.thumbnail {
+   position: relative;
+   width: 98vw;
+   height: 75vw;
+   max-width: 300px;
+   max-height: 180px;
+   border-radius: 12px;
 }
 
 video {

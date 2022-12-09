@@ -21,7 +21,7 @@ const TopBar = () => {
 
 
    return (
-      <div className="masthead">
+      <div className="topbar">
          <div className='left-masthead'>
             <div className='side-modal-button'>
                <img alt="hmbrgr" src={hamburger}/>

@@ -19,7 +19,6 @@ const storeCSRFToken = response => {
 }
 
 const storeCurrentUser = user => {
-  // debugger
   if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
   else sessionStorage.removeItem("currentUser");
 }
@@ -37,17 +36,17 @@ export const login = ({ email, password }) => async dispatch => {
 };
 
 export const restoreSession = () => async dispatch => {
-  // debugger
+
   const response = await csrfFetch("/api/session");
   console.log(response)
   storeCSRFToken(response);
   const data = await response.json();
-  // debugger
+
   console.log(data)
   storeCurrentUser(data.session);
-  // debugger
+
   dispatch(setCurrentUser(data.session));
-  // debugger
+
   return response;
 };
 
@@ -87,10 +86,10 @@ const initialState = {
 };
 
 const sessionReducer = (state = initialState, action) => {
-  // debugger
+
   Object.freeze(state);
   const newState = { ...state }
-  // debugger
+
 
   switch (action.type) {
     case SET_CURRENT_USER:

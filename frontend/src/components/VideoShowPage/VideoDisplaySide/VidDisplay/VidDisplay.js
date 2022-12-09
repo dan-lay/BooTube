@@ -14,7 +14,6 @@ const VidDisplay = () => {
    }, [])
 
    const videos = useSelector(state => state.videos? state.videos[videoId] : null)
-   debugger
    console.log(videos)
 
    if (!videos) {
