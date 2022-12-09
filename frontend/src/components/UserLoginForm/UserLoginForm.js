@@ -40,9 +40,8 @@ const UserLoginForm = () => {
 
       const timedInput = setInterval(() => {
          if (i === demoEmail.length + demoPassword.length + 1) {
-            console.log(demoEmail)
-            console.log(demoPassword)
-            dispatch(sessionActions.login({demoEmail, demoPassword}))
+            clearInterval(timedInput)
+            dispatch(sessionActions.login({email: demoEmail, password: demoPassword}))
                .catch(async (res) => {
                   let data;
                   try {
@@ -54,13 +53,15 @@ const UserLoginForm = () => {
                   else if (data) setErrors([data]);
                   else setErrors([res.statusText]);
             });
-            clearInterval(timedInput)
+            return
          }
 
          if (i < demoEmail.length) {
             setEmail(demoEmail.substring(0, i + 1));
+            console.log(demoEmail.substring(0, i + 1))
          } else {
             setPassword(demoPassword.substring(0, i - demoEmail.length));
+            console.log(demoPassword.substring(0, i - demoEmail.length))
          }
 
          i += 1;
