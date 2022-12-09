@@ -18,11 +18,11 @@ gem "jbuilder"
 gem "faker" #fake user info
 gem "pry-rails" #pry in rails
 
-#easy preview and video manipulation
-gem "streamio-ffmpeg"
-
 #vips
 gem "ruby-vips"
+
+#easy preview and video manipulation
+gem "streamio-ffmpeg"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
