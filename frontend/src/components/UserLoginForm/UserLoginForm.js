@@ -58,10 +58,8 @@ const UserLoginForm = () => {
 
          if (i < demoEmail.length) {
             setEmail(demoEmail.substring(0, i + 1));
-            console.log(demoEmail.substring(0, i + 1))
          } else {
             setPassword(demoPassword.substring(0, i - demoEmail.length));
-            console.log(demoPassword.substring(0, i - demoEmail.length))
          }
 
          i += 1;
