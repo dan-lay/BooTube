@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
       if current_user
          @user = current_user
          puts @user
-         puts "YO WHATUP"
+         puts "in session show"
          render 'api/users/show'
       else
          render json: { session: nil }

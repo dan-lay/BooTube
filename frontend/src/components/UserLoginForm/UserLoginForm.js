@@ -36,43 +36,36 @@ const UserLoginForm = () => {
       e.preventDefault();
       const demoEmail = "demouser@gmail.com";
       const demoPassword = "password";
-      const demoUser = {
-         email: demoEmail,
-         password: demoPassword
-      } 
+      let i = 0;
 
-      // if (email !== demoEmail) {
-      //    let timedEmail = setInterval(() => {
-      //       if (email !== demoEmail) {
-      //          let tempEmail = demoEmail.slice(0, email.length + 1);
-      //          setEmail(tempEmail)
-      //       } else {
-      //          clearInterval(timedEmail);
-      //       }
-      //    }, 1000)
-      // } 
+      const timedInput = setInterval(() => {
+         if (i === demoEmail.length + demoPassword.length + 1) {
+            console.log(demoEmail)
+            console.log(demoPassword)
+            dispatch(sessionActions.login({demoEmail, demoPassword}))
+               .catch(async (res) => {
+                  let data;
+                  try {
+                     data = await res.clone().json();
+                  } catch {
+                     data = await res.text();
+                  }
+                  if (data?.errors) setErrors(data.errors);
+                  else if (data) setErrors([data]);
+                  else setErrors([res.statusText]);
+            });
+            clearInterval(timedInput)
+         }
 
-      setEmail(demoEmail);
-      setInterval(() => setPassword(demoPassword), 1000);
-      setInterval((e) => {
-         handleSubmit(e)
-      }, 2000);
+         if (i < demoEmail.length) {
+            setEmail(demoEmail.substring(0, i + 1));
+         } else {
+            setPassword(demoPassword.substring(0, i - demoEmail.length));
+         }
 
+         i += 1;
 
-
-      // setErrors([]);
-      // return dispatch(sessionActions.login(demoUser))
-      //    .catch(async (res) => {
-      //       let data;
-      //       try {
-      //          data = await res.clone().json();
-      //       } catch {
-      //          data = await res.text();
-      //       }
-      //       if (data?.errors) setErrors(data.errors);
-      //       else if (data) setErrors([data]);
-      //       else setErrors([res.statusText]);
-      //    });
+      }, 100)
    }
 
    const createAccount = () => {

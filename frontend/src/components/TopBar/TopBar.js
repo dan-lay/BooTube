@@ -15,7 +15,7 @@ const TopBar = () => {
    const [ search, setSearch ] = useState("");
 
    const handleSubmit = () => {
-      
+
    }
    // const logoutButton = sessionUser ? <button className="temp-log-out" onClick={logoutClick}>Log Out</button> : null;
 
@@ -51,8 +51,6 @@ const TopBar = () => {
          <div className='right-masthead'>
             <UserMastheadControls />
          </div>
-
-         
       </div>
    )
 }
