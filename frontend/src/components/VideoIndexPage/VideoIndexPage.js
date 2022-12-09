@@ -15,7 +15,7 @@ const VideoIndexPage = () => {
 
    return (
       <div className="video-index-page">
-         {/* <MastHead /> */}
+         <TopBar />
          <CategoryBar />
          <VideoIndex />
          <Sidebar />

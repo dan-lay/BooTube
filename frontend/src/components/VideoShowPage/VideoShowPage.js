@@ -12,8 +12,7 @@ const VideoShowPage = () => {
 
    return (
       <div className='video-show-page'>
-         {/* <MastHead /> */}
-         {/* <MastHead /> */}
+         <TopBar />
          <div className='bottom-video-show-page'>
             <VideoDisplaySide />
             <VideoRightIndexSide />
