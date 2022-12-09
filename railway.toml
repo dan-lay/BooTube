@@ -3,5 +3,5 @@ builder = "nixpacks"
 buildCommand = "npm run build"
 
 [phases.setup]
-nixPkgs = ["...", "vips"]
+nixPkgs = ["...", "libvips"]
 
