@@ -5,15 +5,15 @@ import { useEffect} from 'react';
 import { getVideo } from '../../../../store/videos';
 
 const VidDisplay = () => {
-   const { videoId } = useParams();
+   const { id } = useParams();
    const dispatch = useDispatch();
-   console.log(videoId)
 
    useEffect(() => {
-      dispatch(getVideo(videoId));
+      // debugger
+      dispatch(getVideo(id));
    }, [])
 
-   const videos = useSelector(state => state.videos? state.videos[videoId] : null)
+   const videos = useSelector(state => state.videos ? state.videos[id] : null)
    console.log(videos)
 
    if (!videos) {

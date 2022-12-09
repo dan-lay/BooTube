@@ -10,17 +10,16 @@
 .video-index {
    display: flex;
    flex-wrap: wrap;
-   justify-content: flex-start;
    position: absolute;
-   /* justify-content: space-around; */
-   padding: 25px 16px 0 16px;
+   align-items: flex-start;
+   padding: 25px 16px 0 70px;
    top: 111px;
    right: 0;
    background-color: #1e1e1e;
    overflow-x: hidden;
    height: 100%;
    z-index: 0;
-   gap: 15px;
+   column-gap: 15px;
 }
 
 @media only screen and (min-width: 793px) {

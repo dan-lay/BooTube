@@ -1,13 +1,18 @@
 .video-index-item {
    display: flex;
+   flex-direction: column;
    position: relative;
-   justify-content: center;
-   /* height: 278.74px; */
-   /* border: 1px solid white; */
+   align-items: center;
+   height: 300px;
+   border: 1px solid white;
 }
 
 .video-index-item:hover {
    cursor: pointer;
+}
+
+.index-item-bottom {
+   width: 100%;
 }
 
 .thumbnail {
@@ -17,6 +22,10 @@
    max-width: 300px;
    max-height: 180px;
    border-radius: 12px;
+}
+
+.index-title {
+   color: rgb(237, 134, 0);
 }
 
 video {

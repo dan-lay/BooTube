@@ -22,18 +22,18 @@ const CommentIndexItem = (props) => {
       setUpdating(false)
    }, [comment])
 
-   const deleteButton = currentUser.id === comment.commenterId ? <button onClick={handleDelete}>DELETE</button> : null;
+   // const deleteButton = currentUser.id === comment.commenterId ? <button onClick={handleDelete}>DELETE</button> : null;
 
-   const updateButton = currentUser.id === comment.commenterId ? <button onClick={handleUpdate}>UPDATE</button> : null;
+   // const updateButton = currentUser.id === comment.commenterId ? <button onClick={handleUpdate}>UPDATE</button> : null;
 
-   const updateForm = updating ? <CommentEditForm commentId={comment.id}/> : null;
+   // const updateForm = updating ? <CommentEditForm commentId={comment.id}/> : null;
 
    return (
       <div className='comment-index-item'>
          <h2>{comment.body}</h2>
-         {deleteButton}
+         {/* {deleteButton}
          {updateButton}
-         {updateForm}
+         {updateForm} */}
 
          
       </div>

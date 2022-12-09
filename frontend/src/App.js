@@ -22,7 +22,7 @@ const App = () => {
         <Route exact path="/signup">
           <UserSignupForm />
         </Route>
-        <Route exact path="/videos/:videoId">
+        <Route exact path="/videos/:id">
           <VideoShowPage />
         </Route>
         <Route exact path="/upload">
