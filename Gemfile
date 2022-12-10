@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.1"
 
+#vips
+gem "ruby-vips"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
@@ -18,8 +21,7 @@ gem "jbuilder"
 gem "faker" #fake user info
 gem "pry-rails" #pry in rails
 
-#vips
-gem "ruby-vips"
+
 
 #easy preview and video manipulation
 gem "streamio-ffmpeg"
