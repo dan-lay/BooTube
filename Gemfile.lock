@@ -143,6 +143,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.10-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-linux)
+      racc (~> 1.4)
     pg (1.4.5)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -197,6 +199,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   annotate
@@ -213,7 +216,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.4)
-  ruby-vips
   streamio-ffmpeg
   tzinfo-data
 
