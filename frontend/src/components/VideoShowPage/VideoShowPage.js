@@ -6,9 +6,6 @@ import { useSelector } from 'react-redux';
 import TopBar from '../TopBar/TopBar';
 
 const VideoShowPage = () => {
-   const currentUser = useSelector(state => state.session.user);
-   console.log(currentUser)
-   // if (!currentUser) return <Redirect to="/"/>;
 
    return (
       <div className='video-show-page'>

@@ -5,8 +5,9 @@ import './VideoIndexItem.css';
 const VideoIndexItem = (props) => {
    const video = props.video;
    const history = useHistory();
+   console.log(video)
 
-   return (
+   return ( video.id &&
       <Link to={`/videos/${video.id}`}>      
          <div className="video-index-item" >
             {/* <video controls="controls autoplay">

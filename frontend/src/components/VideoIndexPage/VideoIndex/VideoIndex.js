@@ -12,6 +12,9 @@ const VideoIndex = () => {
    useEffect(() => {
       dispatch(getVideos());
    }, [])
+
+   // console.log(videos)
+   // console.log(videoArr)
    
 
    return (
