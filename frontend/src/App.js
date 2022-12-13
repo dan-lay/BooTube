@@ -28,9 +28,6 @@ const App = () => {
         <Route exact path="/upload">
           <UploadVideoModal />
         </Route>
-        <Route path="/upload">
-          <UploadVideoModal />
-        </Route>
         <Route exact path="/recover">
           <AccountRecoverForm />
         </Route>
