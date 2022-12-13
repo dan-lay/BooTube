@@ -5,6 +5,7 @@ import './VideoIndexItem.css';
 const VideoIndexItem = (props) => {
    const video = props.video;
    const history = useHistory();
+   console.log(video)
    console.log(video.thumbnail)
 
    return (
