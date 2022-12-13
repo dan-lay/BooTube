@@ -1,7 +1,10 @@
 .video-show-page {
+   display: flex;
+   position: relative;
    height: 100%;
    width: 100%;
-   /* background-color: aqua; */
+   overflow-x: hidden;
+   background-color: #1e1e1e;
 }
 
 .bottom-video-show-page {

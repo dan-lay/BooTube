@@ -9,16 +9,10 @@ const VidDisplay = () => {
    const dispatch = useDispatch();
 
    useEffect(() => {
-      // debugger
       dispatch(getVideo(id));
    }, [])
 
    const videos = useSelector(state => state.videos ? state.videos[id] : null)
-   console.log(videos)
-
-   if (!videos) {
-      return null
-   }
 
    return (
       <div className='vid-display'>
