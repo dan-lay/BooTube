@@ -9,7 +9,7 @@ import { getVideo } from '../../../../store/videos'
 
 
 const CommentIndex = () => {
-   const { videoId } = useParams();
+   const { id } = useParams();
    const comments = useSelector(state => state.comments ? Object.values(state.comments) : []);
    const [body, setBody] = useState("");
    const commenterId = useSelector(state => state.session.user?.id)
@@ -19,7 +19,7 @@ const CommentIndex = () => {
    const handleSubmit = e => {
       e.preventDefault();
       setErrors([]);
-      return dispatch(createComment({body, commenterId, videoId}))
+      return dispatch(createComment({body, commenterId, id}))
          .catch(async (res) => {
             let data;
             try {
@@ -40,7 +40,7 @@ const CommentIndex = () => {
    }
 
    useEffect(() => {
-      dispatch(getVideo(videoId));
+      dispatch(getVideo(id));
    }, [])
 
    return (
