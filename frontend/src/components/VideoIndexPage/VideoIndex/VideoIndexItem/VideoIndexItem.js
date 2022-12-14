@@ -11,10 +11,10 @@ const VideoIndexItem = (props) => {
    return (
       <Link to={`/videos/${video.id}`}>      
          <div className="video-index-item" >
-            {/* <video controls="controls autoplay">
+            <video controls="controls autoplay">
                <source type="video/mp4" src={video.mediaObject}/>
-            </video> */}
-            <img className="thumbnail" src={video.thumbnail}></img>
+            </video>
+            {/* <img className="thumbnail" src={video.thumbnail}></img> */}
             <div className='index-item-bottom'>
                <p className='index-title'>{video.title}</p>
             </div>
