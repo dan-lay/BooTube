@@ -17,6 +17,8 @@ class Api::VideosController < ApplicationController
    def index
       @videos = Video.all
 
+      puts @videos
+
       if @videos
          render :index
       else
