@@ -26,6 +26,9 @@ gem "pry-rails" #pry in rails
 #easy preview and video manipulation
 gem "streamio-ffmpeg"
 
+# uri gem for opening files
+gem "open-uri"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
