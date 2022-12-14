@@ -30,6 +30,9 @@
 
 video {
    position: relative;
-   max-width: 95%;
-   max-height: 200px;
+   width: 98vw;
+   height: 75vw;
+   max-width: 300px;
+   max-height: 180px;
+   border-radius: 12px;
 }

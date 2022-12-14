@@ -6,17 +6,3 @@
    overflow-x: hidden;
    background-color: #1e1e1e;
 }
-
-.bottom-video-show-page {
-   margin-top: 53px;
-   display: flex;
-   /* position: absolute; */
-
-   left: 0;
-   right: 0;
-   bottom: 0;
-   height: 100%;
-   width: 100%;
-   background-color: #373737;
-   border: 1px solid black;
-}

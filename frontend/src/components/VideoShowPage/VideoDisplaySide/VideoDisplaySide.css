@@ -1,18 +1,14 @@
 .video-display-side {
    display: flex;
-   /* width:max-content; */
-   /* align-items: flex-start; */
-   /* align-items: flex-start; */
-   /* max-width: 75%; */
+   position: absolute;
+   top: 56px;
+   width: 66%;
+   height: 100%;
    justify-content: flex-start;
    align-items: flex-start;
    flex-direction: column;
-   max-width: 1220px;
-   /* flex-grow: 1; */
    background-color: #373737;
-   border: 1px solid black;
-   margin: 0px 0px 0px 24px;
+   border: 1px solid blue;
+   margin-left: 24px;
    padding: 24px 24px 0px 0px; 
-   /* box-sizing: border-box; */
-   /* position: relative; */
 }

@@ -10,10 +10,8 @@ const VideoShowPage = () => {
    return (
       <div className='video-show-page'>
          <TopBar />
-         <div className='bottom-video-show-page'>
-            <VideoDisplaySide />
-            <VideoRightIndexSide />
-         </div>
+         <VideoDisplaySide />
+         <VideoRightIndexSide />
       </div>
    )
 }
