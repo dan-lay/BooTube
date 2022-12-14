@@ -38,37 +38,37 @@ ActiveRecord::Base.transaction do
   puts "Creating videos..."
 
   demo_vid = Video.new(title: "i am the demo video", uploader_id: demo.id)
-  demo_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/zombie_chilling_out.mp4')
+  demo_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/zombie_chilling_out.mp4')
   demo_vid.media_object.attach(io: demo_media_object, filename: "zombie_chilling.mp4")
   demo_vid.save!
 
   dan_vid = Video.new(title: "dan's cool vid", uploader_id: dan.id)
-  dan_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/corn_lady.mp4')
+  dan_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/corn_lady.mp4')
   dan_vid.media_object.attach(io: dan_media_object, filename: "corn_lady.mp4")
   dan_vid.save!
 
   fred_vid = Video.new(title: "fred's cool vid", uploader_id: fred.id)
-  fred_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/laughing_clown.mp4')
+  fred_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/laughing_clown.mp4')
   fred_vid.media_object.attach(io: fred_media_object, filename: "laughing_clown.mp4")
   fred_vid.save!
 
   clide_vid = Video.new(title: "clide's cool vid", uploader_id: clide.id)
-  clide_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/ghost_friends.mp4')
+  clide_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/ghost_friends.mp4')
   clide_vid.media_object.attach(io: clide_media_object, filename: "ghost_friends.mp4")
   clide_vid.save!
 
   adina_vid = Video.new(title: "adina's cool vid", uploader_id: adina.id)
-  adina_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/construction.mp4')
+  adina_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/construction.mp4')
   adina_vid.media_object.attach(io: adina_media_object, filename: "construction.mp4")
   adina_vid.save!
 
   ben_vid = Video.new(title: "ben's cool vid", uploader_id: ben.id)
-  ben_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/all_smiles.mp4')
+  ben_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/all_smiles.mp4')
   ben_vid.media_object.attach(io: ben_media_object, filename: "all_smiles.mp4")
   ben_vid.save!
 
   ian_vid = Video.new(title: "ian's cool vid", uploader_id: ian.id)
-  ian_media_object = URI.open('https://booootube-seeds.s3.amazonaws.com/jackolantern.mp4')
+  ian_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/jackolantern.mp4')
   ian_vid.media_object.attach(io: ian_media_object, filename: "jackolantern.mp4")
   ian_vid.save!
 
