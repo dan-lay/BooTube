@@ -16,7 +16,7 @@ ActiveRecord::Base.transaction do
   Video.destroy_all
   User.destroy_all
 
-  puts "Resetting primary keys..."
+  puts "Resetting primary keys..." 
 
   ActiveRecord::Base.connection.reset_pk_sequence!('users')
   ActiveRecord::Base.connection.reset_pk_sequence!('videos')
