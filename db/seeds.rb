@@ -38,9 +38,13 @@ ActiveRecord::Base.transaction do
   puts "Creating videos..."
 
   demo_vid = Video.new(title: "i am the demo video", uploader_id: demo.id)
+  puts "after vid instantiated"
   demo_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/zombie_chilling_out.mp4')
+  puts "after uri opened"
   demo_vid.media_object.attach(io: demo_media_object, filename: "zombie_chilling.mp4")
+  puts "after attachment"
   demo_vid.save!
+  puts "after save"
 
   dan_vid = Video.new(title: "dan's cool vid", uploader_id: dan.id)
   dan_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/corn_lady.mp4')
