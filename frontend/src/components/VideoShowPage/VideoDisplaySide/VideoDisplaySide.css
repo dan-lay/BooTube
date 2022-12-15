@@ -1,14 +1,12 @@
 .video-display-side {
    display: flex;
-   position: absolute;
-   top: 56px;
-   width: 66%;
-   height: 100%;
+   width: 70.5%;
+   height: max-content;
    justify-content: flex-start;
    align-items: flex-start;
    flex-direction: column;
    background-color: #373737;
-   border: 1px solid blue;
-   margin-left: 24px;
+   /* border: 1px solid blue; */
+   margin-left: 1.5rem;
    padding: 24px 24px 0px 0px; 
 }

@@ -10,7 +10,7 @@ const VideoDisplaySide = () => {
       <div className='video-display-side'>
          <VidDisplay />
          <VidInfoBox />
-         <VideoShowDescription />
+         {/* <VideoShowDescription /> */}
          <CommentIndex />
       </div>
    )
