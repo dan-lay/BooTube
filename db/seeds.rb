@@ -9,6 +9,8 @@
 require 'open-uri'
 require 'streamio-ffmpeg'
 
+FFMPEG.ffmpeg_binary = '/usr/local/bin/ffmpeg'
+
 ActiveRecord::Base.transaction do
 
   puts "Destroying tables..."
