@@ -9,7 +9,7 @@
 require 'open-uri'
 require 'streamio-ffmpeg'
 
-FFMPEG.ffmpeg_binary = '/usr/local/bin/ffmpeg'
+FFMPEG.ffmpeg_binary = '/usr/local/rvm/gems/3.1.1/bin/ffmpeg'
 
 ActiveRecord::Base.transaction do
 
