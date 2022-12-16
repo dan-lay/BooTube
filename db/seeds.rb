@@ -41,6 +41,7 @@ ActiveRecord::Base.transaction do
   demo_vid = Video.new(title: "i am the demo video", uploader_id: demo.id, description: demo_vid_description)
   demo_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/zombie_chilling_out.mp4')
   demo_vid.media_object.attach(io: demo_media_object, filename: "zombie_chilling.mp4")
+  demo_vid.thumbnail.attach(io: demo_media_object.preview(resize_to_limit: [300, 180]), filename: "zombie_chilling_thumbnail.jpeg")
   demo_vid.save!
 
   dan_vid = Video.new(title: "dan's cool vid", uploader_id: dan.id)
