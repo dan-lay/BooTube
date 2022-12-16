@@ -1,9 +1,9 @@
-.video-right-index-side {
+.video-right-index-side { 
    display: flex;
    width: 29.5%;
    flex-direction: column;
    padding: 24px 24px 0px 0px;   
-   height: 100%;
+   height: max-content;
+   height: 160%;                 /* temporary height */
    background-color: #373737;
-   /* border: 1px solid yellow; */
 }

@@ -30,7 +30,23 @@ const CommentIndexItem = (props) => {
 
    return (
       <div className='comment-index-item'>
-         <h2>{comment.body}</h2>
+         <div className='commenter-icon-container'>
+
+         </div>
+         <div className='comment-meat'>
+            <div className='comment-upper'>
+
+            </div>
+            <p className='comment-body'>{comment.body}</p>
+            <div className='comment-utils'>
+               <div className='like-button'></div>
+               <div className='like-counter'></div>
+               <div className='dislike-button'></div>
+               <div className='dislike-counter'></div>
+               <div className='comment-reply-button'></div>
+            </div>
+         </div>
+         
          {/* {deleteButton}
          {updateButton}
          {updateForm} */}
