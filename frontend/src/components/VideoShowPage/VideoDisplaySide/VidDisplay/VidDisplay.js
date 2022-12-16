@@ -4,19 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect} from 'react';
 import { getVideo } from '../../../../store/videos';
 
-const VidDisplay = () => {
-   const { id } = useParams();
-   const dispatch = useDispatch();
-
-   useEffect(() => {
-      dispatch(getVideo(id));
-   }, [])
-
-   const videos = useSelector(state => state.videos ? state.videos[id] : null)
+const VidDisplay = (props) => {
+   const video = props.video;
+   const videoSource = video ? video.mediaObject : '';
 
    return (
       <div className='vid-display'>
-         <video controls="controls autoplay" type="video/mp4" src={videos ? videos.mediaObject : ''} alt="video"/>
+         <video controls="controls autoplay" type="video/mp4" src={videoSource} alt="video"/>
       </div>
    )
 

@@ -4,9 +4,6 @@ import { getComment, createComment } from '../../../../store/comments';
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getVideo } from '../../../../store/videos'
-
-
 
 const CommentIndex = () => {
    const history = useHistory();
@@ -15,7 +12,6 @@ const CommentIndex = () => {
    const commentCount = comments ? (comments.length >= 1000 ? `${comments.length / 1000.0}K Comments` : `${comments.length} Comments`) : null;
    const [body, setBody] = useState("");
    const signedIn = useSelector(state => state.session.user ? true : false)
-   console.log(signedIn)
    const commenterId = useSelector(state => state.session.user?.id)
    const dispatch = useDispatch();
    const [errors, setErrors] = useState([]);
@@ -47,10 +43,6 @@ const CommentIndex = () => {
       e.preventDefault();
       return setBody("");
    }
-
-   useEffect(() => {
-      dispatch(getVideo(id));
-   }, [])
 
    return (
       <div className="comment-index">

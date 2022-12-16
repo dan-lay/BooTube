@@ -8,7 +8,8 @@ import users from './users';
 const rootReducer = combineReducers({
   session,
   videos,
-  comments
+  comments,
+  users
 });
 
 let enhancer;

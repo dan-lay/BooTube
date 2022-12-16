@@ -93,3 +93,7 @@ a {
    background-clip: content-box;
    border: 6px solid transparent;
 }
+
+*[class$='button']:hover {
+   cursor: pointer;
+}

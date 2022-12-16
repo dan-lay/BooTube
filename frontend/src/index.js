@@ -9,6 +9,7 @@ import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
 import * as videoActions from './store/videos';
 import * as commentActions from './store/comments';
+import * as userActions from './store/users';
 
 // const initialState = {     //THIS IS WRONG!!!!!! Sets session to empty object upon refresh
 //   session: null,
@@ -24,6 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.csrfFetch = csrfFetch;
   window.videoActions = videoActions;
   window.commentActions = commentActions;
+  window.userActions = userActions;
 }
 
 const renderApplication = () => {

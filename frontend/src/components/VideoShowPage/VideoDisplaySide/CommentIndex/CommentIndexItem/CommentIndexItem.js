@@ -7,6 +7,10 @@ import { formatUploadDate } from '../../../../../utils/dateFormatter';
 
 const CommentIndexItem = (props) => {
    const comment = props.comment;
+   const commenterId = comment ? comment.commenterId : null;
+   const commenterName = comment ? comment.commenterName : null; //change to username later
+   const commentDate = comment ? formatUploadDate(comment.createdAt) : null;
+   console.log(commenterId)
    const dispatch = useDispatch();
    const currentUser = useSelector(state => state.session.user)
    const [updating, setUpdating] = useState(false)
@@ -36,8 +40,8 @@ const CommentIndexItem = (props) => {
          </div>
          <div className='comment-meat'>
             <div className='comment-upper'>
-               <p className='commenter-name'></p>
-               <p className='comment-date'>{comment ? formatUploadDate(comment.createdAt) : null}</p>
+               <p className='commenter-name'>{commenterName}</p>
+               <p className='comment-date'>{commentDate}</p>
             </div>
             <p className='comment-body'>{comment.body}</p>
             <div className='comment-utils'>

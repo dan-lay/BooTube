@@ -3,16 +3,18 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { formatUploadDate } from '../../../../utils/dateFormatter';
 
-const VidInfoBox = () => {
-   const video = useSelector(state => state.videos ? state.videos[1] : null)
-   const uploadTime = video ? video.createdAt : null;
+const VidInfoBox = (props) => {
+   const video = props.video;
+   const uploadTime = video ? formatUploadDate(video.createdAt) : null;
    const description = video ? video.description : null;
+   const title = video ? video.title : null;
+   const uploaderName = video ? video.uploaderName : null;
    
    return (
       <div className='vid-info-box'>
          <div className='title-hashtag-container'>
             <div className='hashtags'>hashtags</div>
-            <p className='show-title'>{`${video ? video.title : null}`}</p>
+            <p className='show-title'>{title}</p>
          </div>
          <div className='utility-row'>
             <div className='channel-utilities'>
@@ -21,14 +23,31 @@ const VidInfoBox = () => {
 
                   </div>
                   <div className='channel-info'>
-
+                     <p className='channel-name'>{uploaderName}</p>
+                     <p className='subscriber-count'>subscribers</p>
                   </div>
                   <div className='subscribe-button'>
-
+                     <p>Subscribe</p>
                   </div>
                </div>
             </div>
-            <div className='video-utilities'>
+            <div className='vid-utilities'>
+               <div className='vid-like-button'>like
+      
+
+               </div>
+               <div className='vid-dislike-button'>dislike
+
+               </div>
+               <div className='share-button'>share
+
+               </div>
+               <div className='save-button'>save
+
+               </div>
+               <div className='jumpscare-button'>!!!
+
+               </div>
 
             </div>
          </div>
@@ -36,7 +55,7 @@ const VidInfoBox = () => {
             <div className='vid-description'>
                <div className='view-timestamp-container'>
                   <p className='viewcount'>views</p>
-                  <p className='timestamp'>{`${uploadTime ? formatUploadDate(uploadTime) : null}`}</p>
+                  <p className='timestamp'>{uploadTime}</p>
                </div>
                <p className='description'>{description}</p>
             </div>
