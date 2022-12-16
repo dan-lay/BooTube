@@ -10,6 +10,6 @@
 
 @media screen and (min-width: 1770px) {
    .video-right-index-side {
-      margin-right: 5.2%;
+      margin-right: calc(5.2% - 24px);
    }
 }

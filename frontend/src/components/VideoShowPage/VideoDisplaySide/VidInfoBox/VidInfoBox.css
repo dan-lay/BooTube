@@ -55,9 +55,16 @@
 }
 
 .vid-description {
+   padding: .7rem;
    width: 100%;
    height: 100%;
    background-color: rgb(49, 49, 49);
    border-radius: 10px;
+}
+
+.view-timestamp-container {
+   display: flex;
+   gap: .5rem;
+   font-size: .9rem;
 }
 
