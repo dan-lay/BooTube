@@ -28,6 +28,13 @@
    border: 1px solid orange;
 }
 
+.comment-date {
+   font-size: .7rem;
+   font-weight: 100;
+   line-height: 1.1rem;
+   color: rgb(176, 176, 176);
+}
+
 .comment-body {
    width: 100%;
    line-height: 1.5rem;

@@ -12,6 +12,7 @@ const CommentIndex = () => {
    const history = useHistory();
    const { id } = useParams();
    const comments = useSelector(state => state.comments ? Object.values(state.comments) : []);
+   const commentCount = comments ? (comments.length >= 1000 ? `${comments.length / 1000.0}K Comments` : `${comments.length} Comments`) : null;
    const [body, setBody] = useState("");
    const signedIn = useSelector(state => state.session.user ? true : false)
    console.log(signedIn)
@@ -55,7 +56,8 @@ const CommentIndex = () => {
       <div className="comment-index">
          <div className="comment-box">
             <div className="comment-index-info">
-
+               <p className="comment-count">{commentCount}</p>
+               <div className="comment-sort-button">Sort by</div> {/* this will be changed */}
             </div>
             <div className="comment-form-container">
                <div className="commenter-icon-container"></div>

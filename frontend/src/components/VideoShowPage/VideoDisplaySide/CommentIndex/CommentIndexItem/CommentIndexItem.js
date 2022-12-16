@@ -3,6 +3,7 @@ import './CommentIndexItem.css'
 import { useDispatch, useSelector} from 'react-redux';
 import { deleteComment } from '../../../../../store/comments';
 import CommentEditForm from './CommentEditForm/CommentEditForm';
+import { formatUploadDate } from '../../../../../utils/dateFormatter';
 
 const CommentIndexItem = (props) => {
    const comment = props.comment;
@@ -36,6 +37,7 @@ const CommentIndexItem = (props) => {
          <div className='comment-meat'>
             <div className='comment-upper'>
                <p className='commenter-name'></p>
+               <p className='comment-date'>{comment ? formatUploadDate(comment.createdAt) : null}</p>
             </div>
             <p className='comment-body'>{comment.body}</p>
             <div className='comment-utils'>

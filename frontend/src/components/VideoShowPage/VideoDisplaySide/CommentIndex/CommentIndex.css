@@ -11,8 +11,7 @@
    flex-direction: column;
    width: 100%;
    min-height: 115.5px;
-   border-bottom: 1px solid black;
-   margin: 8px 0px 16px 0px;
+   margin-top: 8px;
 }
 
 .comment-index-info {
@@ -20,15 +19,23 @@
    min-height: 23.50px;
    height: 23.5px;
    width: 100%;
+   gap: 2rem;
    box-sizing: border-box;
-   border: 1px solid black;
+   /* border: 1px solid black; */
    margin-bottom: 24px;
+   line-height: 1.38rem;
+   color: rgb(174, 90, 7);
 }
 
 .comment-form-container {
    display: flex;
    height: 2.5rem;
    width: 100%;
+}
+
+.comment-sort-button {
+   font-size: .9rem;
+   line-height: 1.1rem;
 }
 
 .comment-input {

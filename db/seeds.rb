@@ -37,7 +37,7 @@ ActiveRecord::Base.transaction do
 
   puts "Creating videos..."
 
-  demo_vid_description = "This video is from when our DIY home-improvement project went horribly wrong. As you can see I was very visibly frustrated, as was my husband in the background..."
+  demo_vid_description = "This video is from when our DIY home-improvement project went horribly wrong. As you can see I was very visibly frustrated, as was my family in the background. Next time, I think I might seek out a professional..."
   demo_vid = Video.new(title: "i am the demo video", uploader_id: demo.id, description: demo_vid_description)
   demo_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/zombie_chilling_out.mp4')
   demo_vid.media_object.attach(io: demo_media_object, filename: "zombie_chilling.mp4")

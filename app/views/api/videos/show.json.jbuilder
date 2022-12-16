@@ -13,3 +13,11 @@ json.comments do
       end
    end
 end
+
+# json.commenters do
+#   @video.comments.each do |commenter|
+#       json.set! commenter_id do
+#          json.extract! commenter, :id, :name
+#       end
+#    end
+# end
