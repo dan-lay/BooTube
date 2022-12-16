@@ -88,6 +88,7 @@
    align-items: center;
    justify-content: flex-end;
    width: 50%;
+   color: #bbbbbb;
 }
 
 .vid-like-button {
@@ -96,6 +97,7 @@
    align-items: center;
    position: relative;
    width: 5.0462rem;
+   gap: .5rem;
    height: 80%;
    border-top-left-radius: 1.5rem;
    border-bottom-left-radius: 1.5rem;
@@ -126,6 +128,7 @@
 .share-button {
    display: flex;
    justify-content: center;
+   gap: .5rem;
    align-items: center;
    height: 80%;
    width: 5.7562rem;
@@ -139,6 +142,7 @@
    justify-content: center;
    align-items: center;
    height: 80%;
+   gap: .5rem;
    width: 5.3919rem;
    background-color: rgb(61, 61, 61);
    border-radius: 1.5rem;

@@ -32,18 +32,18 @@ const VidInfoBox = (props) => {
                </div>
             </div>
             <div className='vid-utilities'>
-               <div className='vid-like-button'>like
-      
-
+               <div className='vid-like-button'>
+                  <i className='fa-regular fa-thumbs-up'></i>
+                  <p>count</p>
                </div>
-               <div className='vid-dislike-button'>dislike
-
+               <div className='vid-dislike-button'>
+                  <i className='fa-regular fa-thumbs-down'></i>
                </div>
                <div className='share-button'>share
-
+                  <i class="fa-solid fa-share"></i>
                </div>
                <div className='save-button'>save
-
+                  <i class="fa-solid fa-folder-plus"></i>
                </div>
                <div className='jumpscare-button'>!!!
 
