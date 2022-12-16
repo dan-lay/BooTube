@@ -12,7 +12,7 @@ const VideoIndexItem = (props) => {
             <video controls="controls autoplay">
                <source type="video/mp4" src={video.mediaObject}/>
             </video>
-            {/* <img className="thumbnail" src={video.thumbnail}></img> */}
+            <img className="thumbnail" src={video.thumbnail}></img>
             <div className='index-item-bottom'>
                <p className='index-title'>{video.title}</p>
             </div>

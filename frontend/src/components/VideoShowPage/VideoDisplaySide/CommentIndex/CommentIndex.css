@@ -34,7 +34,11 @@
 }
 
 .comment-sort-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    font-size: .9rem;
+   gap: .5rem;
    line-height: 1.1rem;
 }
 

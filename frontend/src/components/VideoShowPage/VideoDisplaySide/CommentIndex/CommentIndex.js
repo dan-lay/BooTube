@@ -49,7 +49,10 @@ const CommentIndex = () => {
          <div className="comment-box">
             <div className="comment-index-info">
                <p className="comment-count">{commentCount}</p>
-               <div className="comment-sort-button">Sort by</div> {/* this will be changed */}
+               <div className="comment-sort-button">
+                  <i class="fa-solid fa-sliders"></i>
+                  <p>Sort by</p>
+               </div> {/* this will be changed */}
             </div>
             <div className="comment-form-container">
                <div className="commenter-icon-container"></div>
