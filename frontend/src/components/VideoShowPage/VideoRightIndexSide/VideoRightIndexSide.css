@@ -7,3 +7,9 @@
    height: 160%;                 /* temporary height */
    background-color: #373737;
 }
+
+@media screen and (min-width: 1770px) {
+   .video-right-index-side {
+      margin-right: 5.2%;
+   }
+}

@@ -8,3 +8,9 @@
    margin-left: 1.5rem;
    padding: 24px 24px 0px 0px; 
 }
+
+@media screen and (min-width: 1770px) {
+   .video-display-side {
+      margin-left: 5.2%;
+   }
+}

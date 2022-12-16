@@ -35,7 +35,7 @@ const CommentIndexItem = (props) => {
          </div>
          <div className='comment-meat'>
             <div className='comment-upper'>
-
+               <p className='commenter-name'></p>
             </div>
             <p className='comment-body'>{comment.body}</p>
             <div className='comment-utils'>
