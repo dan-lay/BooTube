@@ -10,7 +10,7 @@ const VidDisplay = (props) => {
 
    return (
       <div className='vid-display'>
-         <video controls="controls autoplay" type="video/mp4" src={videoSource} alt="video"/>
+         <video controls autoplay type="video/mp4" src={videoSource} alt="video"/>
       </div>
    )
 

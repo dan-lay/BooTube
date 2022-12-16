@@ -24,7 +24,6 @@ class Video < ApplicationRecord
    dependent: :destroy
 
    has_one_attached :media_object
-   has_one_attached :thumbnail
 
    def ensure_media_object
       unless self.media_object.attached?

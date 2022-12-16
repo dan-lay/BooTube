@@ -21,18 +21,17 @@
    height: 75vw;
    max-width: 300px;
    max-height: 180px;
-   border-radius: 12px;
 }
 
 .index-title {
    color: rgb(237, 134, 0);
 }
 
-.video-index-item > video {
+/* .video-index-item > video {
    position: relative;
    width: 98vw;
    height: 75vw;
    max-width: 300px;
    max-height: 180px;
    border-radius: 12px;
-}
+} */
