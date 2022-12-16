@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "rvm use 3.1.1 && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
