@@ -10,14 +10,14 @@
 .video-index {
    display: flex;
    flex-wrap: wrap;
+   justify-content: center;
    position: absolute;
-   align-items: flex-start;
-   padding: 25px 16px 0 70px;
+   padding-top: 25px;
    top: 111px;
    right: 0;
    background-color: #1e1e1e;
    overflow-x: hidden;
-   height: 100%;
+   height: max-content;
    z-index: 0;
    column-gap: 15px;
 }
