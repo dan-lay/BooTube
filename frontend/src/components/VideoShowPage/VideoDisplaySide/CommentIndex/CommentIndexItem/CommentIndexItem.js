@@ -73,7 +73,7 @@ const CommentIndexItem = (props) => {
             </div>
          }
          {/* {updateForm} */}
-
+   
          
       </div>
    )
