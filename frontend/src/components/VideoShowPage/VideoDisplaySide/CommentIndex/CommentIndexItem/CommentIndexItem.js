@@ -12,7 +12,8 @@ const CommentIndexItem = (props) => {
    const commentDate = comment ? formatUploadDate(comment.createdAt) : null;
    console.log(commenterId)
    const dispatch = useDispatch();
-   const currentUser = useSelector(state => state.session ? state.session.user : null)
+   const currentUser = useSelector(state => state.session ? state.session.user : null);
+   const currentUserId = currentUser ? currentUser.id : null;
    const [updating, setUpdating] = useState(false)
    const [commentOptions, setCommentOptions] = useState(false)
 
@@ -54,7 +55,7 @@ const CommentIndexItem = (props) => {
                <div className='comment-reply-button'></div>
             </div> */}
          </div>
-         {currentUser.id === comment.commenterId &&
+         {currentUserId &&
             <div className='comment-edit-button' onClick={openCommentOptions}> 
                <i className="fa-solid fa-ellipsis-vertical"></i>
             </div>
