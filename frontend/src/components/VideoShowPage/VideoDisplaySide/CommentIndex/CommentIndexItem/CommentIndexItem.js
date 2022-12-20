@@ -26,7 +26,7 @@ const CommentIndexItem = (props) => {
       setUpdating(true);
    }
 
-   const openCommentOptions = () => {
+   const openCommentOptions = () => {   
       setCommentOptions(true)
    }
 
