@@ -12,7 +12,7 @@ const CommentIndexItem = (props) => {
    const commentDate = comment ? formatUploadDate(comment.createdAt) : null;
    console.log(commenterId)
    const dispatch = useDispatch();
-   const currentUser = useSelector(state => state.session ? state.session.user : null);
+   const currentUser = useSelector(state => state.session.user);
    const currentUserId = currentUser ? currentUser.id : null;
    const [updating, setUpdating] = useState(false)
    const [commentOptions, setCommentOptions] = useState(false)
@@ -34,7 +34,7 @@ const CommentIndexItem = (props) => {
       setUpdating(false)
    }, [comment])
 
-   const updateForm = updating ? <CommentEditForm commentId={comment.id}/> : null;
+   // const updateForm = updating ? <CommentEditForm commentId={comment.id}/> : null;
    
    return (
       <div className='comment-index-item'>
