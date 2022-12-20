@@ -14,32 +14,34 @@ const CommentIndexItem = (props) => {
    const dispatch = useDispatch();
    const currentUser = useSelector(state => state.session.user)
    const [updating, setUpdating] = useState(false)
+   const [commentOptions, setCommentOptions] = useState(false)
 
    const handleDelete = () => {
-      dispatch(deleteComment(comment.id))
+      setCommentOptions(false);
+      dispatch(deleteComment(comment.id));
    }
 
    const handleUpdate = () => {
-      return setUpdating(true)
+      setUpdating(true);
+   }
+
+   const openCommentOptions = () => {
+      setCommentOptions(true)
    }
 
    useEffect(() => {
       setUpdating(false)
    }, [comment])
 
-   // const deleteButton = currentUser.id === comment.commenterId ? <button onClick={handleDelete}>DELETE</button> : null;
-
-   // const updateButton = currentUser.id === comment.commenterId ? <button onClick={handleUpdate}>UPDATE</button> : null;
-
-   // const updateForm = updating ? <CommentEditForm commentId={comment.id}/> : null;
-
+   const updateForm = updating ? <CommentEditForm commentId={comment.id}/> : null;
+   
    return (
       <div className='comment-index-item'>
          <div className='commenter-icon-container'>
 
          </div>
          <div className='comment-meat'>
-            <div className='comment-upper'>
+            {/* <div className='comment-upper'>
                <p className='commenter-name'>{commenterName}</p>
                <p className='comment-date'>{commentDate}</p>
             </div>
@@ -50,12 +52,26 @@ const CommentIndexItem = (props) => {
                <div className='dislike-button'></div>
                <div className='dislike-counter'></div>
                <div className='comment-reply-button'></div>
-            </div>
+            </div> */}
          </div>
-         
-         {/* {deleteButton}
-         {updateButton}
-         {updateForm} */}
+         {currentUser.id === comment.commenterId &&
+            <div className='comment-edit-button' onClick={openCommentOptions}> 
+               <i className="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+         }
+         {commentOptions && 
+            <div className='comment-options'>
+               <div className='edit-comment-button'>
+                  <i className="fa-solid fa-pencil"></i>
+                  <p>Edit</p>
+               </div>
+               <div className='delete-comment-button' onClick={handleDelete}>
+                  <i className="fa-solid fa-trash-can"></i>
+                  <p>Delete</p>
+               </div>
+            </div>
+         }
+         {/* {updateForm} */}
 
          
       </div>

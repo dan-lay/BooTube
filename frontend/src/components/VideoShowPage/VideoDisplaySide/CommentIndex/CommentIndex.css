@@ -44,6 +44,7 @@
 
 .comment-input {
    all: unset;
+   color: rgb(173, 173, 173);
    border-bottom: 1px solid grey;
    padding-bottom: .3rem;
    margin-right: 1rem;
@@ -54,4 +55,37 @@
 
 .comment-input:hover {
    cursor: text;
+}
+
+.comment-buttons {
+   display: flex;
+   padding-right: 1rem;
+   justify-content: flex-end;
+   gap: .5rem;
+}
+
+.comment-buttons > * {
+   all: unset;
+   font-size: .85rem;
+   font-weight: 500;
+   border-radius: 1.5rem;
+   text-align: center;
+   height: 2rem;
+}
+
+.cancel-button {
+   color: orange;
+   width: 4.5rem;
+}
+
+.cancel-button:hover {
+   background-color: rgb(80, 80, 80);
+}
+
+.submit-comment {
+   color: rgb(121, 63, 5);
+   width: 6rem;
+   background-color: grey;
+   padding: .5rem, 1rem, 1rem, .5rem;
+   cursor: pointer;
 }

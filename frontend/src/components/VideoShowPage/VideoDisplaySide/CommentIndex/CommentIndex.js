@@ -9,8 +9,9 @@ const CommentIndex = () => {
    const history = useHistory();
    const { id } = useParams();
    const comments = useSelector(state => state.comments ? Object.values(state.comments) : []);
-   const commentCount = comments ? (comments.length >= 1000 ? `${comments.length / 1000.0}K Comments` : `${comments.length} Comments`) : null;
+   const commentCount = comments ? (comments.length >= 1000 ? `${comments.length / 1000.0}K Comments` : `${comments.length} Comments`) : null; //will add reply count to this
    const [body, setBody] = useState("");
+   const [ writingComment, setWritingComment ] = useState(false);
    const signedIn = useSelector(state => state.session.user ? true : false)
    const commenterId = useSelector(state => state.session.user?.id)
    const dispatch = useDispatch();
@@ -19,7 +20,8 @@ const CommentIndex = () => {
    const handleSubmit = e => {
       e.preventDefault();
       setErrors([]);
-      return dispatch(createComment({body, commenterId, id}))
+      setWritingComment(false);
+      return dispatch(createComment({body, commenterId, videoId: id}))
          .catch(async (res) => {
             let data;
             try {
@@ -36,12 +38,17 @@ const CommentIndex = () => {
 
    const handleClick = e => {
       e.preventDefault();
-      if (!signedIn) history.push("/login");
+      if (!signedIn) {
+         history.push("/login");
+      } else {
+         setWritingComment(true);
+      }
    }
 
    const handleCancel = e => {
       e.preventDefault();
-      return setBody("");
+      setBody("");
+      setWritingComment(false);
    }
 
    return (
@@ -56,11 +63,28 @@ const CommentIndex = () => {
             </div>
             <div className="comment-form-container">
                <div className="commenter-icon-container"></div>
-               <form id="comment-form" onSubmit={handleSubmit}></form>
-               <input className="comment-input" htmlFor="comment-form" type="text" placeholder="Add a comment..." onClick={e => handleClick(e)} onChange={e => setBody(e.target.value)}></input>
-               {/* <button className="cancel-button" onClick={e => handleCancel(e)}>CANCEL</button>
-               <input type="submit" className="submit-comment" value="COMMENT"></input> */}
+               <input className="comment-input"
+                      htmlFor="comment-form"
+                      type="text"
+                      placeholder="Add a comment..."
+                      onClick={e => handleClick(e)}
+                      onChange={e => setBody(e.target.value)}>
+               </input>
             </div>
+            {writingComment && 
+               <div className="comment-buttons">
+                  <button className="cancel-button" onClick={e => handleCancel(e)}>Cancel</button>
+                  <button className="submit-comment"
+                          style={{
+                           backgroundColor: body !== "" ? 'orange' : 'grey',
+                           color: body !== "" ? '#1e1e1e' : 'rgb(121, 63, 5)',
+                           disabled: body !== "" ? 'false' : 'true',
+                           cursor: body !== "" ? 'pointer' : 'default'
+                         }} 
+                          onClick={handleSubmit}>Comment
+                  </button>
+               </div>
+            }
          </div>
          {comments.map(comment => <CommentIndexItem key={comment.id} comment={comment}/>)}
       </div>
