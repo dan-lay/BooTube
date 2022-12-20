@@ -31,7 +31,7 @@ const CommentIndexItem = (props) => {
    }
 
    useEffect(() => {
-      setUpdating(false)
+      setUpdating(false)  
    }, [comment])
 
    // const updateForm = updating ? <CommentEditForm commentId={comment.id}/> : null;
