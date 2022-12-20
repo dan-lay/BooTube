@@ -12,7 +12,7 @@ const CommentIndexItem = (props) => {
    const commentDate = comment ? formatUploadDate(comment.createdAt) : null;
    console.log(commenterId)
    const dispatch = useDispatch();
-   const currentUser = useSelector(state => state.session.user)
+   const currentUser = useSelector(state => state.session ? state.session.user : null)
    const [updating, setUpdating] = useState(false)
    const [commentOptions, setCommentOptions] = useState(false)
 
