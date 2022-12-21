@@ -40,10 +40,10 @@ const VidInfoBox = (props) => {
                   <i className='fa-regular fa-thumbs-down'></i>
                </div>
                <div className='share-button'>share
-                  <i class="fa-solid fa-share"></i>
+                  <i className="fa-solid fa-share"></i>
                </div>
                <div className='save-button'>save
-                  <i class="fa-solid fa-folder-plus"></i>
+                  <i className="fa-solid fa-folder-plus"></i>
                </div>
                <div className='jumpscare-button'>!!!
 

@@ -1,6 +1,6 @@
 import CommentIndexItem from "./CommentIndexItem/CommentIndexItem";
 import './CommentIndex.css';
-import { getComment, createComment } from '../../../../store/comments';
+import { getComment, getComments, createComment } from '../../../../store/comments';
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -33,7 +33,7 @@ const CommentIndex = () => {
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
          })
-         // .then(dispatch(getVideo(videoId)))
+         .then(dispatch(getComments(id)))
    }
 
    const handleClick = e => {
@@ -57,7 +57,7 @@ const CommentIndex = () => {
             <div className="comment-index-info">
                <p className="comment-count">{commentCount}</p>
                <div className="comment-sort-button">
-                  <i class="fa-solid fa-sliders"></i>
+                  <i className="fa-solid fa-sliders"></i>
                   <p>Sort by</p>
                </div> {/* this will be changed */}
             </div>
