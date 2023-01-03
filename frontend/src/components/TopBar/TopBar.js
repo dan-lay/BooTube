@@ -8,19 +8,22 @@ import UserMastheadControls from './UserMastheadControls/UserMastheadControls';
 import { Redirect } from 'react-router-dom';
 import micIcon from '../../assets/booootube_mic_icon.png';
 import { useState } from 'react';
+import UserDropdownMenu from './UserMastheadControls/UserDropdownMenu/UserDropdownMenu';
 
-const TopBar = () => {
+const TopBar = (props) => {
+   const setRevealUpload = props.setRevealUpload;
+   const revealUpload = props.revealUpload;
    const dispatch = useDispatch();
    const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
    const [ search, setSearch ] = useState("");
+   const [ dropdownOpen, setDropdownOpen ] = useState(false);
 
    const handleSubmit = () => {
 
    }
-   // const logoutButton = sessionUser ? <button className="temp-log-out" onClick={logoutClick}>Log Out</button> : null;
-
 
    return (
+      <>
       <div className="topbar">
          <div className='left-masthead'>
             <div className='side-modal-button'>
@@ -49,9 +52,12 @@ const TopBar = () => {
             </div>
          </div>
          <div className='right-masthead'>
-            <UserMastheadControls />
+            <UserMastheadControls revealUpload={revealUpload} setRevealUpload={setRevealUpload} dropdownOpen={dropdownOpen} setDropdownOpen={setDropdownOpen}/>
          </div>
+
       </div>
+      {dropdownOpen && <UserDropdownMenu setDropdownOpen={setDropdownOpen} />}
+      </>
    )
 }
 

@@ -19,10 +19,6 @@ const UserSignupForm = () => {
 
    if (sessionUser) return <Redirect to="/"/>;
 
-   // useEffect(()=> {
-
-   // }, [])
-
    const handleSubmit = (e) => {
       e.preventDefault();
       if (password === confirmPassword) {

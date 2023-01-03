@@ -27,6 +27,7 @@ class Api::SessionsController < ApplicationController
 
    def destroy
       if current_user
+         puts "made it to inside the if"
          logout
          head :no_content
       end

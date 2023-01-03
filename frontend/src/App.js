@@ -25,9 +25,6 @@ const App = () => {
         <Route exact path="/videos/:id">
           <VideoShowPage />
         </Route>
-        <Route exact path="/upload">
-          <UploadVideoModal />
-        </Route>
         <Route exact path="/recover">
           <AccountRecoverForm />
         </Route>

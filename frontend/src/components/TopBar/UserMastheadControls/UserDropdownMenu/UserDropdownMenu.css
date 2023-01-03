@@ -2,9 +2,9 @@
    box-sizing: border-box;
    position: absolute;
    height: 767px;
-   width: 300px;
-   right: 47px;
-   top: 4px;
+   width: 18.75rem;
+   right: 2rem;
+   top: 2.7rem;
    border-radius: 11px;
    background-color:#403f3f;
    z-index: 5;

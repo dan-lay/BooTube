@@ -21,7 +21,8 @@ const CommentIndex = () => {
       e.preventDefault();
       setErrors([]);
       setWritingComment(false);
-      return dispatch(createComment({body, commenterId, videoId: id}))
+      dispatch(createComment({body, commenterId, videoId: id}))
+         .then(dispatch(getComments(id)))
          .catch(async (res) => {
             let data;
             try {
@@ -33,7 +34,7 @@ const CommentIndex = () => {
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
          })
-         .then(dispatch(getComments(id)))
+      setBody("")
    }
 
    const handleClick = e => {
@@ -64,9 +65,9 @@ const CommentIndex = () => {
             <div className="comment-form-container">
                <div className="commenter-icon-container"></div>
                <input className="comment-input"
-                      htmlFor="comment-form"
                       type="text"
                       placeholder="Add a comment..."
+                      value={body}
                       onClick={e => handleClick(e)}
                       onChange={e => setBody(e.target.value)}>
                </input>

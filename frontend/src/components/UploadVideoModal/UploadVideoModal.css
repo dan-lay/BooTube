@@ -1,6 +1,7 @@
 .upload-video-modal {
    display: flex;
-   background-color: transparent;
+   position: absolute;
+   background-color: rgba(0, 0, 0, 0.633);
    width: 100%;
    height: 100%;
    justify-content: center;

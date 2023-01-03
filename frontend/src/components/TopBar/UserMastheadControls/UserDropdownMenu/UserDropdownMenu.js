@@ -4,16 +4,17 @@ import * as sessionActions from "../../../../store/session";
 
 const UserDropdownMenu = (props) => {
    const dispatch = useDispatch();
-   const hidden = props.hidden;
+   const setDropdownOpen = props.setDropdownOpen;
    const sessionUser = useSelector(state => state.session.user);
 
 
    const logoutClick = () => {
+      setDropdownOpen(false);
       dispatch(sessionActions.logout());
    }
 
    return (
-      <div className='user-dropdown-menu' hidden={hidden}>
+      <div className='user-dropdown-menu'>
          <div className='dropdown-header'>
 
          </div>

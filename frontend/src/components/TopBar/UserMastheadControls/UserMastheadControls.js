@@ -5,28 +5,27 @@ import { useSelector } from 'react-redux';
 import signinIcon from '../../../assets/booootube_signin_icon.png';
 import threeDot from '../../../assets/3-vertical-dots-icon.png';
 import githubIcon from '../../../assets/booootube_github_icon.png';
-import UserDropdownMenu from './UserDropdownMenu/UserDropdownMenu';
 import { useState } from 'react';
 
-const UserMastheadControls = () => {
+const UserMastheadControls = (props) => {
    const currentUser = useSelector(state => state.session.user ? state.session.user : null);
-   const [ hidden, setHidden ] = useState(true);
+   const dropdownOpen = props.dropdownOpen;
+   const setDropdownOpen = props.setDropdownOpen;
+   const setRevealUpload = props.setRevealUpload;
+   const revealUpload = props.revealUpload;
 
    
 
    const innerControls = currentUser ? <>
-                                          <div className="upload-button">
-                                             <Link to='upload'>
-                                                <img src={uploadButton}/>
-                                             </Link>
+                                          <div className="upload-button" onClick={() => setRevealUpload(revealUpload ? false : true)}>
+                                             <img src={uploadButton}/>
                                           </div>
                                           <div className="github-link-button">
                                              <a href='https://github.com/dan-lay/BooTube'>
                                                 <img src={githubIcon}/>
                                              </a>
                                           </div>
-                                          <div className="user-dropdown-button" onClick={() => setHidden(hidden ? false : true)}>
-                                             <UserDropdownMenu hidden={hidden}/>
+                                          <div className="user-dropdown-button" onClick={() => setDropdownOpen(dropdownOpen ? false : true)}>
                                           </div>
                                        </>
                                      : <>
