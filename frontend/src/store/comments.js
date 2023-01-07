@@ -90,7 +90,7 @@ const commentReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_VIDEO:
-      return action.data.comments;
+      return {...action.data.comments};
     case RECEIVE_COMMENT:
       nextState[action.comment.id] = action.comment;
       return nextState;

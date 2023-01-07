@@ -10,7 +10,7 @@ const csrfFetch = async (url, options = {}) => {
   }
 
    const res = await fetch(url, options);
-   console.log("--------", res)
+  //  console.log("--------", res)
 
    if (res.status >= 400) throw res;
 

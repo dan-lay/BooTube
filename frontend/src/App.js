@@ -6,6 +6,7 @@ import VideoIndexPage from './components/VideoIndexPage/VideoIndexPage';
 import UserSignupForm from './components/UserSignupForm/UserSignupForm';
 import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
 import VideoShowPage from './components/VideoShowPage/VideoShowPage';
+import UserChannelPage from './components/UserChannelPage/UserChannelPage';
 
 const App = () => {
   const location = useLocation();
@@ -24,6 +25,9 @@ const App = () => {
         </Route>
         <Route exact path="/videos/:id">
           <VideoShowPage />
+        </Route>
+        <Route exact path="/:channel">
+          <UserChannelPage />
         </Route>
         <Route exact path="/recover">
           <AccountRecoverForm />

@@ -3,6 +3,7 @@ import csrfFetch from "./csrf";
 const RECEIVE_VIDEO = 'videos/RECEIVE_VIDEO';
 const RECEIVE_VIDEOS = 'videos/RECEIVE_VIDEOS';
 const REMOVE_VIDEO = 'videos/REMOVE_VIDEO';
+const ADD_VIDEO = 'videos/ADD_VIDEO';
 
 /*--ACTIONS--*/
 
@@ -20,6 +21,17 @@ export const removeVideo = videoId => ({
   type: REMOVE_VIDEO,
   videoId
 });
+
+
+
+/*--ACTION CREATERS--*/ 
+
+export const getVideo = videoId => async dispatch => {
+  let res = await csrfFetch(`/api/videos/${videoId}`)
+  let data = await res.json();
+  console.log(data)
+  dispatch(receiveVideo(data));
+};
 
 export const getVideos = () => async dispatch => {
   let res = await csrfFetch('/api/videos');
@@ -60,12 +72,7 @@ export const deleteVideo = videoId => async dispatch => {
 
 }
  
-export const getVideo = videoId => async dispatch => {
-  // debugger  
-  let res = await csrfFetch(`/api/videos/${videoId}`)
-  let data = await res.json();
-  dispatch(receiveVideo(data));
-};
+
  
 const videoReducer = (state = {}, action) => {
   Object.freeze(state);

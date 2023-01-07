@@ -7,7 +7,8 @@ class Api::VideosController < ApplicationController
       @video = Video.new(video_params)
 
       if @video.save!
-         render "api/videos/show"
+         # render "api/videos/show"
+         render :show
          # render json: {message: "you did it!"}
       else
          render json: {errors: @video.errors.full_messages }, status: 422
