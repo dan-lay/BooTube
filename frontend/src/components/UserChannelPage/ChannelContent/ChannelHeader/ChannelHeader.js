@@ -5,7 +5,14 @@ const ChannelHeader = (props) => {
 
    return (
       <div className="channel-header">
-         
+         <div className="profile-image-container">
+            <div className="profile-image">
+
+            </div>
+         </div>
+         <div className="header-info-container">
+
+         </div>
       </div>
    )
 }

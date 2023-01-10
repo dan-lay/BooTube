@@ -26,6 +26,7 @@ class User < ApplicationRecord
 
    has_many :videos,
    class_name: :Video,
+   foreign_key: :uploader_id,
    dependent: :destroy
 
    has_many :videoComments,

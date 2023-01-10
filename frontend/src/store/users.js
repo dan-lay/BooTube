@@ -1,14 +1,14 @@
 import csrfFetch from "./csrf";
 
-const RECEIVE_USER = 'videos/RECEIVE_USER';
+export const RECEIVE_USER = 'users/RECEIVE_USER';
 const RECEIVE_USERS = 'videos/RECEIVE_USERS';
 const REMOVE_USER = 'videos/REMOVE_USER';
 
 /*--ACTIONS--*/
 
-export const receiveUser = user => ({
+export const receiveUser = data => ({
    type: RECEIVE_USER,
-   payload: user
+   payload: data
 });
   
  export const receiveUsers = users => ({

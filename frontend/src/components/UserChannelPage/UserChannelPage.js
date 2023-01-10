@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { getUser } from "../../store/users";
 import { useDispatch } from "react-redux";
 import Sidebar from "../VideoIndexPage/Sidebar/Sidebar";
-import ChannelContent from "./ChannelContent/ChannelContent.js";
+import ChannelContent from "./ChannelContent/ChannelContent";
 
 const UserChannelPage = () => {
    const dispatch = useDispatch();
@@ -24,8 +24,8 @@ const UserChannelPage = () => {
 
    return (
       <div className="user-channel-page">
-         <ChannelContent />
          <Sidebar/>
+         <ChannelContent/>
       </div>
    )
 }

@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { RECEIVE_USER } from "./users";
 
 const RECEIVE_VIDEO = 'videos/RECEIVE_VIDEO';
 const RECEIVE_VIDEOS = 'videos/RECEIVE_VIDEOS';
@@ -79,6 +80,8 @@ const videoReducer = (state = {}, action) => {
   const nextState = { ...state };
 
   switch(action.type) {
+    case RECEIVE_USER:
+      return {...action.payload.videos}
     case RECEIVE_VIDEO:
       nextState[action.data.video.id] = action.data.video;
       return nextState;

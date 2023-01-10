@@ -20,33 +20,31 @@ const App = () => {
     <div className="app">
       {topBarVisible && <TopBar setRevealUpload={setRevealUpload} revealUpload={revealUpload}/>}
 
-      <div className='main-content'>
-        <Switch>
-          <Route exact path="/">
-            <VideoIndexPage />
-          </Route>
-          <Route exact path="/login">
-            <UserLoginForm />
-          </Route>
-          <Route exact path="/signup">
-            <UserSignupForm />
-          </Route>
-          <Route exact path="/videos/:id">
-            <VideoShowPage />
-          </Route>
-          <Route exact path="/:handle">
-            <UserChannelPage />
-          </Route>
-          <Route exact path="/recover">
-            <AccountRecoverForm />
-          </Route>
-          <Route exact path="/learn_more">
-            <LearnMorePage />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route exact path="/">
+          <VideoIndexPage />
+        </Route>
+        <Route exact path="/login">
+          <UserLoginForm />
+        </Route>
+        <Route exact path="/signup">
+          <UserSignupForm />
+        </Route>
+        <Route exact path="/videos/:id">
+          <VideoShowPage />
+        </Route>
+        <Route exact path="/:handle">
+          <UserChannelPage />
+        </Route>
+        <Route exact path="/recover">
+          <AccountRecoverForm />
+        </Route>
+        <Route exact path="/learn_more">
+          <LearnMorePage />
+        </Route>
+      </Switch>
 
-        {revealUpload && <UploadVideoModal />}
-      </div>
+      {revealUpload && <UploadVideoModal />}
     </div>
   );
 }
