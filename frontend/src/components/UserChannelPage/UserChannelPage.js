@@ -12,19 +12,20 @@ const UserChannelPage = () => {
    const { handle } = useParams();
    const sessionUsername = useSelector(state => state.session.user ? state.session.user.handle : null)
 
+   let myProfile;
+
+   handle !== sessionUsername ? myProfile = false : myProfile = true; //when you add @ need to add logic here to consider that
+
    useEffect(() => {
       dispatch(getUser(handle))
    }, [])
 
-   let myProfile;
-
-   handle !== sessionUsername ? myProfile = false : myProfile = true;
+   
 
    return (
       <div className="user-channel-page">
          <ChannelContent />
          <Sidebar/>
-         welcome to {handle}'s page
       </div>
    )
 }

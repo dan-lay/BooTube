@@ -3,8 +3,6 @@
    position: fixed;
    width: calc(100% - 19px);
    height: 56px;
-   top: 0;
-   left: 0;
    background-color: #1e1e1e;
    z-index: 3;
    padding-right: 16px;
