@@ -9,7 +9,7 @@ const VideoShowPage = () => {
       <div className='video-show-page'>
          <VideoDisplaySide />
          <VideoRightIndexSide />
-      </div>
+      </div> 
    )
 }
 
