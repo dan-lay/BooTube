@@ -9,10 +9,13 @@ import UserChannelPage from './components/UserChannelPage/UserChannelPage';
 import TopBar from './components/TopBar/TopBar';
 import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
 import { useState } from 'react';
+import Sidebar from './components/VideoIndexPage/Sidebar/Sidebar';
 
 const App = () => {
   const location = useLocation();
   const topBarVisible = location.pathname !== "/login" && location.pathname !== "/signup";
+  console.log(location.pathname.slice(1, 7))
+  const sideBarVisible = location.pathname.slice(1, 7) !== "videos";
 
   const [ revealUpload, setRevealUpload ] = useState(false);
   
@@ -20,6 +23,8 @@ const App = () => {
     <div className="app">
       {topBarVisible && <TopBar setRevealUpload={setRevealUpload} revealUpload={revealUpload}/>}
 
+      {sideBarVisible && <Sidebar />}
+      
       <Switch>
         <Route exact path="/">
           <VideoIndexPage />
