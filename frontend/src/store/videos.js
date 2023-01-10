@@ -3,7 +3,6 @@ import csrfFetch from "./csrf";
 const RECEIVE_VIDEO = 'videos/RECEIVE_VIDEO';
 const RECEIVE_VIDEOS = 'videos/RECEIVE_VIDEOS';
 const REMOVE_VIDEO = 'videos/REMOVE_VIDEO';
-const ADD_VIDEO = 'videos/ADD_VIDEO';
 
 /*--ACTIONS--*/
 

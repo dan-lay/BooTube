@@ -1,0 +1,31 @@
+@media only screen and (max-width: 792px) {
+   .channel-content {
+      left: 0;
+      transition-property: all;
+      transition-duration: 0.1s;
+      transition-timing-function: ease;
+   }
+}
+
+.channel-content {
+   display: flex;
+   flex-direction: column;
+   position: absolute;
+   padding-top: 25px;
+   top: 111px;
+   right: 0;
+   background-color: #1e1e1e;
+   overflow-x: hidden;
+   height: max-content;
+   z-index: 0;
+   column-gap: 15px;
+}
+
+@media only screen and (min-width: 793px) {
+   .channel-content {
+      left: 72px;
+      transition-property: all;
+      transition-duration: 0.1s;
+      transition-timing-function: ease;
+   }
+}

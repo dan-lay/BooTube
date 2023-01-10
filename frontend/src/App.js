@@ -4,15 +4,22 @@ import AccountRecoverForm from './components/AccountRecoverForm/AccountRecoverFo
 import LearnMorePage from './components/LearnMorePage/LearnMorePage';
 import VideoIndexPage from './components/VideoIndexPage/VideoIndexPage';
 import UserSignupForm from './components/UserSignupForm/UserSignupForm';
-import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
 import VideoShowPage from './components/VideoShowPage/VideoShowPage';
 import UserChannelPage from './components/UserChannelPage/UserChannelPage';
+import TopBar from './components/TopBar/TopBar';
+import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
+import { useState } from 'react';
 
 const App = () => {
   const location = useLocation();
+  const topBarVisible = location.pathname !== "/login" && location.pathname !== "/signup";
+
+  const [ revealUpload, setRevealUpload ] = useState(false);
   
   return (
     <div className="app">
+      {topBarVisible && <TopBar setRevealUpload={setRevealUpload} revealUpload={revealUpload}/>}
+
       <Switch>
         <Route exact path="/">
           <VideoIndexPage />
@@ -26,7 +33,7 @@ const App = () => {
         <Route exact path="/videos/:id">
           <VideoShowPage />
         </Route>
-        <Route exact path="/:channel">
+        <Route exact path="/:handle">
           <UserChannelPage />
         </Route>
         <Route exact path="/recover">
@@ -36,6 +43,8 @@ const App = () => {
           <LearnMorePage />
         </Route>
       </Switch>
+
+      {revealUpload && <UploadVideoModal />}
     </div>
   );
 }

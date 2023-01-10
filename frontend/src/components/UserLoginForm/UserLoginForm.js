@@ -1,5 +1,5 @@
 import { Link, Redirect } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import "./UserLoginForm.css"
 import boogleLogo from '../../assets/boogle_logo.png';
 import { useDispatch, useSelector } from 'react-redux';
@@ -133,10 +133,11 @@ const UserLoginForm = () => {
             </form>
             <div className="signin-bottom-details">
                <div className="bottom-details-left">
-                  <select className="font-select-dropdown">
-                     <option value="0" disabled selected>Fonts</option>
-                     <option value="1">Chiller</option>
-                     <option value="2">Wingdings</option>
+                  <select className="font-select-dropdown" defaultValue="fonts">
+                     <option value="fonts" disabled>Fonts</option>
+                     <option value="regular">Regular</option>
+                     <option value="chiller">Chiller</option>
+                     <option value="wingdings">Wingdings</option>
                   </select>
                </div>
                <div className="bottom-details-right">

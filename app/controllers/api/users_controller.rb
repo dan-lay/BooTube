@@ -3,6 +3,16 @@ class Api::UsersController < ApplicationController
    before_action :require_logged_out, only: [:create]
    before_action :require_logged_in, only: [:destroy, :update]
 
+   def show
+      @user = User.find_by(handle: params[:handle])
+
+      if @user
+         render :show
+      else
+         render json: {errors: @user.errors.full_messages }, status: :unprocessable_entity
+      end
+   end
+
    def create
       @user = User.new(user_params)
 
@@ -15,7 +25,7 @@ class Api::UsersController < ApplicationController
    end
 
    def update
-      @user = User.find(user_params[:id])
+      @user = User.find(params[:id])
 
       if @user.update!(user_params)
          render :update
@@ -25,7 +35,7 @@ class Api::UsersController < ApplicationController
    end
 
    def destroy
-      @user = User.find(user_params[:id])
+      @user = User.find(params[:id])
 
       if @user.destroy!
          render "api/videos"
@@ -37,6 +47,6 @@ class Api::UsersController < ApplicationController
    private
 
    def user_params
-      params.require(:user).permit(:email, :password, :first_name, :last_name)
+      params.require(:user).permit(:email, :password, :first_name, :last_name, :handle)
    end
 end

@@ -5,8 +5,6 @@ class Api::SessionsController < ApplicationController
    def show
       if current_user
          @user = current_user
-         puts @user
-         puts "in session show"
          render 'api/users/show'
       else
          render json: { session: nil }
@@ -27,7 +25,6 @@ class Api::SessionsController < ApplicationController
 
    def destroy
       if current_user
-         puts "made it to inside the if"
          logout
          head :no_content
       end

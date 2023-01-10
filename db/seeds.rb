@@ -24,15 +24,15 @@ ActiveRecord::Base.transaction do
 
   puts "Creating users..."
 
-  demo = User.create!(email: 'demouser@gmail.com', password: 'password', first_name:'Demo', last_name: 'User')
+  demo = User.create!(email: 'demouser@gmail.com', password: 'password', first_name:'Demo', last_name: 'User', handle: "demoaccount")
 
 
-  dan = User.create!(email: 'dantheman@gmail.com', password: 'password', first_name:'Dan' , last_name: 'Lay')
-  fred = User.create!(email: 'bigford@gmail.com', password: 'password', first_name: 'Fred', last_name: 'The Goat')
-  clide = User.create!(email: 'monkeyman@protonmail.com', password: 'password', first_name: 'Clide', last_name: 'Stefani')
-  adina = User.create!(email: 'coffee_and_communism@gmail.com', password: 'password', first_name: 'Adina', last_name: 'Cooper')
-  ben = User.create!(email: 'brilliantdamage@gmail.com', password: 'password', first_name: 'Ben', last_name: 'Schwartz')
-  ian = User.create!(email: 'queenbee@gmail.com', password: 'password', first_name: 'Ian', last_name: 'Verger')
+  dan = User.create!(email: 'dantheman@gmail.com', password: 'password', first_name:'Dan' , last_name: 'Lay', handle: "dan_the_man")
+  fred = User.create!(email: 'bigford@gmail.com', password: 'password', first_name: 'Fred', last_name: 'The Goat', handle: "theGOAT")
+  clide = User.create!(email: 'monkeyman@protonmail.com', password: 'password', first_name: 'Clide', last_name: 'Stefani', handle: "p1anom@n")
+  adina = User.create!(email: 'coffee_and_communism@gmail.com', password: 'password', first_name: 'Adina', last_name: 'Cooper', handle: "hanabiGOD")
+  ben = User.create!(email: 'brilliantdamage@gmail.com', password: 'password', first_name: 'Ben', last_name: 'Schwartz', handle: "ben_dmg")
+  ian = User.create!(email: 'queenbee@gmail.com', password: 'password', first_name: 'Ian', last_name: 'Verger', handle: "inMIAMI!!!")
 
 
   puts "Creating videos..."
@@ -56,25 +56,25 @@ ActiveRecord::Base.transaction do
   fred_vid.save!
 
   clide_vid_description = "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!"
-  clide_vid = Video.new(title: "clide's cool vid", uploader_id: clide.id, description: clide_vid_description)
+  clide_vid = Video.new(title: "i'm scared", uploader_id: clide.id, description: clide_vid_description)
   clide_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/ghost_friends.mp4')
   clide_vid.media_object.attach(io: clide_media_object, filename: "ghost_friends.mp4")
   clide_vid.save!
 
   adina_vid_description = "quit clownin around"
-  adina_vid = Video.new(title: "adina's cool vid", uploader_id: adina.id, description: adina_vid_description)
+  adina_vid = Video.new(title: "look at these clowns", uploader_id: adina.id, description: adina_vid_description)
   adina_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/construction.mp4')
   adina_vid.media_object.attach(io: adina_media_object, filename: "construction.mp4")
   adina_vid.save!
 
   ben_vid_description = "It's Hallows Eve, you're Head Dentist, and this patient is waiting for their routine check up, WYD?"
-  ben_vid = Video.new(title: "ben's cool vid", uploader_id: ben.id, description: ben_vid_description)
+  ben_vid = Video.new(title: "Dental Exams are Scary", uploader_id: ben.id, description: ben_vid_description)
   ben_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/all_smiles.mp4')
   ben_vid.media_object.attach(io: ben_media_object, filename: "all_smiles.mp4")
   ben_vid.save!
 
   ian_vid_description = "I LOVE setting pumpkins on fire :D"
-  ian_vid = Video.new(title: "ian's cool vid", uploader_id: ian.id, description: ian_vid_description)
+  ian_vid = Video.new(title: "what's the vibe?", uploader_id: ian.id, description: ian_vid_description)
   ian_media_object = URI.open('https://booootube-dev.s3.amazonaws.com/jackolantern.mp4')
   ian_vid.media_object.attach(io: ian_media_object, filename: "jackolantern.mp4")
   ian_vid.save!

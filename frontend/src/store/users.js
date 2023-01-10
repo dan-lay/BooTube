@@ -23,8 +23,8 @@ export const receiveUser = user => ({
 
 /*--ACTION-CREATERS--*/
 
-export const getUser = userId => async dispatch => {
-   let res = await csrfFetch(`/api/users/${userId}`)
+export const getUser = handle => async dispatch => {
+   let res = await csrfFetch(`/api/users/${handle}`)
    console.log(res)
    let data = await res.json();
    console.log(data)
