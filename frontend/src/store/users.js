@@ -1,8 +1,9 @@
 import csrfFetch from "./csrf";
+import { logout } from "./session";
 
 export const RECEIVE_USER = 'users/RECEIVE_USER';
-const RECEIVE_USERS = 'videos/RECEIVE_USERS';
-const REMOVE_USER = 'videos/REMOVE_USER';
+const RECEIVE_USERS = 'users/RECEIVE_USERS';
+export const REMOVE_USER = 'users/REMOVE_USER';
 
 /*--ACTIONS--*/
 
@@ -16,9 +17,9 @@ export const receiveUser = data => ({
    payload: users
 });
  
- export const removeUser = userId => ({
+ export const removeUser = handle => ({
    type: REMOVE_USER,
-   payload: userId
+   payload: handle
 });
 
 /*--ACTION-CREATERS--*/
@@ -29,6 +30,7 @@ export const getUser = handle => async dispatch => {
    let data = await res.json();
    console.log(data)
    dispatch(receiveUser(data));
+   return data;
 };
 
 export const getUsers = () => async dispatch => {
@@ -53,11 +55,13 @@ export const createUser = user => async dispatch => {
    // dispatch(receiveVideo(data.mediaObject));
 };
  
-export const deleteUser = userId => async dispatch => {
-   let res = await csrfFetch(`/api/users/${userId}`, {
-     method: 'DELETE'
-   })
-   .then(dispatch(removeUser(userId)))
+export const deleteUser = handle => async dispatch => {
+   await dispatch(logout())
+      .then(csrfFetch(`/api/users/${handle}`, {method: 'DELETE'}))
+   // let res = await csrfFetch(`/api/users/${userId}`, {
+   //   method: 'DELETE'
+   // })
+      .then(dispatch(removeUser(handle)))
    // include errors
    
  
@@ -66,6 +70,7 @@ export const deleteUser = userId => async dispatch => {
    // if (res.ok) {
    //   dispatch(removeVideo(videoId));
    // }
+   // return res;
 }
   
 const userReducer = (state = {}, action) => {
@@ -74,12 +79,12 @@ const userReducer = (state = {}, action) => {
  
    switch(action.type) {
       case RECEIVE_USER:
-         nextState[action.payload.user.id] = action.payload.user;
+         nextState[action.payload.user.handle] = action.payload.user;
          return nextState;
       case RECEIVE_USERS:
          return { ...nextState, ...action.payload.users}
       case REMOVE_USER:
-         delete nextState[action.payload.userId];
+         delete nextState[action.payload];
          return nextState;
       default:
          return state;

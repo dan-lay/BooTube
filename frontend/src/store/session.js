@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf.js";
 import { useSelector } from "react-redux";
+import { REMOVE_USER } from "./users.js";
 
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
@@ -51,14 +52,15 @@ export const restoreSession = () => async dispatch => {
 };
 
 export const signup = (user) => async (dispatch) => {
-  const { email, password, firstName, lastName} = user;
+  const { email, password, firstName, lastName, handle} = user;
   const response = await csrfFetch("/api/users", {
     method: "POST",
     body: JSON.stringify({
       email,
       password,
       firstName,
-      lastName
+      lastName,
+      handle
     })
   });
 
@@ -70,14 +72,14 @@ export const signup = (user) => async (dispatch) => {
 };
 
 export const logout = () => async dispatch => {
-  const response = await csrfFetch("/api/session", {
+  const res = await csrfFetch("/api/session", {
     method: "DELETE"
   });
-  if (response) console.log(response);
-
+  if (res) console.log(res);
+  console.log("in logout frontend")
   storeCurrentUser(null);
   dispatch(removeCurrentUser());
-  return response;
+  return res;
 };
 
 
@@ -92,6 +94,8 @@ const sessionReducer = (state = initialState, action) => {
 
 
   switch (action.type) {
+    // case REMOVE_USER:
+    //   return { ...newState, user: null };
     case SET_CURRENT_USER:
       return { ...newState, user: action.user };
     case REMOVE_CURRENT_USER:

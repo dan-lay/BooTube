@@ -1,9 +1,10 @@
 import './UserDropdownMenu.css';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from "../../../../store/session";
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const UserDropdownMenu = (props) => {
+   const history = useHistory();
    const dispatch = useDispatch();
    const setDropdownOpen = props.setDropdownOpen;
    const sessionUser = useSelector(state => state.session.user);
@@ -15,7 +16,7 @@ const UserDropdownMenu = (props) => {
    }
 
    const visitMyChannel = () => {
-      dispatch()
+      history.push(sessionUser.handle)
    }
 
    return (

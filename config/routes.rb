@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :videos, only: [:show, :index, :create, :destroy, :update]
     resources :comments, only: [:create, :update, :destroy]
-    resources :users, only: [:create, :destroy, :update]
+    resources :users, only: [:create, :update]
     resource :session, only: [:show, :create, :destroy]
 
     get '/users/:handle', to: "users#show"
+    delete '/users/:handle', to: "users#destroy"
   end
 
   

@@ -13,6 +13,7 @@ const UserSignupForm = () => {
    const [confirmPassword, setConfirmPassword] = useState("");
    const [firstName, setFirstName] = useState("");
    const [lastName, setLastName] = useState("");
+   const [handle, setHandle] = useState("");
    const [errors, setErrors] = useState([]);
    const sessionUser = useSelector(state => state.session.user);
 
@@ -23,7 +24,7 @@ const UserSignupForm = () => {
       e.preventDefault();
       if (password === confirmPassword) {
          setErrors([]);
-         return dispatch(sessionActions.signup({email, password, firstName, lastName}))
+         return dispatch(sessionActions.signup({email, password, firstName, lastName, handle}))
             .catch(async (res) => {
             let data;
             try {
@@ -59,6 +60,7 @@ const UserSignupForm = () => {
                      <input className="fname-input" placeholder="First name" type="text" value={firstName} onChange={e => setFirstName(e.target.value)}></input>
                      <input className="lname-input" placeholder="Last name" type="text" value={lastName} onChange={e => setLastName(e.target.value)}></input>
                      <input className="email-input" placeholder="Your email address" type="text" value={email} onChange={e => setEmail(e.target.value)}></input>
+                     <input className="handle-input" placeholder="Create a handle" type="text" value={handle} onChange={e => setHandle(e.target.value)}></input>
                      <p className='email-disclaimer'>You'll need to confirm that this email belongs to you</p>
                      <div className="use-demo-account-instead">
                         <Link className="demo-account-link" to="/login">Login with Demo Account instead</Link>
@@ -120,10 +122,11 @@ const UserSignupForm = () => {
          </form>
          <div className="signup-bottom-details">
             <div className="bottom-details-left">
-               <select className="font-select-dropdown">
-                  <option value="0" disabled selected>Fonts</option>
-                  <option value="1">Chiller</option>
-                  <option value="2">Wingdings</option>
+               <select className="font-select-dropdown" defaultValue="fonts">
+                  <option value="fonts" disabled>Fonts</option>
+                  <option value="regular">Regular</option>
+                  <option value="chiller">Chiller</option>
+                  <option value="wingdings">Wingdings</option>
                </select>
             </div>
             <div className="bottom-details-right">

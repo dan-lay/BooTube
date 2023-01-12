@@ -25,6 +25,7 @@ class Api::SessionsController < ApplicationController
 
    def destroy
       if current_user
+         puts "destroying user !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
          logout
          head :no_content
       end

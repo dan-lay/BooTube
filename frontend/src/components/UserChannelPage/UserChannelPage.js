@@ -11,6 +11,7 @@ const UserChannelPage = () => {
    const dispatch = useDispatch();
    const { handle } = useParams();
    const sessionUsername = useSelector(state => state.session.user ? state.session.user.handle : null)
+   const user = useSelector(state => state.users ? state.users[handle] : null)
 
    let myProfile;
 
@@ -25,7 +26,7 @@ const UserChannelPage = () => {
    return (
       <div className="user-channel-page">
          <Sidebar/>
-         <ChannelContent/>
+         <ChannelContent user={user}/>
       </div>
    )
 }

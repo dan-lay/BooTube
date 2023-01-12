@@ -22,7 +22,7 @@ class User < ApplicationRecord
    validates :first_name, presence: true
    validates :last_name, presence: true
    # validate :ensure_profile_image
-   # validates :channel_name, presence: true, length: { maximum: 30 }
+   # validates :handle, presence: true, length: { maximum: 30 }
 
    has_many :videos,
    class_name: :Video,

@@ -2,6 +2,7 @@ import "./ChannelHeader.css"
 
 const ChannelHeader = (props) => {
    const user = props.user;
+   console.log(user)
 
    return (
       <div className="channel-header">
@@ -11,7 +12,7 @@ const ChannelHeader = (props) => {
             </div>
          </div>
          <div className="header-info-container">
-
+            {`${user ? user.handle : null}`}
          </div>
       </div>
    )
