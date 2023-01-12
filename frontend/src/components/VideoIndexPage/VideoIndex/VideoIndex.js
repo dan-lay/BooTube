@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import "./VideoIndex.css"
 import { useEffect } from 'react';
 import { getVideos } from '../../../store/videos';
+import { receiveUser } from '../../../store/users';
 
 const VideoIndex = () => {
    const videos = useSelector(state => state.videos);
@@ -11,6 +12,7 @@ const VideoIndex = () => {
 
    useEffect(() => {
       dispatch(getVideos());
+      dispatch(receiveUser({user: null}))
    }, [])
    
 

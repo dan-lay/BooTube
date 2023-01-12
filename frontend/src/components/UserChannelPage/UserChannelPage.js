@@ -11,7 +11,8 @@ const UserChannelPage = () => {
    const dispatch = useDispatch();
    const { handle } = useParams();
    const sessionUsername = useSelector(state => state.session.user ? state.session.user.handle : null)
-   const user = useSelector(state => state.users ? state.users[handle] : null)
+   const user = useSelector(state => state.users ? Object.values(state.users)[0] : null)
+   console.log("this is the user:", user)
 
    let myProfile;
 
@@ -19,7 +20,7 @@ const UserChannelPage = () => {
 
    useEffect(() => {
       dispatch(getUser(handle))
-   }, [])
+   }, [handle])
 
    
 

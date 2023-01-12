@@ -17,9 +17,9 @@ export const receiveUser = data => ({
    payload: users
 });
  
- export const removeUser = handle => ({
+ export const removeUser = userId => ({
    type: REMOVE_USER,
-   payload: handle
+   payload: userId
 });
 
 /*--ACTION-CREATERS--*/
@@ -55,22 +55,11 @@ export const createUser = user => async dispatch => {
    // dispatch(receiveVideo(data.mediaObject));
 };
  
-export const deleteUser = handle => async dispatch => {
-   await dispatch(logout())
-      .then(csrfFetch(`/api/users/${handle}`, {method: 'DELETE'}))
-   // let res = await csrfFetch(`/api/users/${userId}`, {
-   //   method: 'DELETE'
-   // })
-      .then(dispatch(removeUser(handle)))
+export const deleteUser = id => async dispatch => {
+   await csrfFetch(`/api/users/${id}`, {method: 'DELETE'})
+      .then(dispatch(removeUser(id)))
    // include errors
-   
- 
-   // console.log(res)
- 
-   // if (res.ok) {
-   //   dispatch(removeVideo(videoId));
-   // }
-   // return res;
+
 }
   
 const userReducer = (state = {}, action) => {
@@ -79,8 +68,7 @@ const userReducer = (state = {}, action) => {
  
    switch(action.type) {
       case RECEIVE_USER:
-         nextState[action.payload.user.handle] = action.payload.user;
-         return nextState;
+         return {...action.payload.user}
       case RECEIVE_USERS:
          return { ...nextState, ...action.payload.users}
       case REMOVE_USER:

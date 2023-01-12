@@ -2,7 +2,6 @@ import "./ChannelHeader.css"
 
 const ChannelHeader = (props) => {
    const user = props.user;
-   console.log(user)
 
    return (
       <div className="channel-header">

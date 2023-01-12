@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
 
       if @user.save!
          login(@user)
-         render :show
+         render "api/sessions/show"
       else
          render json: {errors: @user.errors.full_messages }, status: :unprocessable_entity
       end
@@ -35,10 +35,9 @@ class Api::UsersController < ApplicationController
    end
 
    def destroy
-      @user = User.find_by(handle: params[:handle])
+      @user = User.find(params[:id])
 
       if @user.destroy!
-         puts "just destroyed the user HAHAHAHAHAHAHAHAHAHAHAHA"
          head :no_content
       else
          render json: {errors: @user.errors.full_messages }, status: :unprocessable_entity

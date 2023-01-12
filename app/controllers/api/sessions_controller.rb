@@ -5,7 +5,8 @@ class Api::SessionsController < ApplicationController
    def show
       if current_user
          @user = current_user
-         render 'api/users/show'
+         puts "about to render"
+         render :show
       else
          render json: { session: nil }
       end
@@ -17,7 +18,7 @@ class Api::SessionsController < ApplicationController
       @user = User.find_by_credentials(email, password)
       if @user
          login(@user)
-         render 'api/users/show'
+         render :show
       else
          render json: { errors: ['Invalid credentials'] }, status: 422
       end
@@ -25,7 +26,6 @@ class Api::SessionsController < ApplicationController
 
    def destroy
       if current_user
-         puts "destroying user !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
          logout
          head :no_content
       end

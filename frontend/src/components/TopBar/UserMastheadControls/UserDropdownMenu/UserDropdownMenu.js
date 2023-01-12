@@ -16,6 +16,7 @@ const UserDropdownMenu = (props) => {
    }
 
    const visitMyChannel = () => {
+      console.log("click")
       history.push(sessionUser.handle)
    }
 
