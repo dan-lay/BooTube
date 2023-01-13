@@ -42,7 +42,7 @@ class Api::UsersController < ApplicationController
          head :no_content
       else
          render json: {errors: @user.errors.full_messages }, status: :unprocessable_entity
-      end     
+      end         
    end
 
    private
