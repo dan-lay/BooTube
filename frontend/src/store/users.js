@@ -1,5 +1,5 @@
 import csrfFetch from "./csrf";
-import { logout } from "./session";
+import { logout, restoreSession, setCurrentUser, storeCurrentUser } from "./session";
 
 export const RECEIVE_USER = 'users/RECEIVE_USER';
 const RECEIVE_USERS = 'users/RECEIVE_USERS';
@@ -54,6 +54,24 @@ export const createUser = user => async dispatch => {
  
    // dispatch(receiveVideo(data.mediaObject));
 };
+
+export const editUser = (user, id) => async dispatch => {
+   console.log(user)
+   let res = await csrfFetch(`/api/users/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(user)
+   });
+
+   if (res.ok) {
+      console.log("all good")
+      let data = await res.json()
+
+      storeCurrentUser(Object.values(data.user)[0])
+      dispatch(setCurrentUser(Object.values(data.user)[0]));
+      
+      return data;
+   }
+}
  
 export const deleteUser = id => async dispatch => {
    await csrfFetch(`/api/users/${id}`, {method: 'DELETE'})

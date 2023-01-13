@@ -9,16 +9,18 @@ import UserChannelPage from './components/UserChannelPage/UserChannelPage';
 import TopBar from './components/TopBar/TopBar';
 import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
 import { useState } from 'react';
+import UserEditForm from './components/UserEditForm/UserEditForm';
 
 const App = () => {
   const location = useLocation();
-  const topBarVisible = location.pathname !== "/login" && location.pathname !== "/signup";
+  const topBarVisible = location.pathname !== "/login" && location.pathname !== "/signup" && location.pathname !== "/edit";
 
   const [ revealUpload, setRevealUpload ] = useState(false);
+  const [ revealEditForm, setRevealEditForm ] = useState(false);
   
   return (
     <div className="app">
-      {topBarVisible && <TopBar setRevealUpload={setRevealUpload} revealUpload={revealUpload}/>}
+      {topBarVisible && <TopBar setRevealEditForm={setRevealEditForm} setRevealUpload={setRevealUpload} revealUpload={revealUpload}/>}
 
       <Switch>
         <Route exact path="/">
@@ -30,21 +32,22 @@ const App = () => {
         <Route exact path="/signup">
           <UserSignupForm />
         </Route>
-        <Route exact path="/videos/:id">
-          <VideoShowPage />
-        </Route>
-        <Route exact path="/:handle">
-          <UserChannelPage />
-        </Route>
         <Route exact path="/recover">
           <AccountRecoverForm />
         </Route>
         <Route exact path="/learn_more">
           <LearnMorePage />
         </Route>
+        <Route exact path="/videos/:id">
+          <VideoShowPage />
+        </Route>
+        <Route exact path="/:handle">
+          <UserChannelPage />
+        </Route>
       </Switch>
 
-      {revealUpload && <UploadVideoModal />}
+      { revealUpload && <UploadVideoModal/> }
+      { revealEditForm && <UserEditForm setRevealEditForm={setRevealEditForm}/> }
     </div>
   );
 }

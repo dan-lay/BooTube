@@ -13,6 +13,7 @@ import UserDropdownMenu from './UserMastheadControls/UserDropdownMenu/UserDropdo
 const TopBar = (props) => {
    const setRevealUpload = props.setRevealUpload;
    const revealUpload = props.revealUpload;
+   const setRevealEditForm = props.setRevealEditForm;
    const dispatch = useDispatch();
    const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
    const [ search, setSearch ] = useState("");
@@ -56,7 +57,7 @@ const TopBar = (props) => {
          </div>
 
       </div>
-      {dropdownOpen && <UserDropdownMenu setDropdownOpen={setDropdownOpen} />}
+      {dropdownOpen && <UserDropdownMenu setRevealEditForm={setRevealEditForm} setDropdownOpen={setDropdownOpen} />}
       </>
    )
 }
