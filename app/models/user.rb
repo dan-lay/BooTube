@@ -22,7 +22,7 @@ class User < ApplicationRecord
    validates :first_name, presence: true
    validates :last_name, presence: true
    # validate :ensure_profile_image
-   # validates :handle, presence: true, length: { maximum: 30 }
+   validates :handle, presence: true, length: { maximum: 30 }
 
    has_many :videos,
    class_name: :Video,
@@ -34,13 +34,16 @@ class User < ApplicationRecord
    class_name: :Comment,
    dependent: :destroy
 
+   # has_many :subscribers,
+   # foreign_key: :
+
    has_one_attached :profile_image
 
-   def ensure_profile_image
-      unless self.profile_image.attached?
-         errors.add(:profile_image, "must be attached")
-      end
-   end
+   # def ensure_profile_image
+   #    unless self.profile_image.attached?
+   #       errors.add(:profile_image, "must be attached")
+   #    end
+   # end
 
    def self.find_by_credentials(email, password)
       @user = User.find_by(email: email)

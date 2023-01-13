@@ -1,5 +1,5 @@
 import csrfFetch from "./csrf";
-import { logout, restoreSession, setCurrentUser, storeCurrentUser } from "./session";
+import { logout, setCurrentUser, storeCurrentUser } from "./session";
 
 export const RECEIVE_USER = 'users/RECEIVE_USER';
 const RECEIVE_USERS = 'users/RECEIVE_USERS';
@@ -49,10 +49,6 @@ export const createUser = user => async dispatch => {
      let data = await res.json();
      return data;
    }
- 
-   
- 
-   // dispatch(receiveVideo(data.mediaObject));
 };
 
 export const editUser = (user, id) => async dispatch => {
@@ -68,7 +64,7 @@ export const editUser = (user, id) => async dispatch => {
 
       storeCurrentUser(Object.values(data.user)[0])
       dispatch(setCurrentUser(Object.values(data.user)[0]));
-      
+
       return data;
    }
 }

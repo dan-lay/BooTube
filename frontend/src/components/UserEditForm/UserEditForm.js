@@ -8,8 +8,6 @@ const UserEditForm = (props) => {
    const setRevealEditForm = props.setRevealEditForm;
    const sessionUser = useSelector(state => state.session ? state.session.user : null);
    const [ handle, setHandle ] = useState(sessionUser ? sessionUser.handle : "")
-   console.log(handle)
-   console.log(sessionUser.handle)
 
    const submitEdits = () => {
       dispatch(editUser({

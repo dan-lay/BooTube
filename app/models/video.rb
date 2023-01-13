@@ -23,6 +23,9 @@ class Video < ApplicationRecord
    class_name: :Comment,
    dependent: :destroy
 
+   # has_many :likes,
+   # foreign_key: 
+
    has_one_attached :media_object
 
    def ensure_media_object
