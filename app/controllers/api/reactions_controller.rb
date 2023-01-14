@@ -1,5 +1,5 @@
 class Api::ReactionsController < ApplicationController
-   wrap_parameters include: Like.attribute_names + [:reactable_type, :reactable_id, :is_like]
+   wrap_parameters include: Reaction.attribute_names + [:reactable_type, :reactable_id, :is_like]
    
    def create
       @reaction = Reaction.new(user_params)

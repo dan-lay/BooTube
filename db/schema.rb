@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_14_032115) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_14_173653) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_032115) do
     t.index ["reactable_type", "reactable_id"], name: "index_reactions_on_reactable"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "subscriber_id"
+    t.bigint "channel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_subscriptions_on_channel_id"
+    t.index ["subscriber_id"], name: "index_subscriptions_on_subscriber_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -87,5 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_032115) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "users", column: "commenter_id"
   add_foreign_key "comments", "videos"
+  add_foreign_key "subscriptions", "users", column: "channel_id"
+  add_foreign_key "subscriptions", "users", column: "subscriber_id"
   add_foreign_key "videos", "users", column: "uploader_id"
 end

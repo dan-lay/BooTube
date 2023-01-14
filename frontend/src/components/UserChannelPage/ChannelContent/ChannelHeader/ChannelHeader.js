@@ -3,6 +3,7 @@ import "./ChannelHeader.css"
 const ChannelHeader = (props) => {
    const user = props.user;
    const setRevealEditForm = props.setRevealEditForm;
+   const userSubCount = user ? (user.subscribers.length === 0 ? "No" : user.subscribers.length) : null;
 
    const openModal = () => {
       console.log("click")
@@ -19,7 +20,7 @@ const ChannelHeader = (props) => {
          <div className="header-info-container">
             <div className="user-name">{user ? `${user.firstName} ${user.lastName}` : null}</div>
             <div className="user-handle">{`${user ? user.handle : null}`}</div>
-            <div className="user-prof-sub-count"># of Subscribers</div>
+            <div className="user-prof-sub-count">{`${userSubCount} subscribers`}</div>
          </div>
          <div className="prof-manage-container">
             <div className="button" id="edit-profile" onClick={openModal}>

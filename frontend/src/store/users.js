@@ -73,7 +73,22 @@ export const deleteUser = id => async dispatch => {
    await csrfFetch(`/api/users/${id}`, {method: 'DELETE'})
       .then(dispatch(removeUser(id)))
    // include errors
+}
 
+export const subscribeToUser = (subscriberId, id) => async dispatch => {
+   let res = await csrfFetch(`/api/users/${subscriberId}/${id}`, {method: 'POST'})
+   if (res.ok) {
+      let data = await res.json();
+      console.log(data)
+   }
+}
+
+export const unsubscribeFromUser = (subscriberId, id) => async dispatch => {
+   let res = await csrfFetch(`/api/users/${subscriberId}/${id}`, {method: 'DELETE'})
+   if (res.ok) {
+      let data = await res.json();
+      console.log(data)
+   }
 }
   
 const userReducer = (state = {}, action) => {

@@ -21,37 +21,67 @@ class User < ApplicationRecord
    validates :password, length: { in: 6..255, message: "Password must be atleast 6 characters long"}, allow_nil: true
    validates :first_name, presence: true
    validates :last_name, presence: true
-   # validate :ensure_profile_image
    validates :handle, presence: true, length: { maximum: 30 }
-
-   has_many :videos,
-   class_name: :Video,
-   foreign_key: :uploader_id,
-   dependent: :destroy
-
-   has_many :videoComments,
-   foreign_key: :commenter_id,
-   class_name: :Comment,
-   dependent: :destroy
-
-   has_many :likedVideos,
-   through: :likes,
-   source: :Video
-
-   has_many :likedComments,
-   through: :likes,
-   source: :Comment
-
-   # has_many :subscribers,
-   # foreign_key: :
 
    has_one_attached :profile_image
 
-   # def ensure_profile_image
-   #    unless self.profile_image.attached?
-   #       errors.add(:profile_image, "must be attached")
-   #    end
-   # end
+   has_many :videos,
+      class_name: :Video,
+      foreign_key: :uploader_id,
+      dependent: :destroy
+
+   has_many :videoComments,
+      foreign_key: :commenter_id,
+      class_name: :Comment,
+      dependent: :destroy
+
+   # has_many :liked_videos,
+   #    through: :reactable,
+   #    source: :Video,
+   #    dependent: :destroy
+
+   # has_many :liked_comments,
+   #    through: :reactable,
+   #    source: :Comment,
+   #    dependent: :destroy
+
+   has_many :subscriber_subs,
+      foreign_key: :channel_id,
+      class_name: :Subscription,
+      dependent: :destroy
+
+   has_many :subscribers,
+      through: :subscriber_subs,
+      source: :subscriber
+
+   has_many :channel_subs,
+      foreign_key: :subscriber_id,
+      class_name: :Subscription,
+      dependent: :destroy
+
+   has_many :subscribed_channels,
+      through: :channel_subs,
+      source: :subscribed_channel
+
+   def subscribe!(subscriber_id)
+      subscription = Subscription.new(subscriber_id: subscriber_id, channel_id: self.id)
+   
+      if subscription.save!
+         return true
+      else
+         return false
+      end
+   end
+
+   def unsubscribe!(subscriber_id)
+      if Subscription.destroy_by(subscriber_id: subscriber_id, channel_id: self.id)
+         puts "destroyed the subscription"
+         return true
+      else
+         puts "unable to destroy subscription"
+         return false
+      end
+   end
 
    def self.find_by_credentials(email, password)
       @user = User.find_by(email: email)

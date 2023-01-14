@@ -32,7 +32,7 @@ ActiveRecord::Base.transaction do
   ben = User.create!(email: 'brilliantdamage@gmail.com', password: 'password', first_name: 'Ben', last_name: 'Schwartz', handle: "ben_dmg")
   ian = User.create!(email: 'queenbee@gmail.com', password: 'password', first_name: 'Ian', last_name: 'Verger', handle: "inMIAMI!!!")
 
-  puts "Users succesfully created!"
+  puts "Users created successfully!"
 
   puts "-----------------------------------------"
 
@@ -80,7 +80,7 @@ ActiveRecord::Base.transaction do
   ian_vid.media_object.attach(io: ian_media_object, filename: "jackolantern.mp4")
   ian_vid.save!
 
-  puts "Videos succesfully created!"
+  puts "Videos created successfully!"
 
   puts "-----------------------------------------"
 
@@ -119,7 +119,7 @@ ActiveRecord::Base.transaction do
   Comment.create!(body: "i'm just so SPOOKED!!!", commenter_id: 4, video_id: 7)
   Comment.create!(body: "tis the season to be spooky!", commenter_id: 3, video_id: 7)
 
-  puts "Comments created succesfully!"
+  puts "Comments created successfully!"
 
   puts "-----------------------------------------"
 
@@ -275,7 +275,7 @@ ActiveRecord::Base.transaction do
   Reaction.create!(reactable_type: "Video", reactable_id: 7, is_like: false)
   Reaction.create!(reactable_type: "Video", reactable_id: 7, is_like: false)
 
-  puts "Video reactions created succesfully!"
+  puts "Video reactions created successfully!"
 
   puts "-----------------------------------------"
 
@@ -651,7 +651,7 @@ ActiveRecord::Base.transaction do
   Reaction.create!(reactable_type: "Comment", reactable_id: 32, is_like: true)
   Reaction.create!(reactable_type: "Comment", reactable_id: 32, is_like: true)
 
-  puts "Comment reactions created succesfully!"
+  puts "Comment reactions created successfully!"
 
   puts "-----------------------------------------"
 

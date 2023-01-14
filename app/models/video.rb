@@ -14,23 +14,24 @@ class Video < ApplicationRecord
    validates :description, length: { maximum: 5000 }
    validate :ensure_media_object
 
+   has_one_attached :media_object
+
    belongs_to :uploader,
-   foreign_key: :uploader_id,
-   class_name: :User
+      foreign_key: :uploader_id,
+      class_name: :User
 
    has_many :comments,
-   foreign_key: :video_id,
-   class_name: :Comment,
-   dependent: :destroy
+      foreign_key: :video_id,
+      class_name: :Comment,
+      dependent: :destroy
 
-   has_many :reactions, as: :reactable,
-   dependent: :destroy
-
-   has_one_attached :media_object
+   has_many :reactions,
+      as: :reactable,
+      dependent: :destroy
 
    def ensure_media_object
       unless self.media_object.attached?
-         errors.add(:media_object, "must be attached")
+         errors.add(:media_object, "Video link must be attached")
       end
    end
 end
