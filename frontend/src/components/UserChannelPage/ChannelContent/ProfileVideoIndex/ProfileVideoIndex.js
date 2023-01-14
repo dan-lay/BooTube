@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./ProfileVideoIndex.css"
-import VideoIndexItem from "../../../VideoIndexPage/VideoIndex/VideoIndexItem/VideoIndexItem";
+import VideoIndexItem from "../../../VideoIndexPage/VideoIndexContent/VideoIndex/VideoIndexItem/VideoIndexItem";
 import { deleteVideo } from "../../../../store/videos";
 
 const ProfileVideoIndex = () => {

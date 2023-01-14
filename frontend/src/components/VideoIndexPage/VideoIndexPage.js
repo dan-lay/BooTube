@@ -1,16 +1,14 @@
 import "./VideoIndexPage.css"
-import Sidebar from "./Sidebar/Sidebar";
-import CategoryBar from "./CategoryBar/CategoryBar";
-import VideoIndex from "./VideoIndex/VideoIndex";
+import Sidebar from "../Sidebar/Sidebar";
+import VideoIndexContent from "./VideoIndexContent/VideoIndexContent";
 
 
 const VideoIndexPage = () => {
 
    return (
       <div className="video-index-page">
-         <CategoryBar />
-         <VideoIndex />
          <Sidebar />
+         <VideoIndexContent />
       </div>
    )
 }

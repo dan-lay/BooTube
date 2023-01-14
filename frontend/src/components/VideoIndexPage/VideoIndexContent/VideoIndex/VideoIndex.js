@@ -2,8 +2,8 @@ import VideoIndexItem from './VideoIndexItem/VideoIndexItem';
 import { useDispatch, useSelector } from 'react-redux';
 import "./VideoIndex.css"
 import { useEffect } from 'react';
-import { getVideos } from '../../../store/videos';
-import { receiveUser } from '../../../store/users';
+import { getVideos } from '../../../../store/videos';
+import { receiveUser } from '../../../../store/users';
 
 const VideoIndex = () => {
    const videos = useSelector(state => state.videos);

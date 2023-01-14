@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import './VideoIndexItem.css';
-import { formatUploadDate } from '../../../../utils/dateFormatter.js';
+import { formatUploadDate } from '../../../../../utils/dateFormatter.js';
 import { useDispatch } from 'react-redux';
-import { getUser } from '../../../../store/users.js';
+import { getUser } from '../../../../../store/users.js';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 

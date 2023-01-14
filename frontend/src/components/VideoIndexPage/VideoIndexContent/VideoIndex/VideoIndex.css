@@ -1,5 +1,5 @@
 @media only screen and (max-width: 792px) {
-   .category-bar {
+   .video-index {
       left: 0;
       transition-property: all;
       transition-duration: 0.1s;
@@ -7,23 +7,24 @@
    }
 }
 
-.category-bar {
+.video-index {
    display: flex;
+   flex-wrap: wrap;
    justify-content: center;
-   align-items: center;
-   position: fixed;
-   height: 55px;
-   right: 17px;
+   /* position: absolute; */
+   padding-top: 25px;
+   top: 111px;
+   right: 0;
    background-color: #1e1e1e;
-   color: rgb(237, 134, 0);
-   top: 56px;
-   z-index: 2;
-   margin-right: 2px;
+   overflow-x: hidden;
+   height: max-content;
+   z-index: 0;
+   column-gap: 15px;
 }
 
 @media only screen and (min-width: 793px) {
-   .category-bar {
-      left: 7px;
+   .video-index {
+      left: 72px;
       transition-property: all;
       transition-duration: 0.1s;
       transition-timing-function: ease;

@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
 import "./ChannelContent.css"
+import { useDispatch, useSelector } from "react-redux";
 import ChannelHeader from "./ChannelHeader/ChannelHeader";
 import ProfileVideoIndex from "./ProfileVideoIndex/ProfileVideoIndex";
 import { deleteUser } from "../../../store/users";
