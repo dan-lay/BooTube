@@ -28,7 +28,7 @@
    gap: .5rem;
 }
 
-.commenter-name {
+.commenter-handle {
    color: rgb(226, 226, 226);
    font-size: .8rem;
    font-weight: 300;
@@ -52,6 +52,9 @@
 
 .comment-utils {
    width: 100%;
+   display: flex;
+   gap: .8rem;
+   align-items: center;
    height: 2rem;
    border: 1px solid purple;
 }
@@ -110,3 +113,18 @@
    background-color: rgb(132, 89, 11);
    color: rgb(32, 32, 32);
 }
+
+.comment-utils .button {
+   display: flex;
+   align-items: center;
+   position: relative;
+   gap: .4rem;
+   height: 80%;
+   color: rgb(189, 189, 189);
+}
+
+.comment-utils .button > p {
+   font-size: .8rem;
+   font-weight: 200;
+}
+

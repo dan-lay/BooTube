@@ -4,13 +4,14 @@ import { useDispatch, useSelector} from 'react-redux';
 import { deleteComment } from '../../../../../store/comments';
 import CommentEditForm from './CommentEditForm/CommentEditForm';
 import { formatUploadDate } from '../../../../../utils/dateFormatter';
+import { formatLikeCount } from '../../../../../utils/likeCountFormatter';
 
 const CommentIndexItem = (props) => {
    const dispatch = useDispatch();
    const currentUser = useSelector(state => state.session.user);
    const comment = props.comment;
    const commenterId = comment ? comment.commenterId : null;
-   const commenterName = comment ? comment.commenterName : null; //change to username later
+   const commenterHandle = comment ? comment.commenterHandle : null; //change to username later
    const commentDate = comment ? formatUploadDate(comment.createdAt) : null;
    const currentUserId = currentUser ? currentUser.id : null;
    const [editing, setEditing] = useState(false)
@@ -30,6 +31,14 @@ const CommentIndexItem = (props) => {
       setCommentOptions(true)
    }
 
+   const likeComment = () => {
+      
+   }
+
+   const dislikeComment = () => {
+
+   }
+
    useEffect(() => {
       setEditing(false)  
    }, [comment])
@@ -43,15 +52,19 @@ const CommentIndexItem = (props) => {
             { editing && <CommentEditForm setEditing={setEditing} commentId={comment.id}/> }
 
             { !editing && <><div className='comment-upper'>
-               <p className='commenter-name'>{commenterName}</p>
+               <p className='commenter-handle'>{commenterHandle}</p>
                <p className='comment-date'>{commentDate}</p>
             </div>
             <p className='comment-body'>{comment.body}</p>
             <div className='comment-utils'>
-               <div className='like-button'></div>
-               <div className='like-counter'></div>
-               <div className='dislike-button'></div>
-               <div className='dislike-counter'></div>
+               <div className='button' id='like-button' onClick={likeComment}>
+                  <i className='fa-regular fa-thumbs-up'></i>
+                  <p>{comment ? formatLikeCount(comment.likes) : null}</p>
+               </div>
+               <div className='button' id='dislike-button' onClick={dislikeComment}>
+                  <i className='fa-regular fa-thumbs-down'></i>
+                  <p>{comment ? formatLikeCount(comment.dislikes) : null}</p>
+               </div>
                <div className='comment-reply-button'></div>
             </div></>}
          </div>
