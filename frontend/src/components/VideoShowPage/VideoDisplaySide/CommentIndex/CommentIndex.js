@@ -79,9 +79,9 @@ const CommentIndex = () => {
                           style={{
                            backgroundColor: body !== "" ? 'orange' : 'grey',
                            color: body !== "" ? '#1e1e1e' : 'rgb(121, 63, 5)',
-                           disabled: body !== "" ? 'false' : 'true',
                            cursor: body !== "" ? 'pointer' : 'default'
-                         }} 
+                         }}
+                          disabled={ body !== "" ? false : true }
                           onClick={handleSubmit}>Comment
                   </button>
                </div>

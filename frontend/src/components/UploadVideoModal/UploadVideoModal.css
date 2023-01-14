@@ -21,3 +21,10 @@
    background-color: white;
    border: 1px solid black;
 }
+
+.outside-modal {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+}

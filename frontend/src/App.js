@@ -42,11 +42,11 @@ const App = () => {
           <VideoShowPage />
         </Route>
         <Route exact path="/:handle">
-          <UserChannelPage />
+          <UserChannelPage setRevealEditForm={setRevealEditForm}/>
         </Route>
       </Switch>
 
-      { revealUpload && <UploadVideoModal/> }
+      { revealUpload && <UploadVideoModal setRevealUpload={setRevealUpload}/> }
       { revealEditForm && <UserEditForm setRevealEditForm={setRevealEditForm}/> }
     </div>
   );

@@ -18,6 +18,12 @@
    width: 959px;
    height: 743px;
    border-radius: 8px;
-   background-color: white;
-   border: 1px solid black;
+   background-color: #303030;
+}
+
+.outside-modal {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
 }

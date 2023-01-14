@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './UploadVideoModal.css'
 import { Redirect, useHistory } from "react-router-dom";
 
-const UploadVideoModal = () => {
+const UploadVideoModal = (props) => {
    const dispatch = useDispatch();
    const [title, setTitle] = useState("");
    const [description, setDescription] = useState("");
@@ -12,10 +12,15 @@ const UploadVideoModal = () => {
    const [errors, setErrors] = useState("");
    const uploaderId = useSelector(state => state.session.user.id);
    const history = useHistory();
+   const setRevealUpload = props.setRevealUpload;
 
    const handleFile = e => {
       const file = e.currentTarget.files[0];
       setVideoFile(file);
+   }
+
+   const exitModal = () => {
+      setRevealUpload(false)
    }
 
    const handleSubmit = (e) => {
@@ -42,6 +47,7 @@ const UploadVideoModal = () => {
 
    return (
       <div className="upload-video-modal">
+         <div className="outside-modal" onClick={exitModal}></div>
          <form className="upload-video-form" onSubmit={handleSubmit}>
             <label>Title:
                <br/>

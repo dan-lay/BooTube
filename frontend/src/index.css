@@ -97,3 +97,8 @@ a {
 *[class$='button']:hover {
    cursor: pointer;
 }
+
+*[class$='button'] {
+   user-select: none;
+}
+

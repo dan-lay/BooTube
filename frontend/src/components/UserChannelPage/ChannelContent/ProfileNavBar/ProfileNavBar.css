@@ -1,0 +1,22 @@
+.profile-nav-bar {
+   height: 48px;
+   width: 100%;
+   padding-right: calc((100% - 1284px) / 2);
+   padding-left: calc((100% - 1284px) / 2);
+   display: flex;
+   border-bottom: 1px solid grey;
+}
+
+.prof-nav-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0 32px;
+   font-size: .9rem;
+   font-weight: 600;
+   color: grey;
+}
+
+.prof-nav-button:hover {
+   color: orange;
+}

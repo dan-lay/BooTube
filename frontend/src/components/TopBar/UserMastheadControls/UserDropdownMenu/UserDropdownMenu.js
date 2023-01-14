@@ -21,18 +21,12 @@ const UserDropdownMenu = (props) => {
       history.push(sessionUser.handle)
    }
 
-   const editProfile = () => {
-      setDropdownOpen(false)
-      setRevealEditForm(true)
-   }
-
    return (
       <div className='user-dropdown-menu'>
          <div className='dropdown-header'>
 
          </div>
          <button onClick={visitMyChannel}>your channel</button>
-         <button onClick={editProfile}>edit profile</button>
          {sessionUser && <button className="temp-log-out" onClick={logoutClick}>Log Out</button>}
 
       </div>

@@ -16,8 +16,13 @@ const UserEditForm = (props) => {
       setRevealEditForm(false)
    }
 
+   const exitModal = () => {
+      setRevealEditForm(false)
+   }
+
    return (
       <div className="user-edit-page">
+         <div className="outside-modal" onClick={exitModal}></div>
          <form className="user-edit-form" onSubmit={submitEdits}>
             <label>Handle:
                <br/>

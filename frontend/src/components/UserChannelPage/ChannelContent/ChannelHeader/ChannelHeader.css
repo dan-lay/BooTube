@@ -6,11 +6,10 @@
    height: 102px;
    padding-top: 15px;
    padding-bottom: 1px;
-   background: pink;
+   align-items: center;
 }
 
 .profile-image-container {
-   background-color: lightblue;
    height: 82px;
    width: 80px;
 }
@@ -23,8 +22,51 @@
 }
 
 .header-info-container {
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
    width: 870px;
    height: 70px;
-   background-color: brown;
-   margin-left: 20px;
+   margin-top: 8px;
+   margin-left: 25px;
+   color: grey;
+}
+
+.user-name {
+   width: 100%;
+   font-size: 1.5rem;
+}
+
+.user-handle {
+   width: 100%;
+   font-size: .9rem;
+   font-weight: 300;
+}
+
+.user-prof-sub-count {
+   width: 100%;
+   font-size: .9rem;
+}
+   
+.prof-manage-container {
+   display: flex;
+   height: max-content;
+   width: min-content;
+   gap: 8px;
+}
+
+.prof-manage-container .button {
+   padding: 10px 20px;
+   width: max-content;
+   height: 36px;
+   color: #1e1e1e;
+   background-color: orange;
+   border-radius: 40px;
+   font-size: .9rem;
+   font-weight: 600;
+   text-align: center;
+}
+
+.prof-manage-container .button:hover {
+   background-color: rgb(254, 193, 79);
 }

@@ -7,12 +7,12 @@ import { useDispatch } from "react-redux";
 import Sidebar from "../VideoIndexPage/Sidebar/Sidebar";
 import ChannelContent from "./ChannelContent/ChannelContent";
 
-const UserChannelPage = () => {
+const UserChannelPage = (props) => {
    const dispatch = useDispatch();
    const { handle } = useParams();
+   const setRevealEditForm = props.setRevealEditForm;
    const sessionUsername = useSelector(state => state.session.user ? state.session.user.handle : null)
    const user = useSelector(state => state.users ? Object.values(state.users)[0] : null)
-   console.log("this is the user:", user)
 
    let myProfile;
 
@@ -27,7 +27,7 @@ const UserChannelPage = () => {
    return (
       <div className="user-channel-page">
          <Sidebar/>
-         <ChannelContent user={user}/>
+         <ChannelContent setRevealEditForm={setRevealEditForm} user={user}/>
       </div>
    )
 }

@@ -1,14 +1,20 @@
 import './VidInfoBox.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { formatUploadDate } from '../../../../utils/dateFormatter';
+import { formatLikeCount } from '../../../../utils/likeCountFormatter';
 
 const VidInfoBox = (props) => {
+   const dispatch = useDispatch();
    const video = props.video;
    const uploadTime = video ? formatUploadDate(video.createdAt) : null;
    const description = video ? video.description : null;
    const title = video ? video.title : null;
    const uploaderName = video ? video.uploaderName : null;
+
+   const likeVideo = () => {
+      // dispatch(addVideoLike(video.id))
+   }
    
    return (
       <div className='vid-info-box'>
@@ -32,12 +38,13 @@ const VidInfoBox = (props) => {
                </div>
             </div>
             <div className='vid-utilities'>
-               <div className='vid-like-button'>
+               <div className='vid-like-button' onClick={likeVideo}>
                   <i className='fa-regular fa-thumbs-up'></i>
-                  <p>count</p>
+                  <p>{video ? formatLikeCount(video.likes) : null}</p>
                </div>
                <div className='vid-dislike-button'>
                   <i className='fa-regular fa-thumbs-down'></i>
+                  <p>{video ? formatLikeCount(video.dislikes) : null}</p>
                </div>
                <div className='share-button'>share
                   <i className="fa-solid fa-share"></i>
