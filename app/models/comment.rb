@@ -21,4 +21,7 @@ class Comment < ApplicationRecord
    belongs_to :video,
    foreign_key: :video_id,
    class_name: :Video
+
+   has_many :reactions, as: :reactable,
+   dependent: :destroy
 end

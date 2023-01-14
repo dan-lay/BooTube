@@ -23,8 +23,8 @@ class Video < ApplicationRecord
    class_name: :Comment,
    dependent: :destroy
 
-   # has_many :likes,
-   # foreign_key: 
+   has_many :reactions, as: :reactable,
+   dependent: :destroy
 
    has_one_attached :media_object
 

@@ -34,6 +34,14 @@ class User < ApplicationRecord
    class_name: :Comment,
    dependent: :destroy
 
+   has_many :likedVideos,
+   through: :likes,
+   source: :Video
+
+   has_many :likedComments,
+   through: :likes,
+   source: :Comment
+
    # has_many :subscribers,
    # foreign_key: :
 

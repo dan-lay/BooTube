@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :users, only: [:create, :update, :destroy]
     resource :session, only: [:show, :create, :destroy]
+    resources :likes, only: [:create, :destroy]
 
     get '/users/:handle', to: "users#show"
   end
