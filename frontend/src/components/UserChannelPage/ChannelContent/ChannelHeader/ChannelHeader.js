@@ -1,8 +1,12 @@
 import "./ChannelHeader.css"
 import { ProfilePic } from "../../../../utils/ProfPic/ProfilePic";
+import { useSelector } from "react-redux";
 
 const ChannelHeader = (props) => {
+   const sessionUser = useSelector(state => state.session.user ? state.session.user : null)
+   const sessionUserId = sessionUser ? sessionUser.id : null;
    const user = props.user;
+   const userId = user ? user.id : null;
    const image = user ? user.profileImage : null;
    const firstName = user ? user.firstName : null;
    const lastName = user ? user.lastName : null;
@@ -10,27 +14,42 @@ const ChannelHeader = (props) => {
    const userSubCount = user ? (user.subscribers.length === 0 ? "No" : user.subscribers.length) : null;
 
    const openModal = () => {
-      console.log("click")
       setRevealEditForm(true)
+   }
+
+   const subscribe = () => {
+
    }
 
    return (
       <div className="channel-header">
-         <div className="profile-image-container">
-            {user ? <ProfilePic image={image} firstName={firstName}/> : null}
-         </div>
-         <div className="header-info-container">
-            <div className="user-name">{`${firstName} ${lastName}`}</div>
-            <div className="user-handle">{`${user ? user.handle : null}`}</div>
-            <div className="user-prof-sub-count">{`${userSubCount} subscribers`}</div>
+         <div className="channel-header-left">
+            <div className="profile-image-container">
+               {user ? <ProfilePic image={image} firstName={firstName}/> : null}
+            </div>
+            <div className="header-info-container">
+               <div className="user-name">{`${firstName} ${lastName}`}</div>
+               <div className="user-handle">{`${user ? user.handle : null}`}</div>
+               <div className="user-prof-sub-count">{`${userSubCount} subscribers`}</div>
+            </div>
          </div>
          <div className="prof-manage-container">
-            <div className="button" id="edit-profile" onClick={openModal}>
-               Edit profile
-            </div>
-            <div className="button" id="manage-videos">
-               Manage videos
-            </div>
+            {(sessionUser !== null && sessionUserId === userId) ?
+               <>
+               <div className="button" id="edit-profile" onClick={openModal}>
+                  Edit profile
+               </div>
+               <div className="button" id="manage-videos">
+                  Manage videos
+               </div>
+               </>
+               :
+               <>
+               <div className="button" id="subsscribe" onClick={subscribe}>
+                  Subscribe
+               </div>
+               </>
+            }
          </div>
       </div>
    )

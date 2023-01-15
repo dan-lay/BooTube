@@ -1,5 +1,6 @@
 .channel-header {
    display: flex;
+   justify-content: space-between;
    padding-right: calc((100% - 1284px) / 2);
    padding-left: calc((100% - 1284px) / 2);
    width: 100%;
@@ -7,6 +8,10 @@
    padding-top: 15px;
    padding-bottom: 1px;
    align-items: center;
+}
+
+.channel-header-left {
+   display: flex;
 }
 
 .profile-image-container {
@@ -50,6 +55,7 @@
    
 .prof-manage-container {
    display: flex;
+   
    height: max-content;
    width: min-content;
    gap: 8px;
