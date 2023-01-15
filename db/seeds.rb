@@ -25,7 +25,12 @@ ActiveRecord::Base.transaction do
   puts "Creating users..."
 
   demo = User.create!(email: 'demouser@gmail.com', password: 'password', first_name:'Demo', last_name: 'User', handle: "demoaccount")
-  dan = User.create!(email: 'dantheman@gmail.com', password: 'password', first_name:'Dan' , last_name: 'Lay', handle: "dan_the_man")
+
+  dan = User.new(email: 'dantheman@gmail.com', password: 'password', first_name:'Dan' , last_name: 'Lay', handle: "dan_the_man")
+  dan_prof_img = URI.open("https://booootube-dev.s3.amazonaws.com/profile_pics/dan_prof_pic.jpg")
+  dan.profile_image.attach(io: dan_prof_img, filename: "dan_prof_pic.jpg")
+  dan.save!
+
   fred = User.create!(email: 'bigford@gmail.com', password: 'password', first_name: 'Fred', last_name: 'The Goat', handle: "theGOAT")
   clide = User.create!(email: 'monkeyman@protonmail.com', password: 'password', first_name: 'Clide', last_name: 'Stefani', handle: "p1anom@n")
   adina = User.create!(email: 'coffee_and_communism@gmail.com', password: 'password', first_name: 'Adina', last_name: 'Cooper', handle: "hanabiGOD")

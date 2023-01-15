@@ -1,11 +1,11 @@
 class Api::CommentsController < ApplicationController
-   wrap_parameters include: Comment.attribute_names + ["commenterId", "videoId"]
-   # before_action :require_logged_in, only: [:create, :destroy]
+   wrap_parameters include: Comment.attribute_names
+   before_action :require_logged_in, only: [:create, :destroy]
 
    def create
       @comment = Comment.new(comment_params)
       if @comment.save!
-         @video = Video.find("#{@comment.video_id}")
+         @video = Video.find(@comment.video_id)
          render "api/videos/show"
       else
          render json: {errors: @comment.errors.full_messages }, status: :unprocessable_entity
