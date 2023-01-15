@@ -35,6 +35,14 @@ class User < ApplicationRecord
       class_name: :Comment,
       dependent: :destroy
 
+   has_many :views,
+      foreign_key: :viewer_id,
+      class_name: :View
+
+   has_many :viewed_videos,
+      through: :views,
+      source: :Video
+
    # has_many :liked_videos,
    #    through: :reactable,
    #    source: :Video,

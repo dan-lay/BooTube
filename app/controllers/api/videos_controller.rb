@@ -38,7 +38,7 @@ class Api::VideosController < ApplicationController
    end
 
    def update
-
+      # not adding for now
    end
 
    def destroy
@@ -48,6 +48,16 @@ class Api::VideosController < ApplicationController
          render json: { message: 'video successfully destroyed' }
       else
          render json: { errors: @video.errors.full_messages }, status: :unprocessable_entity
+      end
+   end
+
+   def add_view
+      @video = Video.find(params[:id])
+
+      if @video
+         # if @video.view!()
+      else
+
       end
    end
 

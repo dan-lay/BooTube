@@ -17,6 +17,7 @@ class Api::SessionsController < ApplicationController
       password = params[:password]
       @user = User.find_by_credentials(email, password)
       if @user
+         puts @user
          login(@user)
          render :show
       else

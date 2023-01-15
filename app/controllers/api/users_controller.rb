@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
    wrap_parameters include: User.attribute_names + ['subscriberId', 'profileImage']
    before_action :require_logged_out, only: [:create]
-   before_action :require_logged_in, only: [:update]
+   before_action :require_logged_in, only: [:update, :destroy, :subscribe, :unsubscribe]
 
    def show
       @user = User.find_by(handle: params[:handle])
@@ -47,32 +47,22 @@ class Api::UsersController < ApplicationController
    
    def subscribe
       @user = User.find(params[:id])
-      subscriber = User.find(params[:subscriber_id])
 
-      if @user && subscriber
-         if @user.subscribe!(subscriber.id)
-            render :show
-         else
-            render json: {errors: "Unable to subscribe to this channel"}, status: :unprocessable_entity
-         end
+      if @user.subscribe!(current_user.id)
+         render :show
       else
-         render json: {errors: "Can't find accounts to subscribe"}, status: :unprocessable_entity
+         render json: {errors: "Unable to subscribe to this channel"}, status: :unprocessable_entity
       end
    end
 
    def unsubscribe
       @user = User.find(params[:id])
-      subscriber = User.find(params[:subscriber_id])
 
-      if @user && subscriber
-         if @user.unsubscribe!(subscriber.id)
-            puts "succesfully unsubbed"
-            render :show
-         else
-            render json: {errors: "Unable to unsubscribe at this time"}, status: :unprocessable_entity
-         end
+      if @user.unsubscribe!(current_user.id)
+         puts "succesfully unsubbed"
+         render :show
       else
-         render json: {errors: "Unable to find the user you subscribed to"}, status: :unprocessable_entity
+         render json: {errors: "Unable to unsubscribe at this time"}, status: :unprocessable_entity
       end
    end
 

@@ -3,14 +3,38 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { formatUploadDate } from '../../../../utils/dateFormatter';
 import { formatLikeCount } from '../../../../utils/likeCountFormatter';
+import { subscribeToUser, unsubscribeFromUser } from '../../../../store/users';
 
 const VidInfoBox = (props) => {
    const dispatch = useDispatch();
+   const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
    const video = props.video;
+   const uploaderId = video ? video.uploaderId : null;
    const uploadTime = video ? formatUploadDate(video.createdAt) : null;
    const description = video ? video.description : null;
    const title = video ? video.title : null;
    const uploaderName = video ? video.uploaderName : null;
+
+   const isSubscribed = () => {
+      if (sessionUser && video) {
+         return sessionUser.subscribedChannels[video.id]
+      }
+   }
+
+   const handleSubscribe = () => {
+      if (sessionUser) {
+         console.log(isSubscribed())
+         if (isSubscribed()) {
+            console.log("unsubbing now")
+            dispatch(unsubscribeFromUser(uploaderId))
+         } else {
+            console.log("subbing now")
+            dispatch(subscribeToUser(uploaderId))
+         }
+      } else {
+         console.log("not logged in")
+      }
+   }
 
    const likeVideo = () => {
       // dispatch(addVideoLike(video.id))
@@ -32,8 +56,8 @@ const VidInfoBox = (props) => {
                      <p className='channel-name'>{uploaderName}</p>
                      <p className='subscriber-count'>subscribers</p>
                   </div>
-                  <div className='subscribe-button'>
-                     <p>Subscribe</p>
+                  <div className='subscribe-button' onClick={handleSubscribe}>
+                     {isSubscribed() ? <p>Subscribed</p> :  <p>Subscribe</p>}
                   </div>
                </div>
             </div>

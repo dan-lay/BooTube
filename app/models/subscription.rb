@@ -9,6 +9,13 @@
 #  updated_at    :datetime         not null
 #
 class Subscription < ApplicationRecord
-   belongs_to :subscriber, foreign_key: :subscriber_id, class_name: :User, inverse_of: :subscribed_channels
-   belongs_to :subscribed_channel, foreign_key: :channel_id, class_name: :User, inverse_of: :subscribers
+   belongs_to :subscriber,
+      foreign_key: :subscriber_id,
+      class_name: :User,
+      inverse_of: :subscribed_channels
+
+   belongs_to :subscribed_channel,
+   foreign_key: :channel_id,
+   class_name: :User,
+   inverse_of: :subscribers
 end

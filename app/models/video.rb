@@ -29,6 +29,15 @@ class Video < ApplicationRecord
       as: :reactable,
       dependent: :destroy
 
+   has_many :views,
+      foreign_key: :video_id,
+      class_name: :View,
+      dependent: :destroy
+
+   has_many :video_viewers,
+      through: :Views,
+      source: :User
+
    def ensure_media_object
       unless self.media_object.attached?
          errors.add(:media_object, "Video link must be attached")
