@@ -4,6 +4,8 @@
       json.mediaObject video.media_object.url
       json.uploaderHandle video.uploader.handle
       json.uploaderId video.uploader.id 
+      json.channelPic video.uploader.profile_image.url
+      json.firstName video.uploader.first_name
    end
 end
 

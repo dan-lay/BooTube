@@ -2,7 +2,7 @@ import './ProfilePic.css'
 
 export const ProfilePic = (props) => {
    const image = props.image;
-   const firstInitial = props.firstName[0];
+   const firstInitial = props.firstName ? props.firstName[0] : null;
 
    const defaultPic = <div className="default-pic">
                         <p>{`${firstInitial}`}</p>

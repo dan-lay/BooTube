@@ -4,10 +4,13 @@
    position: relative;
    align-items: center;
    height: 17vw;
+   max-width: 21rem;
+   min-height: 15rem;
    min-width: 240px;
    gap: 1rem;
    width: 20vw;
    margin-bottom: 15px;
+   overflow: hidden;
 }
 
 .video-index-item:hover {
@@ -17,7 +20,7 @@
 .thumbnail {
    position: relative;
    width: 100%;
-   height: 100%;
+   height: 100vh;
    max-width: 100%;
    max-height: 100%;
    overflow: hidden;
@@ -28,6 +31,8 @@
    width: 100%;
    height: min-content;
    background-color: black;
+   border-radius: 12px;
+   height: 15rem;
    /* min-width: 240px; */
    /* max-width: 360px; */
    /* max-height: 202px; */
@@ -38,13 +43,25 @@
    display: flex;
    height: 40%;
    width: 100%;
+   overflow: hidden;
+}
+
+.index-title {
+   position: relative;
+   overflow: hidden;
+   height: 1rem;
+   word-break: break-all;
+}
+
+.channel-pic-container {
+   height: 2.4rem;
+   width: 2.4rem;
 }
 
 .index-item-left {
    position: relative;
-   height: auto;
+   height: 100%;
    width: 4rem;
-   border: 1px solid white;
 }
 
 .index-item-right {
@@ -55,11 +72,21 @@
 .item-title-container {
    position: relative;
    width: 100;
-   border: 1px solid blue;
    max-height: 4rem;
    margin-bottom: .8rem;
    color: rgb(237, 134, 0);
    font-size: .95rem;
+   overflow: hidden;
+}
+
+.index-title::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   right: -5px;
+   left: 80%;
+   box-shadow: inset -25px 0px 5px rgba(31, 31, 31, 0.917);
 }
 
 .item-channel-name {
@@ -75,9 +102,8 @@
    flex-direction: column;
    justify-content: space-around;
    height: 2.5rem;
-   border: 1px solid green;
    color: rgb(149, 149, 149);
-   font-size: .75rem;
+   font-size: calc(.5rem + .26vw);
    font-weight: 250;
 }
 

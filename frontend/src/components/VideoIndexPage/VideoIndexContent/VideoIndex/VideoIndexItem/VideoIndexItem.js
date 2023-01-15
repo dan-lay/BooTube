@@ -6,9 +6,12 @@ import { useDispatch } from 'react-redux';
 import { getUser } from '../../../../../store/users.js';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { ProfilePic } from '../../../../../utils/ProfPic/ProfilePic';
 
 const VideoIndexItem = (props) => {
    const video = props.video;
+   const channelPic = video ? video.channelPic : null;
+   const firstName = video ? video.firstName : null;
    const history = useHistory();
    const uploaderId = video ? video.uploaderId : null;
    const uploaderHandle = video ? video.uploaderHandle : null;
@@ -32,7 +35,10 @@ const VideoIndexItem = (props) => {
          </div>
          <div className='index-item-bottom'>
             <div className='index-item-left'>
-
+               <div className='channel-pic-container'>
+                  {video ? <ProfilePic image={channelPic} firstName={firstName}/> : null}
+               </div>
+               
             </div>
             <div className='index-item-right'>
                <div className='item-title-container'>

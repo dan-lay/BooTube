@@ -17,7 +17,7 @@ const ChannelHeader = (props) => {
    return (
       <div className="channel-header">
          <div className="profile-image-container">
-            {user ? <ProfilePic image={image} firstName={firstName} lastName={lastName}/> : null}
+            {user ? <ProfilePic image={image} firstName={firstName}/> : null}
          </div>
          <div className="header-info-container">
             <div className="user-name">{`${firstName} ${lastName}`}</div>

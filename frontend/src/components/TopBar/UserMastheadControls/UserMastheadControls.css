@@ -14,6 +14,7 @@
    align-items: center;
    width: 40px;
    height: 40px;
+   border-radius: 50%;
 }
 
 .upload-button img {
@@ -31,6 +32,7 @@
    width: 40px;
    height: 40px;
    z-index: 2;
+   border-radius: 50%;
 }
 
 .github-link-button > link {
@@ -52,8 +54,6 @@
    position: relative;
    height: 40px;
    width: 40px;
-   background-color: aqua;
-   cursor: pointer;
 }
 
 /* logged out controls */
@@ -73,7 +73,7 @@
    background-color: #784307;
 }
 
-.dot-menu {
+.linkedin-button {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -85,13 +85,15 @@
    margin-right: 5px;
 }
 
-.dot-menu:hover {
+.linkedin-button:hover,
+.github-link-button:hover,
+.upload-button:hover {
    background-color: #515050;
 }
 
-.dot-menu > img {
-   height: 15px;
-   width: 3px;
+.linkedin-button img {
+   width: 25px;
+   height: 25px;
 }
 
 .sign-in-button {
