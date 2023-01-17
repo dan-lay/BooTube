@@ -1,8 +1,8 @@
 import csrfFetch from "./csrf";
 import { RECEIVE_USER } from "./users";
 
-const RECEIVE_VIDEO = 'videos/RECEIVE_VIDEO';
-const RECEIVE_VIDEOS = 'videos/RECEIVE_VIDEOS';
+export const RECEIVE_VIDEO = 'videos/RECEIVE_VIDEO';
+export const RECEIVE_VIDEOS = 'videos/RECEIVE_VIDEOS';
 const REMOVE_VIDEO = 'videos/REMOVE_VIDEO';
 
 /*--ACTIONS--*/

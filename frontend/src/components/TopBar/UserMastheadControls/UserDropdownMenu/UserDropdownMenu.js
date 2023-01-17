@@ -59,7 +59,7 @@ const UserDropdownMenu = (props) => {
 
    const visitMyChannel = () => {
       setDropdownOpen(false)
-      history.push(sessionUser.handle)
+      history.push(`/${sessionUser.handle}`)
    }
 
    const editProfile = () => {

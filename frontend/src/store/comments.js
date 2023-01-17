@@ -1,13 +1,11 @@
 import csrfFetch from "./csrf";
-
-// thunk actions
+import { RECEIVE_VIDEO } from "./videos";
 
 const RECEIVE_COMMENT = 'comments/RECEIVE_COMMENT';
 const RECEIVE_COMMENTS = 'comments/RECEIVE_COMMENTS';
 const REMOVE_COMMENT = 'comments/REMOVE_COMMENT';
-const RECEIVE_VIDEO = 'videos/RECEIVE_VIDEO';
 
-// thunk action creators
+/*--ACTIONS--*/
 
 export const receiveComment = comment => ({
   type: RECEIVE_COMMENT,
@@ -24,18 +22,18 @@ export const removeComment = commentId => ({
   commentId
 });
 
-// dispatches
 
-// export const getComment = comment => async dispatch => {
-//   let res = await csrfFetch(`/api/video/${comment.videoId}`)
-//   let data = await res.json();
-//   dispatch(receiveComment(data));
-// };
+
+/*--ACTION CREATERS--*/ 
 
 export const getComments = (videoId) => async dispatch => {
   let res = await csrfFetch(`/api/videos/${videoId}`);
-  let data = await res.json();
-  dispatch(receiveComments(data.comments));
+  console.log(res)
+  if (res.ok) {
+    let data = await res.json();
+    dispatch(receiveComments(data.comments));
+    console.log(data)
+  }
 };
 
 export const createComment = comment => async dispatch => {
@@ -44,9 +42,12 @@ export const createComment = comment => async dispatch => {
     body: JSON.stringify(comment)
   });
 
+  console.log(res)
+
   if (res.ok) {
     let data = await res.json();
-    // console.log(data.message)
+    console.log(data.comment)
+    dispatch(receiveComment(data.comment))
   }
   // dispatch(getVideo(data.comment.videoId));
 };
@@ -65,20 +66,14 @@ export const updateComment = comment => async dispatch => {
   return res;
 }
 
-export const deleteComment = commentId => async dispatch => {
-  let res = await csrfFetch(`/api/comments/${commentId}`, {
+export const deleteComment = id => async dispatch => {
+  let res = await csrfFetch(`/api/comments/${id}`, {
     method: 'DELETE'
   })
-  .then(dispatch(removeComment(commentId)))
-  .catch(errors => JSON.stringify(errors))
-  // include errors
-  
 
-  // console.log(res)
-
-  // if (res.ok) {
-  //   dispatch(removeVideo(videoId));
-  // }
+  if (res.ok) {
+    dispatch(removeComment(id))  
+  }
 }
 
 // reducer

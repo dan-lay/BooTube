@@ -2,11 +2,16 @@ class Api::CommentsController < ApplicationController
    wrap_parameters include: Comment.attribute_names
    before_action :require_logged_in, only: [:create, :destroy]
 
+   # def index
+   #    @comments = Comment.where()
+   # end
+
    def create
+      puts comment_params
       @comment = Comment.new(comment_params)
       if @comment.save!
-         @video = Video.find(@comment.video_id)
-         render "api/videos/show"
+         puts "COMMENT SAVEDDDDDDDDDDDD"
+         render :show
       else
          render json: {errors: @comment.errors.full_messages }, status: :unprocessable_entity
       end
@@ -28,7 +33,7 @@ class Api::CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
 
       if @comment.destroy!
-         render json: {message: "comment sucessfully destroyed"}
+         render json: { message: "comment sucessfully destroyed" }
       else
          render json: { errors: @comments.errors.full_messages }, status: :unprocessable_entity
       end

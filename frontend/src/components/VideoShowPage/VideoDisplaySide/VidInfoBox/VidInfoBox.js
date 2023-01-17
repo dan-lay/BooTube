@@ -14,17 +14,11 @@ const VidInfoBox = (props) => {
    const description = video ? video.description : null;
    const title = video ? video.title : null;
    const uploaderName = video ? video.uploaderName : null;
-
-   const isSubscribed = () => {
-      if (sessionUser && video) {
-         return sessionUser.subscribedChannels[video.id]
-      }
-   }
+   const isSubscribed = sessionUser ? sessionUser.subbedChannelIds.includes(uploaderId) : false;
 
    const handleSubscribe = () => {
       if (sessionUser) {
-         console.log(isSubscribed())
-         if (isSubscribed()) {
+         if (isSubscribed) {
             console.log("unsubbing now")
             dispatch(unsubscribeFromUser(uploaderId))
          } else {
@@ -35,6 +29,10 @@ const VidInfoBox = (props) => {
          console.log("not logged in")
       }
    }
+
+   useEffect(() => {
+
+   }, [isSubscribed])
 
    const likeVideo = () => {
       // dispatch(addVideoLike(video.id))
@@ -57,7 +55,7 @@ const VidInfoBox = (props) => {
                      <p className='subscriber-count'>subscribers</p>
                   </div>
                   <div className='subscribe-button' onClick={handleSubscribe}>
-                     {isSubscribed() ? <p>Subscribed</p> :  <p>Subscribe</p>}
+                     {isSubscribed ? <p>Subscribed</p> :  <p>Subscribe</p>}
                   </div>
                </div>
             </div>

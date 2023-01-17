@@ -1,6 +1,5 @@
 class Api::VideosController < ApplicationController
    wrap_parameters include: Video.attribute_names + [:media_object]
-
    before_action :require_logged_in, only: [:update, :destroy, :create]
 
    def create
@@ -15,8 +14,6 @@ class Api::VideosController < ApplicationController
 
    def index
       @videos = Video.all
-
-      puts @videos
 
       if @videos
          render :index

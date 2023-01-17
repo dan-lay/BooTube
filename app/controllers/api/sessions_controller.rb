@@ -5,10 +5,9 @@ class Api::SessionsController < ApplicationController
    def show
       if current_user
          @user = current_user
-         puts "about to render"
          render :show
       else
-         render json: { session: nil }
+         render json: { user: nil }
       end
    end
 
@@ -16,8 +15,8 @@ class Api::SessionsController < ApplicationController
       email = params[:email]
       password = params[:password]
       @user = User.find_by_credentials(email, password)
+
       if @user
-         puts @user
          login(@user)
          render :show
       else

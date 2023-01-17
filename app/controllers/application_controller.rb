@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
    rescue_from ActionController::InvalidAuthenticityToken, with: :invalid_authenticity_token
   
    protect_from_forgery with: :exception
-   before_action :snake_case_params, :attach_authenticity_token
+   before_action :attach_authenticity_token
    helper_method :current_user, :logged_in?
  
    def current_user
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
  
    def require_logged_in
     unless current_user
-      render json: { message: 'Unauthorized' }, status: :unauthorized 
+      render json: { message: 'Must be logged in for this' }, status: :unauthorized 
     end
    end
  
@@ -29,8 +29,10 @@ class ApplicationController < ActionController::API
    end
  
    def login(user)
-     session[:session_token] = user.reset_session_token!
-     @current_user = user
+    
+      session[:session_token] = user.reset_session_token!
+      
+      @current_user = user
    end
  
    def logout
@@ -40,10 +42,6 @@ class ApplicationController < ActionController::API
    end
  
    private
-
-   def snake_case_params
-     params.deep_transform_keys!(&:underscore)
-   end
  
    def attach_authenticity_token
      headers['X-CSRF-Token'] = masked_authenticity_token(session)

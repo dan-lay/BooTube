@@ -3,8 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './UserSignupForm.css'
 import boogleLogo from '../../assets/boogle_logo.png';
-import * as sessionActions from "../../store/session"
 import spookyGhost from '../../assets/spooky_ghost.png'
+import { createUser } from '../../store/users';
 
 const UserSignupForm = () => {
    const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const UserSignupForm = () => {
       e.preventDefault();
       if (password === confirmPassword) {
          setErrors([]);
-         return dispatch(sessionActions.signup({email, password, firstName, lastName, handle}))
+         return dispatch(createUser({email, password, firstName, lastName, handle}))
             .catch(async (res) => {
             let data;
             try {

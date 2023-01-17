@@ -22,18 +22,6 @@ const CommentIndex = () => {
       setErrors([]);
       setWritingComment(false);
       dispatch(createComment({body, commenterId, videoId: id}))
-         .then(dispatch(getComments(id)))
-         .catch(async (res) => {
-            let data;
-            try {
-               data = await res.clone().json();
-            } catch {
-               data = await res.text();
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-         })
       setBody("")
    }
 

@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-   wrap_parameters include: User.attribute_names + ['subscriberId', 'profileImage']
+   wrap_parameters include: User.attribute_names + [:password]
    before_action :require_logged_out, only: [:create]
    before_action :require_logged_in, only: [:update, :destroy, :subscribe, :unsubscribe]
 
@@ -15,11 +15,13 @@ class Api::UsersController < ApplicationController
 
    def create
       @user = User.new(user_params)
-
+   
       if @user.save!
+         puts "SAVED!~!!!!!"
          login(@user)
          render "api/sessions/show"
       else
+         puts "YOU FUCKED UP!!!"
          render json: {errors: @user.errors.full_messages }, status: :unprocessable_entity
       end
    end
@@ -69,6 +71,6 @@ class Api::UsersController < ApplicationController
    private
 
    def user_params
-      params.require(:user).permit(:email, :password, :first_name, :profile_image, :last_name, :handle, :subscriber_id)
+      params.require(:user).permit(:email, :password, :first_name, :profile_image, :last_name, :handle)
    end
 end
