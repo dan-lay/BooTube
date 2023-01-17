@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { formatUploadDate } from '../../../../utils/dateFormatter';
 import { formatLikeCount } from '../../../../utils/likeCountFormatter';
 import { subscribeToUser, unsubscribeFromUser } from '../../../../store/users';
+import { ProfilePic } from '../../../../utils/ProfPic/ProfilePic'
 
 const VidInfoBox = (props) => {
    const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const VidInfoBox = (props) => {
    const title = video ? video.title : null;
    const uploaderName = video ? video.uploaderName : null;
    const isSubscribed = sessionUser ? sessionUser.subbedChannelIds.includes(uploaderId) : false;
+   const channelIcon = video ? video.channelIcon : null;
 
    const handleSubscribe = () => {
       if (sessionUser) {
@@ -48,7 +50,7 @@ const VidInfoBox = (props) => {
             <div className='channel-utilities'>
                <div className='channel-subcontainer'>
                   <div className='channel-icon'>
-
+                     {video && <ProfilePic image={channelIcon} firstName={uploaderName}/>}
                   </div>
                   <div className='channel-info'>
                      <p className='channel-name'>{uploaderName}</p>
