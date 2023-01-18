@@ -11,7 +11,7 @@ const ChannelHeader = (props) => {
    const firstName = user ? user.firstName : null;
    const lastName = user ? user.lastName : null;
    const setRevealEditForm = props.setRevealEditForm;
-   const userSubCount = user ? (user.subscribers.length === 0 ? "No" : user.subscribers.length) : null;
+   const userSubCount = user ? (user.subCount === 0 ? "No" : user.subCount) : null;
 
    const openModal = () => {
       setRevealEditForm(true)
