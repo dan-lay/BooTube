@@ -15,7 +15,7 @@ const VidInfoBox = (props) => {
    const description = video ? video.description : null;
    const title = video ? video.title : null;
    const uploaderName = video ? video.uploaderName : null;
-   const isMyVideo = video ? (uploaderId === sessionUser.id ? true : false) : null;
+   const isMyVideo = (video && sessionUser) ? (uploaderId === sessionUser.id ? true : false) : null;
    const isSubscribed = sessionUser ? sessionUser.subbedChannelIds.includes(uploaderId) : false;
    const channelIcon = video ? video.channelIcon : null;
    const channelSubCount = video ? (video.channelSubCount === 0 ? "No" : video.channelSubCount) : null;
@@ -60,7 +60,7 @@ const VidInfoBox = (props) => {
                   </div>
                   { !isMyVideo && <div className='subscribe-button' onClick={handleSubscribe}>
                      {isSubscribed ? <p>Subscribed</p> :  <p>Subscribe</p>}
-                  </div>}
+                  </div> }
                </div>
             </div>
             <div className='vid-utilities'>
