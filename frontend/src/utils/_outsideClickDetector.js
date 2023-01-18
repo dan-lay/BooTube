@@ -6,9 +6,9 @@ const OutsideClickDetector = (ref, focus, unfocus, blockCondition) => {
       const handleClickOutside = e => {
          if (!blockCondition) {
             if (ref.current && !ref.current.contains(e.target)) {
-               unfocus()
+               if (unfocus) unfocus()
             } else {
-               focus()
+               if (focus) focus();
             }
          }
       }

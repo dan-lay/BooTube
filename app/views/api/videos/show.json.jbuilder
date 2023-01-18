@@ -15,6 +15,8 @@ json.comments do
       json.set! comment.id do
          json.extract! comment, :id, :body, :commenter_id, :video_id, :created_at, :updated_at
          json.commenterHandle comment.commenter.handle
+         json.commenterName comment.commenter.first_name
+         json.commenterIcon comment.commenter.profile_image.url
          json.likes comment.reactions.likes.length
          json.dislikes comment.reactions.dislikes.length
       end

@@ -29,8 +29,26 @@
 
 .comment-form-container {
    display: flex;
-   height: 2.5rem;
+   height: 3rem;
    width: 100%;
+}
+
+.commenter-icon-container > .profile-image {
+   width: 2.7rem;
+   height: 2.7rem;
+}
+
+.commenter-icon-container > i {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   color: white;
+   font-size: 2.2rem;
+   border: 1px solid white;
+   width: 2.7rem;
+   height: 2.7rem;
+   background-color: rgb(83, 83, 83);
 }
 
 .comment-sort-button {
@@ -46,7 +64,6 @@
    all: unset;
    color: rgb(173, 173, 173);
    border-bottom: 1px solid grey;
-   padding-bottom: .3rem;
    margin-right: 1rem;
    width: 100%;
    font-size: .9rem;

@@ -37,11 +37,11 @@ const TopBar = (props) => {
          </div>
          <div className='mid-masthead'>
             <div className='search-bar-outer'>
-               <form className='search-bar-form' id="search-bar-form" onSubmit={handleSubmit}>
+               <div className='search-bar-form' id="search-bar-form" onSubmit={handleSubmit}>
                   <input type="text" className='search-bar-input' placeholder="Search">
 
                   </input>
-               </form>
+               </div>
                <div className='search-button'>
                   <input className='search-button-input' type="submit" value={search} form="search-bar-form"></input>
                   <img src={magGlass}></img>

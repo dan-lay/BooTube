@@ -5,30 +5,30 @@ import { deleteComment } from '../../../../../store/comments';
 import CommentEditForm from './CommentEditForm/CommentEditForm';
 import { formatUploadDate } from '../../../../../utils/_dateFormatter';
 import { formatLikeCount } from '../../../../../utils/likeCountFormatter';
+import { ProfilePic } from '../../../../../utils/ProfPic/ProfilePic';
+import OutsideAlerter from '../../../../../utils/_outsideClickDetector';
 
 const CommentIndexItem = (props) => {
    const dispatch = useDispatch();
    const currentUser = useSelector(state => state.session.user);
    const comment = props.comment;
    const commenterId = comment ? comment.commenterId : null;
+   const commenterName = comment ? comment.commenterName : null;
    const commenterHandle = comment ? comment.commenterHandle : null; //change to username later
    const commentDate = comment ? formatUploadDate(comment.createdAt) : null;
+   const commentIcon = comment ? comment.commenterIcon : null;
    const currentUserId = currentUser ? currentUser.id : null;
    const [editing, setEditing] = useState(false)
-   const [commentOptions, setCommentOptions] = useState(false)
-
-   const handleDelete = () => {
-      setCommentOptions(false);
-      dispatch(deleteComment(comment.id));
-   }
+   const [openCommentOptions, setOpenCommentOptions] = useState(false)
 
    const handleEdit = () => {
-      setCommentOptions(false);
+      setOpenCommentOptions(false);
       setEditing(true);
    }
 
-   const openCommentOptions = () => {   
-      setCommentOptions(true)
+   const handleDelete = () => {
+      setOpenCommentOptions(false);
+      dispatch(deleteComment(comment.id));
    }
 
    const likeComment = () => {
@@ -42,11 +42,23 @@ const CommentIndexItem = (props) => {
    useEffect(() => {
       setEditing(false)  
    }, [comment])
+
+   const commentOptions = <div className='comment-options'>
+                              <div className='edit-comment-button' onClick={handleEdit}>
+                                 <i className="fa-solid fa-pencil"></i>
+                                 <p>Edit</p>
+                              </div>
+                              <div className='delete-comment-button' onClick={handleDelete}>
+                                 <i className="fa-solid fa-trash-can"></i>
+                                 <p>Delete</p>
+                              </div>
+                           </div>
    
+
    return (
       <div className='comment-index-item'>
          <div className='commenter-icon-container'>
-
+            <ProfilePic image={commentIcon} firstName={commenterName}/>
          </div>
          <div className='comment-meat'>
             { editing && <CommentEditForm setEditing={setEditing} commentId={comment.id}/> }
@@ -68,22 +80,13 @@ const CommentIndexItem = (props) => {
                <div className='comment-reply-button'></div>
             </div></>}
          </div>
-         {currentUserId && !editing &&
-            <div className='comment-edit-button' onClick={openCommentOptions}> 
+         {currentUserId === commenterId && !editing &&
+            <div className='comment-edit-button' data-open={openCommentOptions} onClick={() => setOpenCommentOptions(true)}> 
                <i className="fa-solid fa-ellipsis-vertical"></i>
             </div>
          }
-         {commentOptions && 
-            <div className='comment-options'>
-               <div className='edit-comment-button' onClick={handleEdit}>
-                  <i className="fa-solid fa-pencil"></i>
-                  <p>Edit</p>
-               </div>
-               <div className='delete-comment-button' onClick={handleDelete}>
-                  <i className="fa-solid fa-trash-can"></i>
-                  <p>Delete</p>
-               </div>
-            </div>
+         {openCommentOptions && 
+            <OutsideAlerter children={commentOptions} unfocus={() => setOpenCommentOptions(false)}/>
          }
          
       </div>

@@ -37,6 +37,7 @@ const UserLoginForm = () => {
    if (sessionUser) return <Redirect to="/"/>;
 
    const demoLogin = () => {
+      setEmailFocus("focused")
       const demoEmail = "demouser@gmail.com";
       const demoPassword = "password";
       let i = 0;

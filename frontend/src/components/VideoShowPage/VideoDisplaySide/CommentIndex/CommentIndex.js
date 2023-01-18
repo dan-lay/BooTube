@@ -4,6 +4,7 @@ import { getComment, getComments, createComment } from '../../../../store/commen
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { ProfilePic } from '../../../../utils/ProfPic/ProfilePic'
 
 const CommentIndex = () => {
    const history = useHistory();
@@ -14,8 +15,12 @@ const CommentIndex = () => {
    const [ writingComment, setWritingComment ] = useState(false);
    const signedIn = useSelector(state => state.session.user ? true : false)
    const commenterId = useSelector(state => state.session.user?.id)
+   const commenter = useSelector(state => state.session.user ? state.session.user : null)
+   const commenterPic = commenter ? commenter.sessionUserPic : null;
+   const commenterName = commenter ? commenter.firstName : null;
    const dispatch = useDispatch();
    const [errors, setErrors] = useState([]);
+   const commenterIcon = signedIn ? <ProfilePic image={commenterPic} firstName={commenterName}/> : <i class="fa-solid fa-ghost"></i>;
 
    const handleSubmit = e => {
       e.preventDefault();
@@ -51,7 +56,9 @@ const CommentIndex = () => {
                </div> {/* this will be changed */}
             </div>
             <div className="comment-form-container">
-               <div className="commenter-icon-container"></div>
+               <div className="commenter-icon-container">
+                  {commenterIcon}
+               </div>
                <input className="comment-input"
                       type="text"
                       placeholder="Add a comment..."

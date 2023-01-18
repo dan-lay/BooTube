@@ -5,13 +5,11 @@
    height: max-content;
    height: 4.875rem;
    min-height: 4.875rem;
-   border: 1px solid pink;
 }
 
 .commenter-icon-container {
    height: 100%;
    width: 4rem;
-   border: 1px solid lightblue;
 }
 
 .comment-meat {
@@ -56,7 +54,6 @@
    gap: .8rem;
    align-items: center;
    height: 2rem;
-   border: 1px solid purple;
 }
 
 .comment-edit-button{
@@ -70,7 +67,7 @@
    color: white;
    width: 2.5rem;
    height: 2.5rem;
-   border: 1px solid red;
+   /* border: 1px solid red; */
 }
 
 .comment-edit-button:hover {
@@ -99,6 +96,15 @@
    color: rgb(230, 230, 230);
    font-size: .9rem;
    font-weight: 300;
+}
+
+.comment-edit-button[data-open="true"] {
+   animation: flash 1s;
+}
+
+@keyframes flash {
+   0% { border: 1px solid; border-color: rgb(160, 160, 160); }     
+   100% { border: 1px solid; border-color: #1e1e1e; }   
 }
 
 .edit-comment-button {
