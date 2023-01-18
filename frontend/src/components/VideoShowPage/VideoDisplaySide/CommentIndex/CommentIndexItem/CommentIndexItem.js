@@ -3,7 +3,7 @@ import './CommentIndexItem.css'
 import { useDispatch, useSelector} from 'react-redux';
 import { deleteComment } from '../../../../../store/comments';
 import CommentEditForm from './CommentEditForm/CommentEditForm';
-import { formatUploadDate } from '../../../../../utils/dateFormatter';
+import { formatUploadDate } from '../../../../../utils/_dateFormatter';
 import { formatLikeCount } from '../../../../../utils/likeCountFormatter';
 
 const CommentIndexItem = (props) => {

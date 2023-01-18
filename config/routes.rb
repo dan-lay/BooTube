@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :likes, only: [:create, :destroy]
 
+    post '/users/email', to: 'users#check_email'
     get '/users/:handle', to: "users#show"
     post '/users/subscribe/:id', to: "users#subscribe"
     delete '/users/unsubscribe/:id', to: "users#unsubscribe"

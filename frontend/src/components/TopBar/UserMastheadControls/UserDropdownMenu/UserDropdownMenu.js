@@ -85,10 +85,10 @@ const UserDropdownMenu = (props) => {
             <div className='dropdown-menu-button' id='your-channel' onClick={visitMyChannel}>
                <p>Your channel</p>
             </div>
-            <div className='dropdown-menu-button' id='your-channel'>
+            <div className='dropdown-menu-button' id='something'>
                <p>something</p>
             </div>
-            <div className='dropdown-menu-button' id='your-channel'>
+            <div className='dropdown-menu-button' id='something'>
                <p>something</p>
             </div>
             <div className='dropdown-menu-button' id='signout' onClick={logoutClick}>

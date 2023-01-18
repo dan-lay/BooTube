@@ -102,3 +102,7 @@ a {
    user-select: none;
 }
 
+:root {
+   --bootube-orange: #F48224;
+}
+

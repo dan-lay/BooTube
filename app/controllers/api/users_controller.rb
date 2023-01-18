@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
    wrap_parameters include: User.attribute_names + [:password]
-   before_action :require_logged_out, only: [:create]
+   before_action :require_logged_out, only: [:create, :check_email]
    before_action :require_logged_in, only: [:update, :destroy, :subscribe, :unsubscribe]
 
    def show
@@ -65,6 +65,18 @@ class Api::UsersController < ApplicationController
          render :show
       else
          render json: {errors: "Unable to unsubscribe at this time"}, status: :unprocessable_entity
+      end
+   end
+
+   def check_email
+      @user = User.find_by(email: params[:email])
+      puts @user
+      puts params
+
+      if @user
+         render :password_check
+      else
+         render json: {errors: ["Couldn't find your Boogle Account"]}, status: 422
       end
    end
 

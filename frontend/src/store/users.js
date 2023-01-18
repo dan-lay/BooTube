@@ -116,6 +116,21 @@ export const unsubscribeFromUser = id => async dispatch => {
    }
 }
 
+export const checkEmail = email => async dispatch => {
+   const res = await csrfFetch('/api/users/email', {
+     method: "POST",
+     body: JSON.stringify({email})
+   })
+   console.log(res)
+   if (res.ok) {
+     const data = await res.json()
+     console.log(data)
+     dispatch(receiveUser(data))
+   }
+ 
+   return res;
+ }
+
 
 
 /*--REDUCER--*/

@@ -1,7 +1,7 @@
 import './VidInfoBox.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { formatUploadDate } from '../../../../utils/dateFormatter';
+import { formatUploadDate } from '../../../../utils/_dateFormatter';
 import { formatLikeCount } from '../../../../utils/likeCountFormatter';
 import { subscribeToUser, unsubscribeFromUser } from '../../../../store/users';
 import { ProfilePic } from '../../../../utils/ProfPic/ProfilePic'
