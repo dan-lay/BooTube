@@ -68,7 +68,6 @@ const UserLoginForm = () => {
          if (email !== "") {
             dispatch(checkEmail(email))
             .then(setForm("password"))
-            .catch(console.log("unable to find that damn user"))
          }
       }
       

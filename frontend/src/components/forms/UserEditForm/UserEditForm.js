@@ -35,12 +35,10 @@ const UserEditForm = (props) => {
 
    const chooseNewPic = () => {
       hiddenFileInput.current.click()
-      console.log("hello")
    }
 
    const addNewPic = e => {
       const file = e.currentTarget.files[0]
-      console.log(file)
       const previewPic = URL.createObjectURL(file)
       setPreview(previewPic)
       setNewPic(file)

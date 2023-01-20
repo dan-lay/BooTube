@@ -26,14 +26,12 @@ const VidInfoBox = (props) => {
    const handleSubscribe = () => {
       if (sessionUser) {
          if (isSubscribed) {
-            console.log("unsubbing now")
             dispatch(unsubscribeFromUser(uploaderId))
          } else {
-            console.log("subbing now")
             dispatch(subscribeToUser(uploaderId))
          }
       } else {
-         console.log("not logged in")
+         history.push("/login")
       }
    }
 
@@ -42,7 +40,6 @@ const VidInfoBox = (props) => {
    }, [isSubscribed])
 
    const visitProfile = () => {
-      console.log(uploaderHandle)
       history.push(`/${uploaderHandle}`)
    }
 

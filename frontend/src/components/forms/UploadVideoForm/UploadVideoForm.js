@@ -33,7 +33,6 @@ const UploadVideoForm = (props) => {
 
    const selectVideo = () => {
       hiddenUploadInput.current.click()
-      console.log("choosing video")
    }
 
    const handleSubmit = (e) => {
@@ -49,7 +48,6 @@ const UploadVideoForm = (props) => {
          // formData.append("video[thumbnail]", preview)
       }
 
-      console.log(formData)
       dispatch(createVideo(formData))
       .then(async data => {
          const videoId = data.video.id;

@@ -10,7 +10,6 @@ const ProfileVideoIndex = (props) => {
    const videoArr = videos ? Object.values(videos) : [];
 
    const handleDelete = videoId => {
-      console.log(videoId)
       dispatch(deleteVideo(videoId))
    }
 

@@ -4,13 +4,13 @@ class Api::VideosController < ApplicationController
 
    def create
       puts video_params
-      # @video = Video.new(video_params)
+      @video = Video.new(video_params)
 
-      # if @video.save!
-      #    render :show
-      # else
-      #    render json: {errors: @video.errors.full_messages }, status: 422
-      # end
+      if @video.save!
+         render :show
+      else
+         render json: {errors: @video.errors.full_messages }, status: 422
+      end
    end
 
    def index

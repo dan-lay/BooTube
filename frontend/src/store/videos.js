@@ -29,7 +29,7 @@ export const removeVideo = videoId => ({
 export const getVideo = videoId => async dispatch => {
   let res = await csrfFetch(`/api/videos/${videoId}`)
   let data = await res.json();
-  console.log(data)
+
   dispatch(receiveVideo(data));
 };
 

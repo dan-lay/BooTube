@@ -32,9 +32,9 @@ export const receiveUser = data => ({
 
 export const getUser = handle => async dispatch => {
    let res = await csrfFetch(`/api/users/${handle}`)
-   console.log(res)
+   
    let data = await res.json();
-   console.log(data)
+
    dispatch(receiveUser(data));
    return data;
 };
@@ -49,7 +49,7 @@ export const getUsers = () => async dispatch => {
 
 export const createUser = user => async dispatch => {
    const { email, password, firstName, lastName, handle} = user;
-   console.log("in user signup")
+   
    let res = await csrfFetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({
@@ -71,17 +71,13 @@ export const createUser = user => async dispatch => {
    return res;
 };
 
-//FIX
-
 export const editUser = (user, id) => async dispatch => {
-   console.log(user)
    let res = await csrfFetch(`/api/users/${id}`, {
       method: 'PATCH',
       body: JSON.stringify(user)
    });
 
    if (res.ok) {
-      console.log("all good")
       let data = await res.json()
 
       storeCurrentUser(Object.values(data.user)[0])
@@ -104,7 +100,6 @@ export const subscribeToUser = id => async dispatch => {
    let res = await csrfFetch(`/api/users/subscribe/${id}`, {method: 'POST'})
    if (res.ok) {
       let data = await res.json();
-      console.log(data)
    }
 }
 
@@ -113,7 +108,6 @@ export const unsubscribeFromUser = id => async dispatch => {
    let res = await csrfFetch(`/api/users/unsubscribe/${id}`, {method: 'DELETE'})
    if (res.ok) {
       let data = await res.json();
-      console.log(data)
    }
 }
 
@@ -122,10 +116,9 @@ export const checkEmail = email => async dispatch => {
      method: "POST",
      body: JSON.stringify({email})
    })
-   console.log(res)
+
    if (res.ok) {
      const data = await res.json()
-     console.log(data)
      dispatch(receiveUser(data))
    }
  

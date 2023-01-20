@@ -44,8 +44,6 @@ export const login = ({ email, password }) => async dispatch => {
 
   const data = await res.json();
 
-  console.log("login", data)
-
   storeCurrentUser(data.user);
   dispatch(setCurrentUser(data));
   return res;
@@ -58,8 +56,6 @@ export const restoreSession = () => async dispatch => {
   storeCSRFToken(res);
 
   const data = await res.json();
-  console.log("restore session", data)
-  console.log(data.user)
 
   storeCurrentUser(data.user);
   dispatch(setCurrentUser(data));

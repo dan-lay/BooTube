@@ -28,11 +28,10 @@ export const removeComment = commentId => ({
 
 export const getComments = (videoId) => async dispatch => {
   let res = await csrfFetch(`/api/videos/${videoId}`);
-  console.log(res)
+
   if (res.ok) {
     let data = await res.json();
     dispatch(receiveComments(data.comments));
-    console.log(data)
   }
 };
 
@@ -42,11 +41,8 @@ export const createComment = comment => async dispatch => {
     body: JSON.stringify(comment)
   });
 
-  console.log(res)
-
   if (res.ok) {
     let data = await res.json();
-    console.log(data.comment)
     dispatch(receiveComment(data.comment))
   }
   // dispatch(getVideo(data.comment.videoId));
