@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './Sidebar.css'
@@ -19,7 +18,8 @@ const Sidebar = (props) => {
 
    const navToSubs = () => {
       if (sessionUser) {
-         console.log("going to subscriptions")
+         // console.log("going to subscriptions")
+         alert("Feature Coming Soon!")
       } else {
          history.push("/login")
       }
@@ -27,7 +27,8 @@ const Sidebar = (props) => {
 
    const navToLibrary = () => {
       if (sessionUser) {
-         console.log("going to library")
+         // console.log("going to library")
+         alert("Feature Coming Soon!")
       } else {
          history.push("/login")
       }
@@ -35,7 +36,8 @@ const Sidebar = (props) => {
 
    const navToHistory = () => {
       if (sessionUser) {
-         console.log("going to history")
+         // console.log("going to history")
+         alert("Feature Coming Soon!")
       } else {
          history.push("/login")
       }

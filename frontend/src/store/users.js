@@ -1,5 +1,5 @@
 import csrfFetch from "./csrf";
-import { login, logout, setCurrentUser, storeCurrentUser } from "./session";
+import { logout, setCurrentUser, storeCurrentUser } from "./session";
 
 export const RECEIVE_USER = 'users/RECEIVE_USER';
 const RECEIVE_USERS = 'users/RECEIVE_USERS';
@@ -95,6 +95,7 @@ export const editUser = (user, id) => async dispatch => {
 export const deleteUser = id => async dispatch => {
    await csrfFetch(`/api/users/${id}`, {method: 'DELETE'})
       .then(dispatch(removeUser(id)))
+      .then(dispatch(logout()))
    // include errors
 }
 

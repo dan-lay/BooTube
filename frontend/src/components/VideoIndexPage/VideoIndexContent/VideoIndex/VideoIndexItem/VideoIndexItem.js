@@ -1,11 +1,6 @@
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import './VideoIndexItem.css';
 import { formatUploadDate } from '../../../../../utils/_dateFormatter.js';
-import { useDispatch } from 'react-redux';
-import { getUser } from '../../../../../store/users.js';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { ProfilePic } from '../../../../../utils/ProfPic/ProfilePic';
 
 const VideoIndexItem = (props) => {

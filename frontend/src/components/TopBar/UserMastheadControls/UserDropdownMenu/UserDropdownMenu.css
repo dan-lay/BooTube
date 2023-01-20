@@ -20,7 +20,6 @@
    height: 105px;
    width: 100%;
    padding: 16px;
-   /* background-color: pink; */
    border-bottom: 1px solid grey;
 }
 
@@ -78,3 +77,13 @@
    border-bottom: 1px solid grey;
 }
 
+#stepseq > *,
+#rising-sign > * {
+   width: max-content;
+}
+
+#stepseq,
+#rising-sign {
+   display: flex;
+   gap: 1rem;
+}

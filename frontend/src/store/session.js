@@ -14,7 +14,7 @@ export const setCurrentUser = (data) => ({
 });
 
 
-const removeCurrentUser = () => ({
+export const removeCurrentUser = () => ({
   type: REMOVE_CURRENT_USER
 });
 

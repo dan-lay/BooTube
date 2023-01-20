@@ -5,7 +5,7 @@ import CategoryBar from "./CategoryBar/CategoryBar";
 const VideoIndexContent = () => {
    return (
       <div className="video-index-content">
-         <CategoryBar />
+         {/* <CategoryBar /> */}
          <VideoIndex />
       </div>
    )

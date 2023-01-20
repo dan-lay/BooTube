@@ -4,7 +4,7 @@ import VideoIndexPage from './components/VideoIndexPage/VideoIndexPage';
 import VideoShowPage from './components/VideoShowPage/VideoShowPage';
 import UserChannelPage from './components/UserChannelPage/UserChannelPage';
 import TopBar from './components/TopBar/TopBar';
-import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
+import UploadVideoForm from './components/forms/UploadVideoForm/UploadVideoForm';
 import UserEditForm from './components/forms/UserEditForm/UserEditForm';
 import UserLoginForm from './components/forms/UserLoginForm/UserLoginForm';
 import UserSignupForm from './components/forms/UserSignupForm/UserSignupForm';
@@ -39,7 +39,7 @@ const App = () => {
         </Route>
       </Switch>
 
-      { revealUpload && <UploadVideoModal setRevealUpload={setRevealUpload}/> }
+      { revealUpload && <UploadVideoForm setRevealUpload={setRevealUpload}/> }
       { revealEditForm && <UserEditForm setRevealEditForm={setRevealEditForm}/> }
     </div>
   );

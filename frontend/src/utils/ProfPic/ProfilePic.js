@@ -1,4 +1,5 @@
 import './ProfilePic.css'
+import { useEffect } from 'react';
 
 export const ProfilePic = (props) => {
    const image = props.image;
@@ -11,6 +12,7 @@ export const ProfilePic = (props) => {
    const userPic = <img src={image} className="user-pic">
                      
                    </img>
+
    return (
       <div className="profile-image">
          {image ? userPic : defaultPic}

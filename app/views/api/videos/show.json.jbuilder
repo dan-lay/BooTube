@@ -1,6 +1,7 @@
 json.video do
    json.extract! @video, :id, :title, :description, :uploader_id, :created_at, :updated_at
    json.media_object @video.media_object.url
+   json.thumbnail @video.thumbnail
    json.uploaderName @video.uploader.first_name
    json.channelIcon @video.uploader.profile_image.url
    json.channelSubCount @video.uploader.subscribers.length                                    #change to username later

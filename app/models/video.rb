@@ -15,6 +15,7 @@ class Video < ApplicationRecord
    validate :ensure_media_object
 
    has_one_attached :media_object
+   has_one_attached :thumbnail
 
    belongs_to :uploader,
       foreign_key: :uploader_id,

@@ -13,17 +13,125 @@
 .user-edit-form {
    display: flex;
    flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   width: 959px;
-   height: 743px;
-   border-radius: 8px;
-   background-color: #303030;
+   position: relative;
+   width: 448px;
+   height: 500px;
+   border-radius: 7px;
+   padding: 48px 40px;
+   background-color: rgb(57, 57, 57);
 }
 
-.outside-modal {
-   position: absolute;
+.user-edit-form #picture-container {
+   display: flex;
+   position: relative;
+   justify-content: center;
+   height: 9.5rem;
    width: 100%;
-   height: 100%;
-   z-index: -1;
+}
+
+#picture-container {
+   position: relative;
+}
+
+#picture-container .profile-image {
+   height: 9rem;
+   width: 9rem;
+}
+
+#picture-container > .profile-image > .default-pic > p {
+   font-size: 4rem;
+}
+
+#picture-container i {
+   position: absolute;
+   font-size: 1.7rem;
+   top: .2rem;
+   right: 5.4rem;
+   color: #dcdcdc;
+   transition: all ease .1s;
+}
+
+#picture-container i:hover{
+   position: absolute;
+   font-size: 1.9rem;
+   color: red;
+}
+
+.edit-handle-container {
+   width: max-content;
+   height: max-content;
+   position: relative;
+   margin-top: 1rem;
+}
+
+.edit-handle-container input {
+   height: 2rem;
+   background-color: transparent;
+   color: #bababa;
+   border-radius: 4px;
+   text-indent: .5rem;
+}
+
+.edit-handle-container input:focus {
+   outline: none;
+}
+
+.edit-handle-container #placeholder[data-focus="unfocused"] {
+   font-size: .8rem;
+   top: .6rem;
+}
+
+.edit-handle-container > * {
+   margin-left: 5.5rem;
+}
+
+.bottom-edit-form {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   height: 50%;
+   margin-top: 3rem;
+}
+
+.edit-form-buttons {
+   display: flex;
+   width: 100%;
+   justify-content: space-around;
+}
+
+.cancel-edits-button {
+   color: #bababa;
+   position: absolute;
+   top: 1.5rem;
+   left: 1.5rem;
+   width: 1.5rem;
+   height: 1.5rem;
+}
+
+.save-edits-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 4px;
+   font-size: .8rem;
+   padding: 0 12px;
+   height: 1.8rem;
+}
+
+.delete-user-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 4px;
+   font-size: .9rem;
+   padding: 0 12px;
+   height: 1.8rem;
+   background-color: red;
+}
+
+.delete-user-button:hover {
+   background-color: rgb(253, 116, 116);
+   color: white;
 }

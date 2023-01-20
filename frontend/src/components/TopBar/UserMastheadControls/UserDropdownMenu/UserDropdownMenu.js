@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from "../../../../store/session";
 import { useHistory } from 'react-router-dom';
 import { ProfilePic } from '../../../../utils/ProfPic/ProfilePic'
-import { useEffect } from 'react';
 import { useRef } from 'react';
+import risingSignIcon from "../../../../assets/rising_sign_favicon.png"
+import stepSeqIcon from '../../../../assets/stepSeq_favicon.gif'
 
 const UserDropdownMenu = (props) => {
    const history = useHistory();
@@ -26,6 +27,18 @@ const UserDropdownMenu = (props) => {
    const visitMyChannel = () => {
       setDropdownOpen(false)
       history.push(`/${sessionUser.handle}`)
+   }
+
+   const visitStepSeq = () => {
+      if (window.confirm("This will take you to my other project stepSeq, are you sure you want to navigate away?")) {
+         window.open('https://danlay.me/stepSeq/')
+      }
+   }
+
+   const visitRisingSign = () => {
+      if (window.confirm("This will take you to my team project Rising Sign, are you sure you want to navigate away?")) {
+         window.open('https://rising-sign.onrender.com/')
+      }
    }
 
    const editProfile = () => {
@@ -51,11 +64,13 @@ const UserDropdownMenu = (props) => {
             <div className='dropdown-menu-button' id='your-channel' onClick={visitMyChannel}>
                <p>Your channel</p>
             </div>
-            <div className='dropdown-menu-button' id='something'>
-               <p>something</p>
+            <div className='dropdown-menu-button' id='stepseq' onClick={visitStepSeq}>
+               <p>stepSeq</p>
+               <img src={stepSeqIcon}/>
             </div>
-            <div className='dropdown-menu-button' id='something'>
-               <p>something</p>
+            <div className='dropdown-menu-button' id='rising-sign' onClick={visitRisingSign}>
+               <p>Rising Sign</p>
+               <img src={risingSignIcon}/>
             </div>
             <div className='dropdown-menu-button' id='signout' onClick={logoutClick}>
                <p>Sign out</p>

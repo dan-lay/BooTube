@@ -2,6 +2,7 @@
    json.set! video.id do
       json.extract! video, :id, :title, :description, :uploader_id, :created_at, :updated_at
       json.mediaObject video.media_object.url
+      json.thumbnail video.thumbnail
       json.uploaderHandle video.uploader.handle
       json.uploaderId video.uploader.id 
       json.channelPic video.uploader.profile_image.url

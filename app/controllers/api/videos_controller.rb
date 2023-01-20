@@ -1,15 +1,16 @@
 class Api::VideosController < ApplicationController
-   wrap_parameters include: Video.attribute_names + [:media_object]
+   wrap_parameters include: Video.attribute_names + [:media_object, :thumbnail]
    before_action :require_logged_in, only: [:update, :destroy, :create]
 
    def create
-      @video = Video.new(video_params)
+      puts video_params
+      # @video = Video.new(video_params)
 
-      if @video.save!
-         render :show
-      else
-         render json: {errors: @video.errors.full_messages }, status: 422
-      end
+      # if @video.save!
+      #    render :show
+      # else
+      #    render json: {errors: @video.errors.full_messages }, status: 422
+      # end
    end
 
    def index

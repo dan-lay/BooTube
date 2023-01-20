@@ -1,12 +1,11 @@
 import './UserMastheadControls.css'
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import uploadButton from '../../../assets/upload-video-icon.png'
 import { useSelector } from 'react-redux';
 import signinIcon from '../../../assets/booootube_signin_icon.png';
 import linkedinIcon from '../../../assets/bootube_linkedin_bug.png';
 import githubIcon from '../../../assets/booootube_github_icon.png';
 import { ProfilePic } from '../../../utils/ProfPic/ProfilePic';
-import { useState } from 'react';
 
 const UserMastheadControls = (props) => {
    const history = useHistory();
