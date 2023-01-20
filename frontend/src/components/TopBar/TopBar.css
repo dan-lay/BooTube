@@ -128,14 +128,14 @@
 
 
 
-.side-modal-button {
+.sidebar-size-button {
    display: flex;
    /* width: 40px; */
    height: 40px;
    /* padding: 8px 8px 8px 0px; */
 }
 
-.side-modal-button img {
+.sidebar-size-button img {
    width: 40px;
    height: 100%;
    background-color: transparent;

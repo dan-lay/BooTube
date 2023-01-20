@@ -1,28 +1,30 @@
-@media only screen and (max-width: 792px) {
-   .sidebar {
-      width: 0;
-      transition-property: all;
-      transition-duration: 0.1s;
-      transition-timing-function: ease;
-   }
-}
-
 .sidebar {
    display: flex;
-   justify-content: center;
-   align-items: center;
+   flex-direction: column;
+   align-items: flex-start;
    height: 100%;
-   width: 100vw;
-   background-color:#373737;
    z-index: 2;
-   color: rgb(237, 134, 0);
+   color: #bababa;
+   transition: all .1s ease;
+   padding-top: .8rem;
 }
 
-@media only screen and (min-width: 793px) {
+.sidebar.max {
+   width: 280px;
+   padding-left: .75rem;
+   padding-right: .75rem;
+}
+
+.sidebar.min {
+   width: 72px;
+}
+
+.closed {
+   width: 0;
+}
+
+/* @media only screen and (min-width: 1312px) {
    .sidebar {
       width: 280px;
-      transition-property: all;
-      transition-duration: 0.1s;
-      transition-timing-function: ease;
    }
-}
+} */

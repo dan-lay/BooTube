@@ -1,7 +1,5 @@
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import AccountRecoverForm from './components/AccountRecoverForm/AccountRecoverForm';
-import LearnMorePage from './components/LearnMorePage/LearnMorePage';
 import VideoIndexPage from './components/VideoIndexPage/VideoIndexPage';
 import VideoShowPage from './components/VideoShowPage/VideoShowPage';
 import UserChannelPage from './components/UserChannelPage/UserChannelPage';
@@ -17,14 +15,15 @@ const App = () => {
 
   const [ revealUpload, setRevealUpload ] = useState(false);
   const [ revealEditForm, setRevealEditForm ] = useState(false);
+  const [ sidebarSize, setSidebarSize ] = useState("max")
   
   return (
     <div className="app">
-      {topBarVisible && <TopBar setRevealEditForm={setRevealEditForm} setRevealUpload={setRevealUpload} revealUpload={revealUpload}/>}
+      {topBarVisible && <TopBar setSidebarSize={setSidebarSize} sidebarSize={sidebarSize} setRevealEditForm={setRevealEditForm} setRevealUpload={setRevealUpload} revealUpload={revealUpload}/>}
 
       <Switch>
         <Route exact path="/">
-          <VideoIndexPage />
+          <VideoIndexPage sidebarSize={sidebarSize}/>
         </Route>
         <Route exact path="/login">
           <UserLoginForm />
@@ -32,17 +31,11 @@ const App = () => {
         <Route exact path="/signup">
           <UserSignupForm />
         </Route>
-        <Route exact path="/recover">
-          <AccountRecoverForm />
-        </Route>
-        <Route exact path="/learn_more">
-          <LearnMorePage />
-        </Route>
         <Route exact path="/videos/:id">
           <VideoShowPage />
         </Route>
         <Route exact path="/:handle">
-          <UserChannelPage setRevealEditForm={setRevealEditForm}/>
+          <UserChannelPage sidebarSize={sidebarSize} setRevealEditForm={setRevealEditForm}/>
         </Route>
       </Switch>
 

@@ -18,40 +18,6 @@ const UserDropdownMenu = (props) => {
    const setRevealEditForm = props.setRevealEditForm;
    const setDropdownOpen = props.setDropdownOpen;
 
-   let perimeter;
-   let leftBound;
-   let rightBound;
-   let topBound;
-   let bottomBound;
-
-   function findNewTarget(e) {
-      const newPerimeter = e.target.getBoundingClientRect();
-      const newLeft = newPerimeter.left
-      const newRight = newPerimeter.right
-      const newTop = newPerimeter.top
-      const newBottom = newPerimeter.bottom
-
-      console.log(newLeft)
-
-      if (newLeft < leftBound || newRight > rightBound || newTop < topBound || newBottom > bottomBound) {
-         dropdown.current = null;
-         console.log(document)
-         document.removeEventListener("click", findNewTarget)
-         setDropdownOpen(false)
-      }
-   }
-
-   useEffect(() => {
-      dropdown.current.focus()
-      perimeter = dropdown.current.getBoundingClientRect()
-      leftBound = perimeter.left;
-      rightBound = perimeter.right;
-      topBound = perimeter.top;
-      bottomBound = perimeter.bottom;
-      document.addEventListener("mousedown", e => findNewTarget(e))
-      return document.removeEventListener("click", findNewTarget)
-   }, [])
-
    const logoutClick = () => {
       setDropdownOpen(false);
       dispatch(sessionActions.logout());

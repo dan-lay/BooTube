@@ -98,15 +98,6 @@
    font-weight: 300;
 }
 
-.comment-edit-button[data-open="true"] {
-   animation: flash 1s;
-}
-
-@keyframes flash {
-   0% { border: 1px solid; border-color: rgb(160, 160, 160); }     
-   100% { border: 1px solid; border-color: #1e1e1e; }   
-}
-
 .edit-comment-button {
    gap: .9rem;
 }

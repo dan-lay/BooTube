@@ -9,8 +9,11 @@ import { Redirect } from 'react-router-dom';
 import micIcon from '../../assets/booootube_mic_icon.png';
 import { useState } from 'react';
 import UserDropdownMenu from './UserMastheadControls/UserDropdownMenu/UserDropdownMenu';
+import OutsideAlerter from '../../utils/_outsideClickDetector';
 
 const TopBar = (props) => {
+   const setSidebarSize = props.setSidebarSize;
+   const sidebarSize = props.sidebarSize;
    const setRevealUpload = props.setRevealUpload;
    const revealUpload = props.revealUpload;
    const setRevealEditForm = props.setRevealEditForm;
@@ -18,16 +21,27 @@ const TopBar = (props) => {
    const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
    const [ search, setSearch ] = useState("");
    const [ dropdownOpen, setDropdownOpen ] = useState(false);
+   
+
+   const toggleSidebar = () => {
+      if (sidebarSize === "max") {
+         return setSidebarSize("min")
+      } else {
+         return setSidebarSize("max")
+      }
+   }
 
    const handleSubmit = () => {
 
    }
 
+   const userDropdown = (<UserDropdownMenu setRevealEditForm={setRevealEditForm} setDropdownOpen={setDropdownOpen} />)
+
    return (
       <>
       <div className="topbar">
          <div className='left-masthead'>
-            <div className='side-modal-button'>
+            <div className='sidebar-size-button' onClick={toggleSidebar}>
                <img alt="hmbrgr" src={hamburger}/>
 
             </div>
@@ -48,16 +62,16 @@ const TopBar = (props) => {
                </div>
                
             </div>
-            <div className='microphone-button'>
+            {/* <div className='microphone-button'>
                <img src={micIcon}></img>
-            </div>
+            </div> */}
          </div>
          <div className='right-masthead'>
             <UserMastheadControls revealUpload={revealUpload} setRevealUpload={setRevealUpload} dropdownOpen={dropdownOpen} setDropdownOpen={setDropdownOpen}/>
          </div>
 
       </div>
-      {dropdownOpen && <UserDropdownMenu setRevealEditForm={setRevealEditForm} setDropdownOpen={setDropdownOpen} />}
+      {dropdownOpen && <OutsideAlerter children={userDropdown} unfocus={() => setDropdownOpen(false)}/>}
       </>
    )
 }

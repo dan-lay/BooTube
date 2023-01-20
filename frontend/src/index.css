@@ -106,3 +106,12 @@ a {
    --bootube-orange: #F48224;
 }
 
+@keyframes flash {
+   0% { border: 1px solid; border-color: rgb(160, 160, 160); }     
+   100% { border: 1px solid; border-color: #1e1e1e; }   
+}
+
+*[data-open="true"] {
+   animation: flash 1s;
+}
+

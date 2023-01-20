@@ -8,6 +8,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import ChannelContent from "./ChannelContent/ChannelContent";
 
 const UserChannelPage = (props) => {
+   const sidebarSize = props.sidebarSize;
    const dispatch = useDispatch();
    const { handle } = useParams();
    const setRevealEditForm = props.setRevealEditForm;
@@ -26,7 +27,7 @@ const UserChannelPage = (props) => {
 
    return (
       <div className="user-channel-page">
-         <Sidebar/>
+         <Sidebar sidebarSize={sidebarSize}/>
          <ChannelContent setRevealEditForm={setRevealEditForm} user={user}/>
       </div>
    )

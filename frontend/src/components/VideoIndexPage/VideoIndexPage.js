@@ -3,11 +3,12 @@ import Sidebar from "../Sidebar/Sidebar";
 import VideoIndexContent from "./VideoIndexContent/VideoIndexContent";
 
 
-const VideoIndexPage = () => {
+const VideoIndexPage = (props) => {
+   const sidebarSize = props.sidebarSize;
 
    return (
       <div className="video-index-page">
-         <Sidebar />
+         <Sidebar sidebarSize={sidebarSize}/>
          <VideoIndexContent />
       </div>
    )
