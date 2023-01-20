@@ -1,15 +1,15 @@
 import { Switch, Route, useLocation } from 'react-router-dom';
-import UserLoginForm from './components/UserLoginForm/UserLoginForm';
+import { useState } from 'react';
 import AccountRecoverForm from './components/AccountRecoverForm/AccountRecoverForm';
 import LearnMorePage from './components/LearnMorePage/LearnMorePage';
 import VideoIndexPage from './components/VideoIndexPage/VideoIndexPage';
-import UserSignupForm from './components/UserSignupForm/UserSignupForm';
 import VideoShowPage from './components/VideoShowPage/VideoShowPage';
 import UserChannelPage from './components/UserChannelPage/UserChannelPage';
 import TopBar from './components/TopBar/TopBar';
 import UploadVideoModal from './components/UploadVideoModal/UploadVideoModal';
-import { useState } from 'react';
-import UserEditForm from './components/UserEditForm/UserEditForm';
+import UserEditForm from './components/forms/UserEditForm/UserEditForm';
+import UserLoginForm from './components/forms/UserLoginForm/UserLoginForm';
+import UserSignupForm from './components/forms/UserSignupForm/UserSignupForm';
 
 const App = () => {
   const location = useLocation();

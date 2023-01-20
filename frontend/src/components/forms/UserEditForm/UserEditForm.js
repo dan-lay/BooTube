@@ -1,7 +1,7 @@
 import "./UserEditForm.css"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { editUser } from "../../store/users";
+import { editUser } from "../../../store/users";
 
 const UserEditForm = (props) => {
    const dispatch = useDispatch();

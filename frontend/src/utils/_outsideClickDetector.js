@@ -31,7 +31,7 @@ const OutsideAlerter = (props) => {
    OutsideClickDetector(wrapperRef, focus, unfocus, blockCondition)
 
    return (
-      <div ref={wrapperRef}>{children}</div>
+      <div className="outside-alerter" ref={wrapperRef}>{children}</div>
    )
 }
 

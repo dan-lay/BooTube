@@ -1,13 +1,14 @@
 import { Link, Redirect } from 'react-router-dom';
 import { useState } from 'react';
+import "../forms.css"
 import "./UserLoginForm.css"
-import boogleLogo from '../../assets/boogle_logo.png';
+import boogleLogo from '../../../assets/boogle_logo.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../store/session';
-import OutsideAlerter from '../../utils/_outsideClickDetector';
-import isEnterPress from '../../utils/_isEnterPress';
-import { checkEmail } from '../../store/users';
-import { ProfilePic } from '../../utils/ProfPic/ProfilePic'
+import { login } from '../../../store/session';
+import OutsideAlerter from '../../../utils/_outsideClickDetector';
+import isEnterPress from '../../../utils/_isEnterPress'
+import { checkEmail } from '../../../store/users';
+import { ProfilePic } from '../../../utils/ProfPic/ProfilePic';
 
 
 const UserLoginForm = () => {
@@ -15,73 +16,64 @@ const UserLoginForm = () => {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
    const [errors, setErrors] = useState([]);
-   const sessionUser = useSelector(state => state.session.user);
    const [ emailFocus, setEmailFocus ] = useState("unfocused")
    const [ passwordFocus, setPasswordFocus ] = useState("focused")
    const [ revealPassword, setRevealPassword ] = useState("password")
    const [form, setForm] = useState("email");
-   const emailInput = (<input className='email-input' data-focus={emailFocus} type="text" value={email} onKeyDown={e => isEnterPress(e, handleEmail)} onChange={e => setEmail(e.target.value)}></input>)
-   const passwordInput = (<input className='password-input' data-focus={passwordFocus} type={revealPassword} value={password} onKeyDown={e => isEnterPress(e, handlePassword)} onChange={e => setPassword(e.target.value)}></input>)
+   const sessionUser = useSelector(state => state.session.user);
    const user = useSelector(state => state.users ? state.users: null)
    const userEmail = user ? user.email : null;
    const userPic = user ? user.profileImage : null;
    const userName = user ? user.firstName : "You're not supposed to be here";
-   const userTile = user ?
-                    <div className='user-tile'>
-                        <ProfilePic image={userPic} firstName={userName}/>
-                        <div>{userEmail}</div>
-                    </div>
-                    :
-                    "You do not exist..."
-
+   
    if (sessionUser) return <Redirect to="/"/>;
-
+   
    const demoLogin = () => {
       setEmailFocus("focused")
       const demoEmail = "demouser@gmail.com";
       const demoPassword = "password";
       let i = 0;
-
+      
       const timedInput = setInterval(() => {
          if (i === demoEmail.length + demoPassword.length + 1) {
             clearInterval(timedInput)
             dispatch(login({email: demoEmail, password: demoPassword}))
-               .catch(async (res) => {
-                  let data;
-                  try {
-                     data = await res.clone().json();
-                  } catch {
-                     data = await res.text();
-                  }
-                  if (data?.errors) setErrors(data.errors);
+            .catch(async (res) => {
+               let data;
+               try {
+                  data = await res.clone().json();
+               } catch {
+                  data = await res.text();
+               }
+               if (data?.errors) setErrors(data.errors);
                   else if (data) setErrors([data]);
                   else setErrors([res.statusText]);
-            });
-            return
-         }
-
-         if (i < demoEmail.length) {
-            setEmail(demoEmail.substring(0, i + 1));
-         } else {
-            setPassword(demoPassword.substring(0, i - demoEmail.length));
-         }
-
-         i += 1;
-
-      }, 100)
-   }
-
-   const handleEmail = () => {
-      if (email !== "") {
-         dispatch(checkEmail(email))
-         .then(setForm("password"))
-         .catch(console.log("unable to find that damn user"))
+               });
+               return
+            }
+            
+            if (i < demoEmail.length) {
+               setEmail(demoEmail.substring(0, i + 1));
+            } else {
+               setPassword(demoPassword.substring(0, i - demoEmail.length));
+            }
+            
+            i += 1;
+            
+         }, 100)
       }
-   }
 
-   const handlePassword = () => {
-      setErrors([]);
-      dispatch(login({email, password}))
+      const handleEmail = () => {
+         if (email !== "") {
+            dispatch(checkEmail(email))
+            .then(setForm("password"))
+            .catch(console.log("unable to find that damn user"))
+         }
+      }
+      
+      const handlePassword = () => {
+         setErrors([]);
+         dispatch(login({email, password}))
          .catch(async (res) => {
             let data;
             try {
@@ -93,31 +85,43 @@ const UserLoginForm = () => {
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
          });
-   }
+      }
+      
+      const handleBack = () => {
+         setForm("email")
+      }
 
-   const handleBack = () => {
-      setForm("email")
-   }
-
-   return (
-      <div className="signin-page">
+      const emailInput = (<input className='email-input' data-focus={emailFocus} type="text" value={email} onKeyDown={e => isEnterPress(e, handleEmail)} onChange={e => setEmail(e.target.value)}></input>)
+      const passwordInput = (<input className='password-input' data-focus={passwordFocus} type={revealPassword} value={password} onKeyDown={e => isEnterPress(e, handlePassword)} onChange={e => setPassword(e.target.value)}></input>)
+      const userTile = user ?
+                       <div className='user-tile'>
+                           <ProfilePic image={userPic} firstName={userName}/>
+                           <div>{userEmail}</div>
+                       </div>
+                       :
+                       "You do not exist..."
+      
+      return (
+         <div className="form-page" id='signin-page'>
          {/* <ul>
             {errors.map(error => <li key={error}>{error}</li>)}
          </ul> */}
-         <div className='form-portal'>
+         <div className='form-portal' id='signin-portal'>
             <div className='logo-container'>
-               <img alt="BOOGLE" src={boogleLogo}/>
+               <img id='signin' alt="BOOGLE" src={boogleLogo}/>
             </div>
-            <div className='welcome'>
+            <div className='welcome' id='signin'>
                {form === "email" ? "Sign in" : `Hi ${userName}`}
             </div>
-            <div className='continue-or-tile'>
+            <div className='sub-welcome' id='signin'>
                {form === "email" ? "to continue to BooTube" : userTile}
             </div>
-            <div className='forms-container' data-form={form}>
+            <div className='forms-container' id='signin' data-form={form}>
                <div id='email-form'>
-                  <div data-focus={emailFocus} id='placeholder'>Email</div>
-                  <OutsideAlerter children={emailInput} focus={() => setEmailFocus("focused")} unfocus={() => setEmailFocus("unfocused")} blockCondition={email !== ""}/>
+                  <div className='email-container'>
+                     <div data-focus={emailFocus} id='placeholder'>Email</div>
+                     <OutsideAlerter children={emailInput} focus={() => setEmailFocus("focused")} unfocus={() => setEmailFocus("unfocused")} blockCondition={email !== ""}/>
+                  </div>
                   <div className="demo-user-container">
                      <div className="demo-user" onClick={demoLogin}>Demo user?</div>
                   </div>
@@ -129,8 +133,10 @@ const UserLoginForm = () => {
                   </div>
                </div>
                <div id='password-form'>
-                  <div data-focus={passwordFocus} id='placeholder'>Enter your password</div>
-                  <OutsideAlerter children={passwordInput} focus={() => setPasswordFocus("focused")} unfocus={() => setPasswordFocus("unfocused")} blockCondition={password !== ""}/>
+                  <div className='password-container'>
+                     <div data-focus={passwordFocus} id='placeholder'>Enter your password</div>
+                     <OutsideAlerter children={passwordInput} focus={() => setPasswordFocus("focused")} unfocus={() => setPasswordFocus("unfocused")} blockCondition={password !== ""}/>
+                  </div>
                   <div className='show-password-container'>
                      <input id="checkbox" type="checkbox" onClick={revealPassword === "password" ? () => setRevealPassword("text") : () => setRevealPassword("password")}></input>
                      <div className='show-password'>Show password</div>
@@ -140,7 +146,6 @@ const UserLoginForm = () => {
                      <button className="next-button" onClick={handlePassword}>Next</button>
                   </div>
                </div>
-
             </div>
          </div>
          <div className="bottom-details">
