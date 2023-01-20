@@ -50,7 +50,6 @@
 
 #email-form {
    position: relative;
-   border: 1px solid white;
 }
 
 .password-container {
@@ -100,25 +99,6 @@
    display: flex;
    justify-content: space-between;
    margin-top: 2.5rem;
-}
-
-.create-account {
-   text-align: center;
-   background-color: transparent;
-   border: none;
-   left: -.5rem;
-   position: absolute;
-   border-radius: 4px; 
-   width: max-content;
-   height: 35px;
-   font-size: 14px;
-   color: var(--bootube-orange);
-   padding: 8px 8px;
-   line-height: 1rem;
-}
-
-.create-account:hover {
-   background-color:#5e5d5d;
 }
 
 .next-button {
@@ -196,3 +176,4 @@
    color: #bababa;
    cursor: pointer;
 }
+

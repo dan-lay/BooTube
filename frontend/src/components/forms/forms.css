@@ -100,3 +100,36 @@
    position: relative;
    width: 100%;
 }
+
+.left-button {
+   text-align: center;
+   background-color: transparent;
+   border: none;
+   left: -.5rem;
+   position: absolute;
+   border-radius: 4px; 
+   width: max-content;
+   height: 35px;
+   font-size: 14px;
+   color: var(--bootube-orange);
+   padding: 8px 8px;
+   line-height: 1rem;
+}
+
+.left-button:hover {
+   background-color:#5e5d5d;
+}
+
+.index-link {
+   display: flex;
+   gap: .4rem;
+}
+
+.index-link #link {
+   color: var(--bootube-orange);
+}
+
+.index-link #link:hover {
+   text-decoration: underline;
+   cursor: pointer;
+}

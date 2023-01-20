@@ -60,6 +60,7 @@ const UserSignupForm = () => {
    const handleInput = (<input className="handle-input" data-focus={handleFocus} type="text" value={handle} onChange={e => setHandle(e.target.value)}></input>)
    const passwordInput = (<input className="password-input" data-focus={passwordFocus} type={revealPassword} value={password} onChange={e => setPassword(e.target.value)}></input>)
    const confirmPasswordInput = (<input className="confirm-password-input" data-focus={confirmPasswordFocus} type={revealPassword} value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}></input>)
+   const indexLink = (<div className='index-link'><p>to continue to </p><p id='link' onClick={() => history.push('/')}>BooTube</p></div>)
 
    return (
       <div className="form-page" id='signup-page'>
@@ -75,7 +76,7 @@ const UserSignupForm = () => {
                   Create your Boogle Account
                </div>
                <div className='sub-welcome' id='signup'>
-                  to continue to BooTube
+                  {indexLink}
                </div>
                <div className='forms-container' id='signup'>
                   <div className='name-container'>
@@ -119,7 +120,7 @@ const UserSignupForm = () => {
                      </div>
                   </div>
                   <div className='bottom-button-container'>
-                     <div className='create-account' onClick={goToSignin}>Sign in instead</div>
+                     <div className='left-button' onClick={goToSignin}>Sign in instead</div>
                      <button className="next-button" onClick={handleSubmit}>Next</button>
                   </div>
                </div>

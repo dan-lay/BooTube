@@ -1,4 +1,4 @@
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import "../forms.css"
 import "./UserLoginForm.css"
@@ -13,6 +13,7 @@ import { ProfilePic } from '../../../utils/ProfPic/ProfilePic';
 
 const UserLoginForm = () => {
    const dispatch = useDispatch();
+   const history = useHistory();
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
    const [errors, setErrors] = useState([]);
@@ -93,6 +94,7 @@ const UserLoginForm = () => {
 
       const emailInput = (<input className='email-input' data-focus={emailFocus} type="text" value={email} onKeyDown={e => isEnterPress(e, handleEmail)} onChange={e => setEmail(e.target.value)}></input>)
       const passwordInput = (<input className='password-input' data-focus={passwordFocus} type={revealPassword} value={password} onKeyDown={e => isEnterPress(e, handlePassword)} onChange={e => setPassword(e.target.value)}></input>)
+      const indexLink = (<div className='index-link'><p>to continue to </p><p id='link' onClick={() => history.push('/')}>BooTube</p></div>)
       const userTile = user ?
                        <div className='user-tile'>
                            <ProfilePic image={userPic} firstName={userName}/>
@@ -114,7 +116,7 @@ const UserLoginForm = () => {
                {form === "email" ? "Sign in" : `Hi ${userName}`}
             </div>
             <div className='sub-welcome' id='signin'>
-               {form === "email" ? "to continue to BooTube" : userTile}
+               {form === "email" ? indexLink : userTile}
             </div>
             <div className='forms-container' id='signin' data-form={form}>
                <div id='email-form'>
@@ -128,7 +130,7 @@ const UserLoginForm = () => {
                   <div className="dev-prompt">Too scared? Take a break and check out the developer. </div>
                   <a className="dev-link" href="https://www.linkedin.com/in/dan-lay/">Learn more</a>
                   <div className='bottom-button-container'>
-                     <Link className="create-account" to="/signup">Create account</Link>
+                     <Link className="left-button" to="/signup">Create account</Link>
                      <button className="next-button" onClick={handleEmail}>Next</button>
                   </div>
                </div>
@@ -142,7 +144,7 @@ const UserLoginForm = () => {
                      <div className='show-password'>Show password</div>
                   </div>
                   <div className='bottom-button-container'>
-                     <div className='create-account' onClick={handleBack}>Turn Back</div>
+                     <div className='left-button' onClick={handleBack}>Turn Back</div>
                      <button className="next-button" onClick={handlePassword}>Next</button>
                   </div>
                </div>

@@ -71,6 +71,7 @@
 
 .sign-in-button-container:hover {
    background-color: #784307;
+   cursor: pointer;
 }
 
 .linkedin-button {
