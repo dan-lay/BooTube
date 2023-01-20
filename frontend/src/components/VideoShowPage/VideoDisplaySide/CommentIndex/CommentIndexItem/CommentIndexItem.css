@@ -10,6 +10,7 @@
 .commenter-icon-container {
    height: 100%;
    width: 4rem;
+   cursor: pointer;
 }
 
 .comment-meat {
@@ -31,6 +32,11 @@
    font-size: .8rem;
    font-weight: 300;
    line-height: 1.1rem;
+}
+
+.commenter-handle:hover {
+   cursor: pointer;
+   color: white;
 }
 
 .comment-date {

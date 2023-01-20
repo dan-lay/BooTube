@@ -76,3 +76,12 @@
 .prof-manage-container .button:hover {
    background-color: rgb(254, 193, 79);
 }
+
+.button[data-manage-mode="true"] {
+   background-color: rgb(60, 219, 60);
+   width: 9rem;
+}
+
+.button[data-manage-mode="true"]:hover {
+   background-color: rgb(128, 253, 128);
+}

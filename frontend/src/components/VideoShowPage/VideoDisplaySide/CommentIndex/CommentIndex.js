@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ProfilePic } from '../../../../utils/ProfPic/ProfilePic'
 
-const CommentIndex = () => {
+const CommentIndex = (props) => {
    const history = useHistory();
    const { id } = useParams();
+   const video = props.video;
+   const uploaderHandle = video ? video.uploaderHandle : null;
    const comments = useSelector(state => state.comments ? Object.values(state.comments) : []);
    const commentCount = comments ? (comments.length >= 1000 ? `${comments.length / 1000.0}K Comments` : `${comments.length} Comments`) : null; //will add reply count to this
    const [body, setBody] = useState("");
@@ -16,6 +18,7 @@ const CommentIndex = () => {
    const signedIn = useSelector(state => state.session.user ? true : false)
    const commenterId = useSelector(state => state.session.user?.id)
    const commenter = useSelector(state => state.session.user ? state.session.user : null)
+   const commenterHandle = commenter ? commenter.handle : null;
    const commenterPic = commenter ? commenter.sessionUserPic : null;
    const commenterName = commenter ? commenter.firstName : null;
    const dispatch = useDispatch();
@@ -45,18 +48,22 @@ const CommentIndex = () => {
       setWritingComment(false);
    }
 
+   const visitProfile = (handle) => {
+      history.push(`/${handle}`)
+   }
+
    return (
       <div className="comment-index">
          <div className="comment-box">
             <div className="comment-index-info">
                <p className="comment-count">{commentCount}</p>
-               <div className="comment-sort-button">
+               {/* <div className="comment-sort-button">
                   <i className="fa-solid fa-sliders"></i>
                   <p>Sort by</p>
-               </div> {/* this will be changed */}
+               </div> */}
             </div>
             <div className="comment-form-container">
-               <div className="commenter-icon-container">
+               <div className="commenter-icon-container" onClick={() => visitProfile(commenterHandle)}>
                   {commenterIcon}
                </div>
                <input className="comment-input"

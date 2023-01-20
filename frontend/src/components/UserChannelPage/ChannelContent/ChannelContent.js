@@ -1,21 +1,19 @@
 import "./ChannelContent.css"
-import { useDispatch, useSelector } from "react-redux";
 import ChannelHeader from "./ChannelHeader/ChannelHeader";
 import ProfileVideoIndex from "./ProfileVideoIndex/ProfileVideoIndex";
-import { deleteUser } from "../../../store/users";
-import { logout } from "../../../store/session";
-import { useHistory, useParams } from "react-router-dom";
 import ProfileNavBar from "./ProfileNavBar/ProfileNavBar";
+import { useState } from "react";
 
 const ChannelContent = (props) => {
    const user = props.user;
    const setRevealEditForm = props.setRevealEditForm;
+   const [ manageMode, setManageMode ] = useState(false);
    
    return (
       <div className="channel-content">
-         <ChannelHeader setRevealEditForm={setRevealEditForm} user={user}/>
+         <ChannelHeader setManageMode={setManageMode} manageMode={manageMode} setRevealEditForm={setRevealEditForm} user={user}/>
          <ProfileNavBar />
-         <ProfileVideoIndex />
+         <ProfileVideoIndex manageMode={manageMode}/>
 
       </div>
    )

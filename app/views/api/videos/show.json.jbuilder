@@ -3,6 +3,7 @@ json.video do
    json.media_object @video.media_object.url
    json.thumbnail @video.thumbnail
    json.uploaderName @video.uploader.first_name
+   json.uploaderHandle @video.uploader.handle
    json.channelIcon @video.uploader.profile_image.url
    json.channelSubCount @video.uploader.subscribers.length                                    #change to username later
    json.set! :comments do

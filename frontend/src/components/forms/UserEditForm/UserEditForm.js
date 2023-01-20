@@ -48,7 +48,7 @@ const UserEditForm = (props) => {
 
    const deleteAccount = () => {
       if (sessionUserId === 1) {
-         window.alert("Trying to delete the demo account? Tsk tsk...")
+         window.alert("Trying to delete the demo account? Tsk tsk... try making an account to use this feature")
          return
       }
       if (window.confirm("Are you really sure you want to do that...")) {

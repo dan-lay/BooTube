@@ -12,6 +12,8 @@ const ChannelHeader = (props) => {
    const lastName = user ? user.lastName : null;
    const setRevealEditForm = props.setRevealEditForm;
    const userSubCount = user ? (user.subCount === 0 ? "No" : user.subCount) : null;
+   const manageMode = props.manageMode;
+   const setManageMode = props.setManageMode;
 
    const openModal = () => {
       setRevealEditForm(true)
@@ -36,11 +38,11 @@ const ChannelHeader = (props) => {
          <div className="prof-manage-container">
             {(sessionUser !== null && sessionUserId === userId) ?
                <>
-               <div className="button" id="edit-profile" onClick={openModal}>
+               {!manageMode && <div className="button" id="edit-profile" onClick={openModal}>
                   Edit profile
-               </div>
-               <div className="button" id="manage-videos">
-                  Manage videos
+               </div>}
+               <div className="button" data-manage-mode={manageMode} id="manage-videos" onClick={() => setManageMode(manageMode ? false : true)}>
+                  {manageMode ? "Done" : "Manage videos"}
                </div>
                </>
                :

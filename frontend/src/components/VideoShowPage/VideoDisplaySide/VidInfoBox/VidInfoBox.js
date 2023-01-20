@@ -5,12 +5,15 @@ import { formatUploadDate } from '../../../../utils/_dateFormatter';
 import { formatLikeCount } from '../../../../utils/likeCountFormatter';
 import { subscribeToUser, unsubscribeFromUser } from '../../../../store/users';
 import { ProfilePic } from '../../../../utils/ProfPic/ProfilePic'
+import { useHistory } from 'react-router-dom';
 
 const VidInfoBox = (props) => {
    const dispatch = useDispatch();
+   const history = useHistory();
    const sessionUser = useSelector(state => state.session.user ? state.session.user : null);
    const video = props.video;
    const uploaderId = video ? video.uploaderId : null;
+   const uploaderHandle = video ? video.uploaderHandle : null;
    const uploadTime = video ? formatUploadDate(video.createdAt) : null;
    const description = video ? video.description : null;
    const title = video ? video.title : null;
@@ -38,8 +41,17 @@ const VidInfoBox = (props) => {
 
    }, [isSubscribed])
 
+   const visitProfile = () => {
+      console.log(uploaderHandle)
+      history.push(`/${uploaderHandle}`)
+   }
+
    const likeVideo = () => {
       // dispatch(addVideoLike(video.id))
+   }
+
+   const dislikeVideo = () => {
+      // dispatch(addVideoDisike(video.id))
    }
    
    return (
@@ -51,11 +63,11 @@ const VidInfoBox = (props) => {
          <div className='utility-row'>
             <div className='channel-utilities'>
                <div className='channel-subcontainer'>
-                  <div className='channel-icon'>
+                  <div className='channel-icon' onClick={visitProfile}>
                      {video && <ProfilePic image={channelIcon} firstName={uploaderName}/>}
                   </div>
                   <div className='channel-info'>
-                     <p className='channel-name'>{uploaderName}</p>
+                     <p className='channel-name' onClick={visitProfile}>{uploaderName}</p>
                      <p className='subscriber-count'>{`${channelSubCount} subscribers`}</p>
                   </div>
                   { !isMyVideo && <div className='subscribe-button' onClick={handleSubscribe}>

@@ -21,7 +21,7 @@ const VideoDisplaySide = () => {
       <div className='video-display-side'>
          <VidDisplay video={video} />
          <VidInfoBox video={video} />
-         <CommentIndex />
+         <CommentIndex video={video}/>
       </div>
    )
 

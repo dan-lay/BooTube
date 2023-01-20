@@ -7,9 +7,11 @@ import { formatUploadDate } from '../../../../../utils/_dateFormatter';
 import { formatLikeCount } from '../../../../../utils/likeCountFormatter';
 import { ProfilePic } from '../../../../../utils/ProfPic/ProfilePic';
 import OutsideAlerter from '../../../../../utils/_outsideClickDetector';
+import { useHistory } from 'react-router-dom';
 
 const CommentIndexItem = (props) => {
    const dispatch = useDispatch();
+   const history = useHistory();
    const currentUser = useSelector(state => state.session.user);
    const comment = props.comment;
    const commenterId = comment ? comment.commenterId : null;
@@ -29,6 +31,10 @@ const CommentIndexItem = (props) => {
    const handleDelete = () => {
       setOpenCommentOptions(false);
       dispatch(deleteComment(comment.id));
+   }
+
+   const visitProfile = () => {
+      history.push(`/${commenterHandle}`)
    }
 
    const likeComment = () => {
@@ -57,14 +63,14 @@ const CommentIndexItem = (props) => {
 
    return (
       <div className='comment-index-item'>
-         <div className='commenter-icon-container'>
+         <div className='commenter-icon-container' onClick={visitProfile}>
             <ProfilePic image={commentIcon} firstName={commenterName}/>
          </div>
          <div className='comment-meat'>
             { editing && <CommentEditForm setEditing={setEditing} commentId={comment.id}/> }
 
             { !editing && <><div className='comment-upper'>
-               <p className='commenter-handle'>{commenterHandle}</p>
+               <p className='commenter-handle' onClick={visitProfile}>{commenterHandle}</p>
                <p className='comment-date'>{commentDate}</p>
             </div>
             <p className='comment-body'>{comment.body}</p>

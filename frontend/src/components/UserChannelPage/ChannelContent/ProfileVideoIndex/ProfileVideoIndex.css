@@ -1,7 +1,38 @@
 .profile-video-index {
+   padding-top: 1rem;
    width: 100%;
    height: 100%;
-   
    padding-right: calc((100% - 1284px) / 2);
    padding-left: calc((100% - 1284px) / 2);
+   display: flex;
+   gap: 1rem;
+}
+
+.profile-vid-index-item {
+   display: flex;
+   position: relative;
+   width: max-content;
+   height: max-content;
+}
+
+.profile-vid-index-item .video-index-item {
+   z-index: 1;
+}
+
+i[data-manage-mode="false"] {
+   display: none;
+}
+
+i[data-manage-mode="true"] {
+   color: red;
+   position: absolute;
+   right: 1rem;
+   font-size: 2rem;
+   top: 1rem;
+   z-index: 5;
+}
+
+.profile-vid-index-item > i:hover {
+   cursor: pointer;
+   color: rgb(255, 112, 112);
 }

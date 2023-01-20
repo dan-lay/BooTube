@@ -8,7 +8,7 @@ const VideoShowPage = () => {
    return (
       <div className='video-show-page'>
          <VideoDisplaySide />
-         <VideoRightIndexSide />
+         {/* <VideoRightIndexSide /> */}
       </div> 
    )
 }

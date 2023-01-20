@@ -33,6 +33,10 @@
    width: 100%;
 }
 
+.commenter-icon-container {
+   cursor: pointer;
+}
+
 .commenter-icon-container > .profile-image {
    width: 2.7rem;
    height: 2.7rem;
